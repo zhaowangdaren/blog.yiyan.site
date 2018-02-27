@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5  在进行weex开发时，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。 在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。 在playground的代码中发现了hotre">
+<meta name="description" content="相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5  在进行weex开发，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。 在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。 在playground的代码中发现了hotreo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WEEX开发实现native端hotreload">
 <meta property="og:url" content="http://yiyan.site/2018/02/27/weex-hotreload/index.html">
 <meta property="og:site_name" content="少盐">
-<meta property="og:description" content="相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5  在进行weex开发时，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。 在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。 在playground的代码中发现了hotre">
+<meta property="og:description" content="相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5  在进行weex开发，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。 在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。 在playground的代码中发现了hotreo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/weex-hotreload/weex_ws.png">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/weex-hotreload/webpack-dev-server.png">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/weex-hotreload/sockjs-node.png">
-<meta property="og:updated_time" content="2018-02-27T06:22:03.708Z">
+<meta property="og:updated_time" content="2018-02-27T06:36:52.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WEEX开发实现native端hotreload">
-<meta name="twitter:description" content="相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5  在进行weex开发时，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。 在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。 在playground的代码中发现了hotre">
+<meta name="twitter:description" content="相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5  在进行weex开发，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。 在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。 在playground的代码中发现了hotreo">
 <meta name="twitter:image" content="http://yiyan.site/2018/02/27/weex-hotreload/weex_ws.png">
 
 
@@ -306,7 +306,7 @@
         <blockquote>
 <p>相关版本：<br>weex-toolkit: 1.2.9<br>playground: 0.5.2.5</p>
 </blockquote>
-<p>在进行weex开发时，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。</p>
+<p>在进行weex开发，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。</p>
 <p>在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。<br>but…有点懒，想想其他办法。</p>
 <p>在playground的代码中发现了hotreoload的相关代码：<br>WXPageActivity.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">   setContentView(R.layout.activity_wxpage);</span><br><span class="line">   setCurrentWxPageActivity(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">   ...</span><br><span class="line">   <span class="keyword">if</span>(WXPAGE.equals(mUri.getScheme())||</span><br><span class="line">     ...</span><br><span class="line">     startHotRefresh();</span><br><span class="line">     ...</span><br><span class="line">   &#125;<span class="keyword">else</span> <span class="keyword">if</span> (TextUtils.equals(<span class="string">"http"</span>, mUri.getScheme()) || TextUtils.equals(<span class="string">"https"</span>, mUri.getScheme())) &#123;</span><br><span class="line">     ...</span><br><span class="line">     startHotRefresh();</span><br><span class="line">   &#125;</span><br><span class="line">   ...</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * hot refresh</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startHotRefresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">     String host = <span class="keyword">new</span> URL(mUri.toString()).getHost();</span><br><span class="line">     String wsUrl = <span class="string">"ws://"</span> + host + <span class="string">":8082"</span>;</span><br><span class="line">     mWXHandler.obtainMessage(Constants.HOT_REFRESH_CONNECT, <span class="number">0</span>, <span class="number">0</span>, wsUrl).sendToTarget();</span><br><span class="line">   &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">     e.printStackTrace();</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <p>虽然有hot refresh的代码，但是没用。因为<code>startHotRefresh()</code>中监听的是<code>String wsUrl = &quot;ws://&quot; + host + &quot;:8082&quot;;</code> 8082端口，而我们的weex-toolkit创建的项目没有创建相应的socket server。</p>
