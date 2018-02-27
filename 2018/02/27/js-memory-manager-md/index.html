@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -79,13 +79,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="少盐">
-<meta property="og:url" content="http://yiyan.site/index.html">
+<meta name="description" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为How JavaScript works: memory management + how to handle 4 common memory leaks 作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏">
+<meta property="og:url" content="http://yiyan.site/2018/02/27/js-memory-manager-md/index.html">
 <meta property="og:site_name" content="少盐">
+<meta property="og:description" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为How JavaScript works: memory management + how to handle 4 common memory leaks 作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/cycles-are-creating-problems.png">
+<meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/mark-and-sweep-algorithm.gif">
+<meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/cycles-are-not-a-problem-anymore.png">
+<meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/global-var.png">
+<meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/closures.png">
+<meta property="og:updated_time" content="2018-02-27T05:46:40.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="少盐">
+<meta name="twitter:title" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏">
+<meta name="twitter:description" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为How JavaScript works: memory management + how to handle 4 common memory leaks 作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分">
+<meta name="twitter:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/cycles-are-creating-problems.png">
 
 
 
@@ -115,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yiyan.site/"/>
+  <link rel="canonical" href="http://yiyan.site/2018/02/27/js-memory-manager-md/"/>
 
 
 
 
 
-  <title>少盐</title>
+  <title>JavaScript的内存管理，以及如何处理4种常见的内存泄漏 | 少盐</title>
   
 
 
@@ -140,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +224,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/27/js-memory-manager-md/" itemprop="url">JavaScript的内存管理，以及如何处理4种常见的内存泄漏</a></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript的内存管理，以及如何处理4种常见的内存泄漏</h1>
         
 
         <div class="post-meta">
@@ -298,9 +306,7 @@
       
 
       
-        
-          
-            <h1 id="JavaScript的内存管理，以及如何处理4种常见的内存泄漏"><a href="#JavaScript的内存管理，以及如何处理4种常见的内存泄漏" class="headerlink" title="JavaScript的内存管理，以及如何处理4种常见的内存泄漏"></a>JavaScript的内存管理，以及如何处理4种常见的内存泄漏</h1><p>起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为<a href="https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec" target="_blank" rel="noopener">How JavaScript works: memory management + how to handle 4 common memory leaks</a></p>
+        <h1 id="JavaScript的内存管理，以及如何处理4种常见的内存泄漏"><a href="#JavaScript的内存管理，以及如何处理4种常见的内存泄漏" class="headerlink" title="JavaScript的内存管理，以及如何处理4种常见的内存泄漏"></a>JavaScript的内存管理，以及如何处理4种常见的内存泄漏</h1><p>起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为<a href="https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec" target="_blank" rel="noopener">How JavaScript works: memory management + how to handle 4 common memory leaks</a></p>
 <p>作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分别是<a href="https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf" target="_blank" rel="noopener">How JavaScript works: an overview of the engine, the runtime, and the call stack</a>、<a href="https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e" target="_blank" rel="noopener">How JavaScript works: inside the V8 engine + 5 tips on how to write optimized code</a></p>
 <p>文章开头讲叙了一些内存方面的基础知识，这里略过直接开车。</p>
 <h4 id="JavaScript的内存分配"><a href="#JavaScript的内存分配" class="headerlink" title="JavaScript的内存分配"></a>JavaScript的内存分配</h4><p>JavaScript对内存的分配进行自动管理，而不同于C语言需要开发者管理。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">374</span>; <span class="comment">// 为数字分配内存</span></span><br><span class="line"><span class="keyword">var</span> s = <span class="string">'sessionstack'</span>; <span class="comment">// 为字符分配内存</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="literal">null</span></span><br><span class="line">&#125;; <span class="comment">// 为object和其属性分配内存</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="literal">null</span>, <span class="string">'str'</span>];  <span class="comment">// 分配数组空间</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + <span class="number">3</span>;</span><br><span class="line">&#125; <span class="comment">// 为方法分配内存（方法本质上是一个可以回调的object）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式也作为object来分配内存</span></span><br><span class="line">someElement.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  someElement.style.backgroundColor = <span class="string">'blue'</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
@@ -356,8 +362,6 @@
 <h4 id="4-DOM外引用"><a href="#4-DOM外引用" class="headerlink" title="4. DOM外引用"></a>4. DOM外引用</h4><p>有时候我们可能需要存储一些DOM的引用，以便多次访问。但是，当引用的DOM元素被从页面移除时，我们存储的DOM引用可能会导致内存泄漏。例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = &#123;</span><br><span class="line">  button: <span class="built_in">document</span>.getElementById(<span class="string">'button'</span>),</span><br><span class="line">  image: <span class="built_in">document</span>.getElementById(<span class="string">'image'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doStuff</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  elements.image.src = <span class="string">'http://example.com/image_name.png'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeImage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.body.removeChild(<span class="built_in">document</span>.getElementById(<span class="string">'image'</span>))</span><br><span class="line">  <span class="comment">// 这时，我们依然在全局变量elements中引用了image，也就是，image元素仍然保存在内存中，不会被垃圾回收器回收</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>所以，我们在创建引用的时候需要注意对DOM的引用。</p>
 
-          
-        
       
     </div>
     
@@ -372,14 +376,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -389,10 +399,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -400,6 +411,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -420,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -472,6 +496,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript的内存管理，以及如何处理4种常见的内存泄漏"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的内存管理，以及如何处理4种常见的内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript的内存分配"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">JavaScript的内存分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当内存不再需要时，内存空间会被释放"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">当内存不再需要时，内存空间会被释放</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">1.0.1.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存引用"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">内存引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收算法：引用计数（reference-counting）"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">垃圾回收算法：引用计数（reference-counting）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏：循环引用"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">内存泄漏：循环引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收算法：标记-amp-扫描（mark-amp-sweep）"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">垃圾回收算法：标记&amp;扫描（mark&amp;sweep）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环引用不再是问题"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">循环引用不再是问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收机制的缺陷"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">垃圾回收机制的缺陷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是内存泄漏"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">什么是内存泄漏</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四种常见的内存泄漏"><span class="nav-number">1.1.</span> <span class="nav-text">四种常见的内存泄漏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-全局变量"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1. 全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-遗漏计时器或者回调函数"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2. 遗漏计时器或者回调函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-闭包"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3. 闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-DOM外引用"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">4. DOM外引用</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -612,6 +652,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
