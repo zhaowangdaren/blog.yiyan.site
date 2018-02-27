@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,13 +86,13 @@
 <meta property="og:url" content="http://yiyan.site/2018/02/27/js-memory-manager-md/index.html">
 <meta property="og:site_name" content="少盐">
 <meta property="og:description" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为How JavaScript works: memory management + how to handle 4 common memory leaks 作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/cycles-are-creating-problems.png">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/mark-and-sweep-algorithm.gif">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/cycles-are-not-a-problem-anymore.png">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/global-var.png">
 <meta property="og:image" content="http://yiyan.site/2018/02/27/js-memory-manager-md/closures.png">
-<meta property="og:updated_time" content="2018-02-27T05:46:40.896Z">
+<meta property="og:updated_time" content="2018-02-27T05:51:06.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏">
 <meta name="twitter:description" content="JavaScript的内存管理，以及如何处理4种常见的内存泄漏起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为How JavaScript works: memory management + how to handle 4 common memory leaks 作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分">
@@ -112,7 +112,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -144,7 +144,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -192,7 +192,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -202,7 +202,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -266,9 +266,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-27T11:12:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T11:12:22+08:00">
                 2018-02-27
               </time>
             
@@ -437,10 +437,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -461,7 +461,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -474,7 +474,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -536,7 +536,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -544,7 +544,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
