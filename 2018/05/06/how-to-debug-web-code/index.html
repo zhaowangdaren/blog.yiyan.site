@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="h5  web debug," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。  最简单调试方法：打印日志打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console">
+<meta name="keywords" content="h5  web debug">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端代码如何调试？">
+<meta property="og:url" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/index.html">
+<meta property="og:site_name" content="少盐">
+<meta property="og:description" content="前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。  最简单调试方法：打印日志打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/console.info.png">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/debugger.png">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/debuggering.png">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/debuggering-left.png">
+<meta property="og:updated_time" content="2018-05-06T12:05:37.992Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端代码如何调试？">
+<meta name="twitter:description" content="前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。  最简单调试方法：打印日志打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console">
+<meta name="twitter:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/console.info.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yiyan.site/2018/05/06/how-to-debug-web-code/"/>
+
+
+
+
+
+  <title>前端代码如何调试？ | 少盐</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">少盐</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/06/how-to-debug-web-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少盐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少盐">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端代码如何调试？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T16:57:44+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。</p>
+</blockquote>
+<h2 id="最简单调试方法：打印日志"><a href="#最简单调试方法：打印日志" class="headerlink" title="最简单调试方法：打印日志"></a>最简单调试方法：打印日志</h2><p>打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。<br>javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console.assert、console.clear、console.count等方法，其中与日志输出有关的方法有：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log() <span class="comment">// 打印字符串</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.info() <span class="comment">//打印一条信息</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.error() <span class="comment">// 打印一条错误信息</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.warn() <span class="comment">//打印一个警告信息</span></span><br></pre></td></tr></table></figure>
+<p>打印日志的调试方法超级简单，只需要在需要查看信息的代码行调用上面的方法即可输出想要的信息。上述4个方法均可将对象打印出来，例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'Rose'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">'person'</span>, person)</span><br></pre></td></tr></table></figure></p>
+<p>如果使用的是Chrome浏览器，右键页面=&gt;检查，在console中即可看到相应的输出:</p>
+<div style="text-align: center;"><br>  <img src="/2018/05/06/how-to-debug-web-code/console.info.png"><br></div>
+
+<h2 id="代码中插入debugger"><a href="#代码中插入debugger" class="headerlink" title="代码中插入debugger"></a>代码中插入debugger</h2><p>javascript提供了一个关键字：<code>debugger</code>，这个语句厉害了，可以调用任何可用的调试功能，设置断点。但是，如果没有调试功能可用，此语句将不起作用。<br>下面是一个包debugger语句的html代码，当代码被执行时，会尝试调用一个可用的调试器进行调试。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> a = <span class="number">1</span></span></span><br><span class="line"><span class="undefined">  a = a + 1</span></span><br><span class="line"><span class="javascript">  <span class="keyword">debugger</span></span></span><br><span class="line"><span class="undefined">  a = a + 2</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>保存该文件，使用Chrome浏览器将其打开。打开Chrome developer tool， 即右键页面=&gt;检查，发现没啥呀，只有下面这个页面：</p>
+<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debugger.png"><br></div><br>此时我们刷新页面，dang～dang～，变这样了：<br><div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debuggering.png"><br></div><br>看到图中标红的地方了吗？那就是我们设置的断点，程序运行到那里停止了。此时我们将鼠标移至变量<code>a</code>上，即可看到<code>a</code>的值。<br>下图中红圈内数字也可以设置断点。<br><div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debuggering-left.png"><br></div>
+
+<h2 id="编辑器中调试"><a href="#编辑器中调试" class="headerlink" title="编辑器中调试"></a>编辑器中调试</h2><p>c++、Java、c#等语言都能在编辑器中进行调试、打断点，主要原因是它们都可以在编辑器中运行，而Web前端代码只能运行在浏览器中。</p>
+<h4 id="webstorm"><a href="#webstorm" class="headerlink" title="webstorm"></a>webstorm</h4><p>webstorm可以在编辑器中进行调试、打断点，十分方便。但是，webstorm运行时占用资源比较多，对于性能比较低的电脑，webstorm运行的不是很流畅。<br>webstorm的调试方法可以在官网中找到。</p>
+<h4 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h4><p>Sublime Text是一个比较轻量的脚本编辑器，运行比较流畅，很多前端开发者都喜欢使用。<br>Sublime Text有几个可以实现调试的Package，但是试用了一下，没有成功</p>
+<h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/h5-web-debug/" rel="tag"># h5  web debug</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/27/weex-hotreload/" rel="next" title="WEEX开发实现native端hotreload">
+                <i class="fa fa-chevron-left"></i> WEEX开发实现native端hotreload
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">少盐</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单调试方法：打印日志"><span class="nav-number">1.</span> <span class="nav-text">最简单调试方法：打印日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码中插入debugger"><span class="nav-number">2.</span> <span class="nav-text">代码中插入debugger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑器中调试"><span class="nav-number">3.</span> <span class="nav-text">编辑器中调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webstorm"><span class="nav-number">3.0.1.</span> <span class="nav-text">webstorm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sublime-Text"><span class="nav-number">3.0.2.</span> <span class="nav-text">Sublime Text</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visual-Studio-Code"><span class="nav-number">3.1.</span> <span class="nav-text">Visual Studio Code</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">少盐</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

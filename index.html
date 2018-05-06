@@ -229,6 +229,141 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/06/how-to-debug-web-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少盐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少盐">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/06/how-to-debug-web-code/" itemprop="url">前端代码如何调试？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T16:57:44+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。</p>
+</blockquote>
+<h2 id="最简单调试方法：打印日志"><a href="#最简单调试方法：打印日志" class="headerlink" title="最简单调试方法：打印日志"></a>最简单调试方法：打印日志</h2><p>打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。<br>javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console.assert、console.clear、console.count等方法，其中与日志输出有关的方法有：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log() <span class="comment">// 打印字符串</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.info() <span class="comment">//打印一条信息</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.error() <span class="comment">// 打印一条错误信息</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.warn() <span class="comment">//打印一个警告信息</span></span><br></pre></td></tr></table></figure>
+<p>打印日志的调试方法超级简单，只需要在需要查看信息的代码行调用上面的方法即可输出想要的信息。上述4个方法均可将对象打印出来，例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'Rose'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">'person'</span>, person)</span><br></pre></td></tr></table></figure></p>
+<p>如果使用的是Chrome浏览器，右键页面=&gt;检查，在console中即可看到相应的输出:</p>
+<div style="text-align: center;"><br>  <img src="/2018/05/06/how-to-debug-web-code/console.info.png"><br></div>
+
+<h2 id="代码中插入debugger"><a href="#代码中插入debugger" class="headerlink" title="代码中插入debugger"></a>代码中插入debugger</h2><p>javascript提供了一个关键字：<code>debugger</code>，这个语句厉害了，可以调用任何可用的调试功能，设置断点。但是，如果没有调试功能可用，此语句将不起作用。<br>下面是一个包debugger语句的html代码，当代码被执行时，会尝试调用一个可用的调试器进行调试。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> a = <span class="number">1</span></span></span><br><span class="line"><span class="undefined">  a = a + 1</span></span><br><span class="line"><span class="javascript">  <span class="keyword">debugger</span></span></span><br><span class="line"><span class="undefined">  a = a + 2</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>保存该文件，使用Chrome浏览器将其打开。打开Chrome developer tool， 即右键页面=&gt;检查，发现没啥呀，只有下面这个页面：</p>
+<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debugger.png"><br></div><br>此时我们刷新页面，dang～dang～，变这样了：<br><div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debuggering.png"><br></div><br>看到图中标红的地方了吗？那就是我们设置的断点，程序运行到那里停止了。此时我们将鼠标移至变量<code>a</code>上，即可看到<code>a</code>的值。<br>下图中红圈内数字也可以设置断点。<br><div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debuggering-left.png"><br></div>
+
+<h2 id="编辑器中调试"><a href="#编辑器中调试" class="headerlink" title="编辑器中调试"></a>编辑器中调试</h2><p>c++、Java、c#等语言都能在编辑器中进行调试、打断点，主要原因是它们都可以在编辑器中运行，而Web前端代码只能运行在浏览器中。</p>
+<h4 id="webstorm"><a href="#webstorm" class="headerlink" title="webstorm"></a>webstorm</h4><p>webstorm可以在编辑器中进行调试、打断点，十分方便。但是，webstorm运行时占用资源比较多，对于性能比较低的电脑，webstorm运行的不是很流畅。<br>webstorm的调试方法可以在官网中找到。</p>
+<h4 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h4><p>Sublime Text是一个比较轻量的脚本编辑器，运行比较流畅，很多前端开发者都喜欢使用。<br>Sublime Text有几个可以实现调试的Package，但是试用了一下，没有成功</p>
+<h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/02/27/weex-hotreload/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -587,7 +722,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -600,7 +735,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
