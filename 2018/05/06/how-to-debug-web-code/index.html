@@ -96,7 +96,11 @@
 <meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/add-break-point.png">
 <meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/launch.json.png">
 <meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/vscode-debugger.png">
-<meta property="og:updated_time" content="2018-05-07T12:55:42.831Z">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/chrome-inspect.png">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/safari-debug.png">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/chrome-debug-taobao.png">
+<meta property="og:image" content="http://yiyan.site/2018/05/06/how-to-debug-web-code/chrome-debug-taobao.png">
+<meta property="og:updated_time" content="2018-05-08T03:23:58.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端代码如何调试？">
 <meta name="twitter:description" content="前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。  最简单调试方法：打印日志打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console">
@@ -344,6 +348,26 @@
 
 <p>然后再次按F5或启动调试，此时Chrome会自动打开index.html，刷新页面，即可发现Visual Studio Code在刚才我们添加的断点出阻塞了</p>
 <div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/vscode-debugger.png"><br></div>
+
+<h2 id="移动端网页调试"><a href="#移动端网页调试" class="headerlink" title="移动端网页调试"></a>移动端网页调试</h2><p>移动端主要分Android和iOS，Windows Phone就暂时不考虑了，2017年销售的智能手机，99.9%的搭载了这两个操作系统。</p>
+<h3 id="Android端调试"><a href="#Android端调试" class="headerlink" title="Android端调试"></a>Android端调试</h3><p>Android手机调试首先需要开启开发者模式，其次，如果是调试浏览器则需要安装Chrome浏览器，若是调试其他APP则需要APP开发者打开调试的开关。</p>
+<p>完成上述步骤后，打开网页，使用usb线链接电脑，允许电脑调试手机。在PC端Chrome浏览器地址栏输入<code>chrome://inspect</code></p>
+<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/chrome-inspect.png"><br></div>
+
+<h3 id="iOS端调试网页"><a href="#iOS端调试网页" class="headerlink" title="iOS端调试网页"></a>iOS端调试网页</h3><p>macOS操作系统调试iOS网页比较简单，只需iPhone设置-&gt;Safari-&gt;高级-&gt;打开Web检查器开关，打开网页，iPhone通过数据线连接Mac电脑，打开Mac端Safari，点击开发-&gt;[你的手机]-&gt;选择调试的网页</p>
+<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/safari-debug.png"><br></div>
+
+<p>也可以使用iPhone模拟器调试，前提需要安装Xcode。上图正是模拟器调试。</p>
+<p>Windows操作系统要调试iOS端网页，则需要通过Chrome调试，并安装一些工具便可以调试Safari了</p>
+<h2 id="最强大的调试方法"><a href="#最强大的调试方法" class="headerlink" title="最强大的调试方法"></a>最强大的调试方法</h2><p>使用浏览器自带的调试工具，可以说是最常用，也是最强大的调试方法。不仅可以调试自己开发的网页，也可以hack其他网页，从别人那里学习一些前端知识。</p>
+<p>Chrome浏览器的调试功能比较强大,其拥有很多功能，不仅可以查看、整理代码，还可以检查网页的性能、动画等等</p>
+<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/chrome-debug-taobao.png"><br></div>
+
+<p>Firefox浏览器调试功能也同样强大，完全媲美Chrome。最新版的Firefox在性能上有了很大的提升，渲染网页的速度赶超Chrome，资源占用却没有Chrome高。</p>
+<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/chrome-debug-taobao.png"><br></div>
+
+<p>国产浏览器中，如搜狗浏览器、UC浏览器等都支持调试，部分内核使用了Chromium，也就是Chrome内核，调试功能和Chrome差不多，可能有版本延迟，缺少部分新功能。</p>
+
       
     </div>
     
@@ -504,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单调试方法：打印日志"><span class="nav-number">1.</span> <span class="nav-text">最简单调试方法：打印日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码中插入debugger"><span class="nav-number">2.</span> <span class="nav-text">代码中插入debugger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑器中调试"><span class="nav-number">3.</span> <span class="nav-text">编辑器中调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webstorm"><span class="nav-number">3.0.1.</span> <span class="nav-text">webstorm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sublime-Text"><span class="nav-number">3.0.2.</span> <span class="nav-text">Sublime Text</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visual-Studio-Code"><span class="nav-number">3.1.</span> <span class="nav-text">Visual Studio Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装Debugger-for-Chrome插件"><span class="nav-number">3.1.1.</span> <span class="nav-text">1、安装Debugger for Chrome插件</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单调试方法：打印日志"><span class="nav-number">1.</span> <span class="nav-text">最简单调试方法：打印日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码中插入debugger"><span class="nav-number">2.</span> <span class="nav-text">代码中插入debugger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑器中调试"><span class="nav-number">3.</span> <span class="nav-text">编辑器中调试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webstorm"><span class="nav-number">3.0.1.</span> <span class="nav-text">webstorm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sublime-Text"><span class="nav-number">3.0.2.</span> <span class="nav-text">Sublime Text</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visual-Studio-Code"><span class="nav-number">3.1.</span> <span class="nav-text">Visual Studio Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装Debugger-for-Chrome插件"><span class="nav-number">3.1.1.</span> <span class="nav-text">1、安装Debugger for Chrome插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端网页调试"><span class="nav-number">4.</span> <span class="nav-text">移动端网页调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android端调试"><span class="nav-number">4.1.</span> <span class="nav-text">Android端调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS端调试网页"><span class="nav-number">4.2.</span> <span class="nav-text">iOS端调试网页</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最强大的调试方法"><span class="nav-number">5.</span> <span class="nav-text">最强大的调试方法</span></a></li></ol></div>
             
 
           </div>
