@@ -229,6 +229,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/10/async-and-await-comprehensive-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少盐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少盐">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/10/async-and-await-comprehensive-guide/" itemprop="url">ES2017中async&await踩坑指南</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T16:15:26+08:00">
+                2018-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ES2017标准引入了async、await函数，使得异步操作变得更加方便了，而不用每次<code>new Promise(...)</code>了</p>
+<blockquote>
+<p>本文还使用到了es6的其他特性，例如箭头函数<code>=&gt;</code>，以及不用说的<code>Promise</code>，所以为了在生产上兼容，需要引入babel-polyfill，并对代码进行Babel处理。这里暂时不对相关知识进行细说。<br>如果你使用最新版的Chrome浏览器进行<a href="https://www.toutiao.com/i6553080029855613443/" target="_blank" rel="noopener">开发调试</a>，就可以暂时不用关心相关知识了。</p>
+</blockquote>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><p><code>async</code>其实是<code>Promise</code>语法糖。我们首先来写一个<code>Promise</code>：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// TODO something</span></span><br><span class="line">    <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">      reslove()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      reject()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWrok</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  asyncWork().then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'success'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>将其改为<code>async</code>写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO something</span></span><br><span class="line">  <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  asyncWork().then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'success'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到使用<code>async</code>语法糖后，<code>asyncWork</code>代码量减少了，特别是在代码逻辑比较复杂的时候，使用<code>async</code>会直观很多。</p>
+<h4 id="await"><a href="#await" class="headerlink" title="await"></a>await</h4><p>往往使用<code>await</code>的函数需要使用<code>async</code>。</p>
+<p><code>async</code>表示异步，而<code>await</code>表示需要等待。进一步说，<code>async</code>函数可以看成将异步操作包装成一个Promise对象，而<code>await</code>就是<code>then</code>命令的语法糖。<br>await使用方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO something</span></span><br><span class="line">  <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">  <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">  <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">  <span class="keyword">return</span> workResult1 + workResult2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mainWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  doWrok.then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(resp)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然，也可以将上面的<code>asyncWork</code>方法改为使用<code>Promise</code>。</p>
+<h3 id="进阶踩坑"><a href="#进阶踩坑" class="headerlink" title="进阶踩坑"></a>进阶踩坑</h3><p>既然使用了javaScript的ES2017特性，那么你一定会使用箭头函数<code>=&gt;</code>。相应的，在实际项目中，为了兼容性，我们会使用<code>babel-preset-env</code>等进行转义。<br>坑来了，我们将上面的<code>doWork</code>方法改为如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们来创建两个文件<code>index.html</code>、<code>main.js</code>来进行验证:</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/files.png"><br></div><br><code>index.html</code>:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>async&amp;await<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>main.js</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO something</span></span><br><span class="line">  <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mainWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  doWrok.then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(resp)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里，我们使用<a href="https://parceljs.org/" target="_blank" rel="noopener">Pracel</a>来进行打包。Parcel号称极速零配置Web应用打包工具，但是还是需要一点点配置的（当然也有一些限制），不过比那个vue-cli的webpack模板配置要简单多了!!!</p>
+<p>使用<code>npm init</code>或者<code>yarn init</code>对项目初始化后，命令行运行：<code>parcel index.html</code>，运行结果：</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/await-error.png"><br></div><br>OMG!!!竟然报错了，什么情况？<code>async</code>、<code>await</code>这对鸳鸯成对出现了，怎么还会报错？！<br>且慢，我们不妨看看<code>Parcel</code>对<code>doWork</code>的处理结果是什么。我们打开项目下的dist文件夹。dist文件夹下存放了<code>Parcel</code>的打包结果。</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/dist-folder.png"><br></div><br>…<br>哈哈，竟然只有<code>index.html</code>文件。那我们上述<code>doWork</code>函数改一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>再次运行<code>parcel index.html</code>，编译成功：</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/for-succ.png"><br></div><br>机智的我们发现是箭头<code>=&gt;</code>函数在添乱。我们再看一下es6中<code>=&gt;</code>的定义：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> v;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>那上面包含箭头函数的<code>doWork</code>也就等同于：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>外层的<code>doWork</code>函数和包裹await的函数已经不是同一个函数了，所以<code>Parcel</code>编译失败。如果想继续使用箭头函数，可以改为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="keyword">async</span>(item) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所以，<code>async</code>、<code>await</code>、<code>=&gt;</code>等es6特性，在使用时要注意它们的作用，避免增加不必要的调试时间。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/06/how-to-debug-web-code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -759,7 +901,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
