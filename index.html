@@ -229,6 +229,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/11/how-about-Parcel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少盐">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少盐">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/11/how-about-Parcel/" itemprop="url">Parcel打包初体验</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T11:16:10+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://parceljs.org/" target="_blank" rel="noopener"><code>Parcel</code></a>号称极速零配置Web应用打包工具，相比于webpack的复杂性，Parcel确实为我们省去了很多配置。使用过<a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener"><code>facebook/create-react-app</code></a>的同学应该会发现，<code>creat-react-app</code>也简化了配置，起包含<code>react-scripts</code>包，这个包做的事正与<code>Parcel</code>类似：将所有的打包配置统筹、封装</p>
+<h2 id="Parcel基本用法"><a href="#Parcel基本用法" class="headerlink" title="Parcel基本用法"></a>Parcel基本用法</h2><h3 id="安装Parcel"><a href="#安装Parcel" class="headerlink" title="安装Parcel"></a>安装Parcel</h3><p>全局安装<code>Parcel</code>:<br>Yarn:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add parcel-bundler</span><br></pre></td></tr></table></figure></p>
+<p>npm:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g parcel-bundler</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建、运行项目"><a href="#创建、运行项目" class="headerlink" title="创建、运行项目"></a>创建、运行项目</h3><p>创建文件夹，并在文件夹下新建入口html和js文件，html引入入口js文件。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
+<p>在文件夹下初始化项目：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init -y</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure></p>
+<p>启动服务开始开发：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parcel index.html</span><br></pre></td></tr></table></figure></p>
+<p><code>Parcel</code>的基本用法介绍就此为止，就是这么简单，官网上有更详细的介绍。</p>
+<h2 id="项目迁移"><a href="#项目迁移" class="headerlink" title="项目迁移"></a>项目迁移</h2><p>我们现在尝试将<code>webpack</code>配置的项目迁移到<code>Parcel</code>。</p>
+<h3 id="vue-cli-webpack"><a href="#vue-cli-webpack" class="headerlink" title="vue-cli webpack"></a>vue-cli webpack</h3><p>我们首先使用vue-cli创建一个项目:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack parcel-test</span><br></pre></td></tr></table></figure></p>
+<p>首先进入项目运行一下<code>npm run dev</code>，检查是否能运行成功，OK！运行成功。然后我们直接运行<code>parcel index.html</code><br>DANG!DANG!</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/direct-start-failed.png"><br></div><br>emmmmm…</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/bright-emoji.png"><br></div><br>好想没有将<code>main.js</code>引入html文件。改！</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/error-path.png"><br></div><br>修改引用路径。重启服务，出现错误</p>
+<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/vue-runtime-error.png"><br></div><br>修改<code>main.js</code>和<code>router/index.js</code>文件中<code>vue</code>的引用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue/dist/vue.esm.js'</span></span><br></pre></td></tr></table></figure></p>
+<p>再来运行一次<code>parcel index.html</code>便成功了，可以正常开发了。</p>
+<h2 id="小缺陷"><a href="#小缺陷" class="headerlink" title="小缺陷"></a>小缺陷</h2><p><code>Parcel</code>目前支持CommonJS 和 ES6 两种模块语法，所以，如果你在index.html页面引入了项目中非上述两种模块语法开发的js，那么可能会出现意外情况。如果还是想引入非CommonJS和ES6模块语法开发的js，目前可以有两种解决方法:</p>
+<ul>
+<li>如果有源码，则改造代码</li>
+<li>没有源码，并且还是压缩的，将其放在服务器上，html通过域名引用</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总体而言，<code>Parcel</code>确实比<code>webpack</code>要简化很多，几乎是开箱即用。对于没有特殊要求的项目，推荐使用。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/10/async-and-await-comprehensive-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -901,7 +1043,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -914,7 +1056,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
