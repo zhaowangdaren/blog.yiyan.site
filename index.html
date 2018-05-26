@@ -1,1728 +1,864 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+    <meta charset="utf-8" />
 
+    
 
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
+    
+    <title>少盐</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta property="og:type" content="website">
 <meta property="og:title" content="少盐">
 <meta property="og:url" content="http://yiyan.site/index.html">
 <meta property="og:site_name" content="少盐">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="少盐">
+    
 
+    
 
+    
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
+    <link rel="stylesheet" href="/css/style.css">
 
-
-  <link rel="canonical" href="http://yiyan.site/"/>
-
-
-
-
-
-  <title>少盐</title>
-  
-
-
-
-
-
-
+    <script src="/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
 
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">少盐</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/18/10-years-of-GitHub/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/18/10-years-of-GitHub/" itemprop="url">10-years-of-GitHub</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T10:42:25+08:00">
-                2018-05-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>回顾往昔十载，我们记住的不是某一个软件，而是人们用来做了什么。</p>
-</blockquote>
-<p>上个月，也就是2018年4月10日是GitHub十周年，GitHub创始人Chris Wanstrath发布了一篇文章来总结这十年的发展。</p>
-<p>（以下内容为译文）<br>Chris Wanstrath：</p>
-<p>10年前，GitHub正式上线。我们的意图其实很简单：连接开发者，让他们十分方便的通过Git一起编写项目。在过去十年里，我们已经发展成为一家公司和平台，但是GitHub的初衷不变。使这个平台特别的不是一个想法或者发明，而是使用这个平台的人们：GitHub因为你，我们的社区，才能有今天的十周年庆。</p>
-<p>当我们回顾往昔十载，我们记住的不是某一个软件，而是人们用来做了什么。在GitHub上，我们可以与全世界一起分享、传授、创建项目。在GitHub发布时，我们没有预料到会有这么多的项目、程序和大型框架会出现在GitHub上。我们也没有想到企业会在开源社区投入如此巨大，也不曾想到会有那么多人学习彼此的代码。</p>
-<p>GitHub发布的时候，正好是技术以新的方式将人们联系起来的时候，但是，正如我在十年前发的文章，让我们不要在旅途中高声宣扬，你的工作说明了一切。我们收集了一些我们喜欢的时刻和里程碑，以此来庆祝大家推进软件开发的方式。</p>
-<p>展望未来，我会使GitHub保持简单。您一起定义了今天的软件，在未来几年，您将继续塑造未来。那么未来十年将会出现什么软件？我们跟随将你的领导。</p>
-<p>与此同时，我们感谢您提交(committed)的代码、您合并的请求（pull request）、您编写的文档、您分享的项目，以及因您才有GitHub的十年。对此，我们非常感谢，迫不及待的想看看您下一步要build什么。</p>
-<h1 id="10年，感谢有你！"><a href="#10年，感谢有你！" class="headerlink" title="10年，感谢有你！"></a>10年，感谢有你！</h1><h2 id="2008年4月10日：GitHub正式上线"><a href="#2008年4月10日：GitHub正式上线" class="headerlink" title="2008年4月10日：GitHub正式上线"></a>2008年4月10日：GitHub正式上线</h2><p>在2008年4月，GitHub beta版测试完成，并正式上线，其目的仅仅是：连接开发者，让他们十分方便的通过Git一起工作。</p>
-<h2 id="2008年4月3日：Rails迁移到GitHub"><a href="#2008年4月3日：Rails迁移到GitHub" class="headerlink" title="2008年4月3日：Rails迁移到GitHub"></a>2008年4月3日：Rails迁移到GitHub</h2><p>在GitHub还是beta版时，Ruby on Rails是第一个加入GitHub的开源大项目。这对GitHub而言是一个重要的时刻，因为GitHub建立在Rails之上。</p>
-<h2 id="2009年1月3日：比特币出现"><a href="#2009年1月3日：比特币出现" class="headerlink" title="2009年1月3日：比特币出现"></a>2009年1月3日：比特币出现</h2><p>比特币是世界上第一个去中心化的数字货币，2009年被发明，并于2010年入驻GitHub。迄今为止，比特币项目已经有超过18000个分支（截止本稿，为19006个分支，star数为3w+），500多个合并请求，并激励了GitHub上数千个区块链项目，其中很多是比特币源码的分支。</p>
-<h2 id="2009年5月21日：Node-js发布"><a href="#2009年5月21日：Node-js发布" class="headerlink" title="2009年5月21日：Node.js发布"></a>2009年5月21日：Node.js发布</h2><p>Node.js于2009年发布，它导致人们使用JavaScript的方式发生了根本性的变化。借助Node.js，开发人员可以使用Angular、Ember、React、jQuery和Vue等库和框架，在系统上构建复杂的服务器端和桌面应用程序。该项目有效的扩展了JavaScript的可能性，并推动了一种主要的编程语言。</p>
-<p>2014年，io.js从Node.js分化出来，致力于社区的开放性。一年后，两个项目都建立开放式的管理模式，并成立Node.js基金会进行重组，开源社区的影响力，对两个项目的重组起到了重要作用。</p>
-<p>今天，Node.js核心拥有近2000个贡献者，Node.js也形成了丰富的生态系统，包含大量的库和工具。由于社区驱动的NodeSchool相对容易学习，NodeSchool连接开发者，提供免费教程，并在全球举办面对面的活动。</p>
-<h2 id="2010年11月26日：Rails-Girls-Summer-of-Code举办第一次研讨会"><a href="#2010年11月26日：Rails-Girls-Summer-of-Code举办第一次研讨会" class="headerlink" title="2010年11月26日：Rails Girls Summer of Code举办第一次研讨会"></a>2010年11月26日：Rails Girls Summer of Code举办第一次研讨会</h2><p>Rails Girls(目标是为女性提供工具和社区)于2010年在Helsinki举行了首次活动。在2013年，Rails Girls成员开始筹备Summer of Code(编码夏令营):一个针对女性和非二进制编码的全球奖学金计划。学生将获得三个月的奖学金，以开展现有的开放源代码项目并扩展他们的技能。除了Google Summer of Code、Outreachy等，Rails Girls Summer of Code也对软件行业产生了影响。他们不久前举办了5周年庆典，所以现在是支持他们工作的好时机。</p>
-<h2 id="2011年2月28日：Travis-CI的第一个pull请求"><a href="#2011年2月28日：Travis-CI的第一个pull请求" class="headerlink" title="2011年2月28日：Travis CI的第一个pull请求"></a>2011年2月28日：Travis CI的第一个pull请求</h2><p>Travis CI发布于2011年，其用于开源代码和私有项目的持续集成，是第一个与GitHub集成的开发者工具。Jenkins和CircleCI也在同一时间成立，这使得2011年成为CI（持续集成）和软件构建的重要一年。测试已成为编写更安全、更可靠代码的关键部分。</p>
-<h2 id="2012年1月1日：JavaScript成为GitHub上最受欢迎的语言"><a href="#2012年1月1日：JavaScript成为GitHub上最受欢迎的语言" class="headerlink" title="2012年1月1日：JavaScript成为GitHub上最受欢迎的语言"></a>2012年1月1日：JavaScript成为GitHub上最受欢迎的语言</h2><p>2012年JavaScript的表演开始了，超越Ruby、Java和Python，成为GitHub上最流行的语言。时至今日，JavaScript仍然是GitHub上最受欢迎的语言。</p>
-<h2 id="2013年1月16日：GitHub社区用户达到300万"><a href="#2013年1月16日：GitHub社区用户达到300万" class="headerlink" title="2013年1月16日：GitHub社区用户达到300万"></a>2013年1月16日：GitHub社区用户达到300万</h2><p>在2013年晚些时候，我们的社区开源代码库达到了1000万个，其中包括Project Open Data(好像一种将数据进行开放的开源项目，以便其他人可以对数据进行管理、使用，译者不是很了解)</p>
-<h2 id="2014年6月9日：Docker-1-0发布"><a href="#2014年6月9日：Docker-1-0发布" class="headerlink" title="2014年6月9日：Docker 1.0发布"></a>2014年6月9日：Docker 1.0发布</h2><p>在第一版发布后一年多一点，2014年6月Docker 1.0的发布，将Docker容器引入了企业数据中心和云平台。像Docker和Kubernetes这样的项目，推动了容器技术的发展，简化了DevOps，将团队从基础架构中解放出来，使得可以专注于最重要的地方。</p>
-<h2 id="2014年7月21日：首届Django-Girls讲习班"><a href="#2014年7月21日：首届Django-Girls讲习班" class="headerlink" title="2014年7月21日：首届Django Girls讲习班"></a>2014年7月21日：首届Django Girls讲习班</h2><p>第一届Django Girls在2014年柏林EuroPython举办，开启了为期四年的世界各地软件培训和女性支持工作。 支持他们的工作，以保持Django Girls社区的成长。</p>
-<h2 id="2014年10月23日：微软开源-NET"><a href="#2014年10月23日：微软开源-NET" class="headerlink" title="2014年10月23日：微软开源.NET"></a>2014年10月23日：微软开源.NET</h2><p>.NET和.NET基金会只是微软开源计划的开端。现在微软已经开源了数百个项目。它们包括去年贡献者最多的VS Code（Visual Studio Code编辑器）和2017年发展最快的语言之一：TypeScript。</p>
-<p>微软也称为GitHub上最活跃的贡献者之一，数千名工程师、设计师和程序员在GitHub平台上贡献和发布代码。</p>
-<p>像微软和Google这样的大公司对开源的投资，改变了人们对于商业企业构建软件的观点。他们还向我们表明，他们成功的秘诀有时不是他们所创建的技术，而是如何使用技术。</p>
-<h2 id="2015年3月2日：虚幻引擎4源码公布"><a href="#2015年3月2日：虚幻引擎4源码公布" class="headerlink" title="2015年3月2日：虚幻引擎4源码公布"></a>2015年3月2日：虚幻引擎4源码公布</h2><p>Epic Games团队免费公布了虚幻引擎4，用一些最好的工具打破了游戏开发者与他们的创意愿景之间的障碍。免费的源代码还允许社区提前体验到引擎的新特性。从bug的修复看，他们的最新版本有128位贡献者。</p>
-<p>由于游戏引擎、相关的库和开发者工具的开源，使得游戏成为GitHub上2017年最受欢迎的主题之一。Phaser，Godot Engine和其他项目，如Itch.io，正在塑造人们建立和分享独立游戏的方式。像2048这样的开源学习资源和游戏 - 启发了数百个克隆 - 邀请了更多的人参与和创造。</p>
-<p>受此影响，包括Doom和Price of Persia在内的一些最有影响力的游戏代码也都开源了，开源总比他们被埋没在新墨西哥沙漠（垃圾填埋场）中要好。</p>
-<h2 id="2015年9月22日：GitHub课堂开课"><a href="#2015年9月22日：GitHub课堂开课" class="headerlink" title="2015年9月22日：GitHub课堂开课"></a>2015年9月22日：GitHub课堂开课</h2><p>GitHub课堂使教师更容易分发代码任务并收集GitHub上的作业。 今天，高中，大学和编码训练营的学生正在学习180万个课堂知识库 - 但这些远不是GitHub上唯一的教育资源。</p>
-<p>从资源清单到像edX和Udacity这样的大型开放式在线课程（MOOC），您已经创建了数千种方法来学习GitHub上的软件开发。 我们名单上的课程包括Ada的Jumpstart计划和斯坦福大学的TensorFlow教程。 STAT545正在教授数千名学生处理数据，而CS50正在美国各地的教室中采用。</p>
-<p>在过去的十年中，像Django Girls这样的社区驱动计划已经启动了在线教程，举办了面对面的活动，并为世界各地的学生拓宽了学习机会。 我们的校园专家还在超过15个国家的校园建立技术社区。</p>
-<h2 id="2015年12月3日：-苹果开源Swift"><a href="#2015年12月3日：-苹果开源Swift" class="headerlink" title="2015年12月3日： 苹果开源Swift"></a>2015年12月3日： 苹果开源Swift</h2><p>将Swift作为开源语言发布的决定提高了开发新工具的标准，并鼓励更多的公司向公众发布工具。</p>
-<h2 id="2016年7月9日：阿波罗11号代码发射"><a href="#2016年7月9日：阿波罗11号代码发射" class="headerlink" title="2016年7月9日：阿波罗11号代码发射"></a>2016年7月9日：阿波罗11号代码发射</h2><p>阿波罗11号于1969年登陆月球。四十七年后，启动阿波罗11号的源代码登陆GitHub。 由于其中包含的复活节彩蛋数量很大，这也证明了20世纪60年代的程序员也有幽默感。</p>
-<p>除了存储过去的代码之外，组织正在通过开源和闭源软件推动现代航天和探索其他科学研究领域。 NASA维护着数百个开源项目。 在公共仓库中，您会发现可视化火星地形并使用TensorFlow识别系外行星的软件。 您还可以找到一些SpaceX这样的组织使用的开源项目。</p>
-<h2 id="2017年2月10日：Python团队执行了他们的第一个GitHub拉取请求"><a href="#2017年2月10日：Python团队执行了他们的第一个GitHub拉取请求" class="headerlink" title="2017年2月10日：Python团队执行了他们的第一个GitHub拉取请求"></a>2017年2月10日：Python团队执行了他们的第一个GitHub拉取请求</h2><p>Python的维护者宣布他们计划在2016年初迁移到GitHub上，并在第二年开始他们的第一次拉取请求。在过去十年中，Python已经成为增长最快的主要编程语言之一。自2015年以来，它在GitHub最流行语言排行榜中一直排名第三。</p>
-<p>Python的历史可以追溯到20世纪90年代初，但近年来它变得越来越重要。 这可能是由于其社区建立了庞大的数据科学和机器学习工具生态系统。</p>
-<h2 id="2017年2月15日：TensorFlow-1-0发布"><a href="#2017年2月15日：TensorFlow-1-0发布" class="headerlink" title="2017年2月15日：TensorFlow 1.0发布"></a>2017年2月15日：TensorFlow 1.0发布</h2><p>谷歌首先在2015年将其内部机器学习库TensorFlow公开。去年，它是GitHub上分支最多的项目之一，TensorFlow / models库在2017年的访问量比2016年多5.5倍。现在，TensorFlow是一个 为数据专业人员创建机器学习模型的首选工具。</p>
-<p>近年来，机器学习的可能性已经超出限制。 组织和个人使用TensorFlow创建诊断精神疾病，分类皮肤癌，组合音乐和开动Mario Karts（自动驾驶）的模型。</p>
-<p>今天，数据科学家可以使用一系列开源深度学习工具和模型来解决复杂而有趣的问题。 除了TensorFlow之外，Caffe2，Sonnet，DeepSpeech和Keras等工具以及pandas和Jupyter等数据分析工具也支持跨行业的数据科学工作。</p>
-<h2 id="2017年5月2日：30-000个非营利帐户被创建"><a href="#2017年5月2日：30-000个非营利帐户被创建" class="headerlink" title="2017年5月2日：30,000个非营利帐户被创建"></a>2017年5月2日：30,000个非营利帐户被创建</h2><p>非营利组织和非政府组织（NGO）通过技术发生令人难以置信的事情。 去年，我们通过Human Utility，Maven和ConnectHome等举措让30,000个非营利用户使世界变得更美好。</p>
-<p>野生动物保护协会（WCS）的海洋保护努力涵盖25个国家，以保护和保护世界珊瑚礁。 在肯尼亚，WCS使用软件收集全球研究人员的数据，并通过收集物种数据和监测更多252公顷的沿海礁石 - 约260个足球场的价值，帮助当地社区更有利可图地进行捕捞。</p>
-<h2 id="2017年5月31日：第1亿次拉取请求"><a href="#2017年5月31日：第1亿次拉取请求" class="headerlink" title="2017年5月31日：第1亿次拉取请求"></a>2017年5月31日：第1亿次拉取请求</h2><p>很多bug被修复，众多新功能发布以及软件的不断改进。事实上，仅2017年，社区便贡献了2.9万亿行代码。</p>
-<h2 id="2018年4月10日：代码、协作和提交的十年"><a href="#2018年4月10日：代码、协作和提交的十年" class="headerlink" title="2018年4月10日：代码、协作和提交的十年"></a>2018年4月10日：代码、协作和提交的十年</h2><p>GitHub正式推出十年后，我们的社区已经发展到全球拥有超过8000万个项目的2700万名开发人员。</p>
-<p>感谢您创建的代码库，您所做的贡献以及您一起构建的软件。 感谢当了10年码农的你（哈哈，差不多这个意思啦）。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/17/top-frameworks-trends-2018/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/17/top-frameworks-trends-2018/" itemprop="url">top-frameworks-trends-2018</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T18:54:45+08:00">
-                2018-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>来自85个国家的超过1,000名参与者和大量数据，JAXenter调查了2018年哪些技术主题值得关注，并与历史进行了对比。</p>
-<h2 id="Web框架"><a href="#Web框架" class="headerlink" title="Web框架"></a>Web框架</h2><p>React、Angular和Node.js排名占据前3，我们可以看出JavaScript开发框架可以说是最近几年最受欢迎的web框架。排在第四位的是Java生态系统的Spring MVC，紧接其后的是国内大受欢迎的Vue.js。</p>
-<div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/web-frameworks.png"><br></div><br>我们来回顾一下2016年和2017年，web框架的排名。<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/web-comparison-1.png"><br></div><br>Angular在2016年的时候可能不叫受欢迎，但是后来被React后来居上。React在今年将会继续超越Angular。Java生态的web框架越来越不受欢迎了，例如Spring MVC.<br><br>## 应用程序框架<br>Java生态中Spring Boot越来越受欢迎。不知道新秀Eclipse MicroProfile未来表现如何。<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/application-frameworks.png"><br></div><br>对比2016年和2017年的发展趋势：<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/application-frameworks-comparison.png"><br></div>
-
-<h2 id="UI-toolkits"><a href="#UI-toolkits" class="headerlink" title="UI toolkits"></a>UI toolkits</h2><p>2018年，HTML5将是绝对的王者，紧随其后的是Bootstrap和Web组件。</p>
-<div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/UI.png"><br></div><br>来看一下Java UI toolkits在2016年和2017年的情况。<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/java-ui-toolkit.png"><br></div><br>程序员们对JavaFX的兴趣似乎有所减少，但是它仍然排在Swing和SWT前。需要注意的是，从JDK11开始，JavaFX将作为与JDK分离，作为独立的模块。Oracle在一份白皮书中写道，截至2022年3月，JavaFX新修补程序将继续得到Java SE 8的支持，并宣布他们“正在与感兴趣的第三方合作，以便更容易地构建和维护JavaFX作为单独分发的开源模块“。<br>我们来对比一下UI Frameworks在2016年和2017年的表现：<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/ui-frameworks.png"><br></div>
-
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>JavaScript框架显然是这次的精华，让我们仔细看看过去三年情况如何变化。</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/javascript.png"><br></div><br>React、Angular和Node.js遥遥领先，HTML5和Bootstrap的阵地也很大。<br>Web Components是一套不同的技术（不是React中所涉及到的组件），允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的web应用中使用它们，有点类似React，但是区别也挺大，很容易被人忽视，因为React、Vue中也有组件的概念，不知道其发展将如何。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/13/top5-libraries-for-Go/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/13/top5-libraries-for-Go/" itemprop="url">Go语言的5大开源库</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T12:07:07+08:00">
-                2018-05-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Go语言可以说是一个开箱即用的编程语言，其性能出众、支持分布式等特性深得程序员的喜爱。小编之前在毫无Go语言开发经验的情况下，只花了一个星期便掌握了Go语言的基本特性，后来也没花几天便搭建了一个数据库为mongoDB的服务器，并实现了相当复（chong）杂（fu）的功能，可见其上手非常简单。</p>
-<p>下面介绍5个在GitHub上比较火热的Go语言开源工具库。</p>
-<h2 id="Go-kit：微服务工具包"><a href="#Go-kit：微服务工具包" class="headerlink" title="Go kit：微服务工具包"></a>Go kit：微服务工具包</h2><p>Go kit微服务工具包为微服务提供了一系列的功能，使搭建微服务特别方便，开发人员只需要关注业务逻辑即可。<br>限于篇幅，这里列出Go kit提供的几项功能：</p>
-<ul>
-<li>jwt(JSON web token):一种认证通信双方的协议</li>
-<li>RPC（远程过程调用）基础支持</li>
-<li>grpc：Google开源RPC框架</li>
-<li>http服务</li>
-<li>LB负载均衡</li>
-<li>ZK（ZooKeeper）支持：分布式服务框架</li>
-<li>Graphite:支持监控系统</li>
-<li>InfluxDB: 时间序列数据库</li>
-</ul>
-<h2 id="GORM"><a href="#GORM" class="headerlink" title="GORM"></a>GORM</h2><p>ORM是什么？对象关系映射（Object Relational Mapping）,是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换。通俗一点讲：操作数据库。<br>GORM具有很多功能，具其官网介绍，具备一下功能：</p>
-<ul>
-<li>全功能ORM（无限接近）</li>
-<li>关联（包含一个，包含多个，属于，多对多，多态）</li>
-<li>钩子 (在创建/保存/更新/删除/查找之前或之后)</li>
-<li>预加载</li>
-<li>事务</li>
-<li>复合主键</li>
-<li>SQL 生成器</li>
-<li>数据库自动迁移</li>
-<li>自定义日志</li>
-<li>可扩展性, 可基于 GORM 回调编写插件</li>
-<li>所有功能都被测试覆盖</li>
-<li>开发者友好</li>
-</ul>
-<h2 id="cli"><a href="#cli" class="headerlink" title="cli"></a>cli</h2><p><a href="https://github.com/urfave/cli" target="_blank" rel="noopener">cli</a>，可以用来快速的创建go语言命令行工具，目前在GitHub上的star数为8k+。</p>
-<h2 id="vegeta"><a href="#vegeta" class="headerlink" title="vegeta"></a>vegeta</h2><p><a href="https://github.com/tsenart/vegeta" target="_blank" rel="noopener">vegeta</a>http负载测试工具。</p>
-<h2 id="fuzzy"><a href="#fuzzy" class="headerlink" title="fuzzy"></a>fuzzy</h2><p><a href="https://github.com/sahilm/fuzzy" target="_blank" rel="noopener">fuzzy</a>,go语言实现的字符串模糊匹配工具。</p>
-<h2 id="build-web-application-with-golang"><a href="#build-web-application-with-golang" class="headerlink" title="build-web-application-with-golang"></a>build-web-application-with-golang</h2><p>除了上面提到的几个工具外，在GitHub上还有一个比较火热的项目，star数量达到了2万多。其实，称之为项目并不准确，应该说是博客，它从零开始，详细的介绍了如何一步步搭建Go语言开发环境、搭建web服务器、连接数据、部署等等，几乎一整套的Go语言建站方法，它就是:<a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md" target="_blank" rel="noopener">build-web-application-with-golang</a>。<br>它不仅有中文版，还有英文、法文、日文版等等多种语言。从介绍页面上，其包含浓浓热情、求赞助的支付二维码来看，这是国内开发者贡献的，点赞！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/11/how-about-Parcel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/11/how-about-Parcel/" itemprop="url">Parcel打包初体验</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T11:16:10+08:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://parceljs.org/" target="_blank" rel="noopener"><code>Parcel</code></a>号称极速零配置Web应用打包工具，相比于webpack的复杂性，Parcel确实为我们省去了很多配置。使用过<a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener"><code>facebook/create-react-app</code></a>的同学应该会发现，<code>creat-react-app</code>也简化了配置，其包含<code>react-scripts</code>包，这个包做的事正与<code>Parcel</code>类似：将所有的打包配置统筹、封装。</p>
-<h2 id="Parcel基本用法"><a href="#Parcel基本用法" class="headerlink" title="Parcel基本用法"></a>Parcel基本用法</h2><h3 id="安装Parcel"><a href="#安装Parcel" class="headerlink" title="安装Parcel"></a>安装Parcel</h3><p>全局安装<code>Parcel</code>:<br>Yarn:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add parcel-bundler</span><br></pre></td></tr></table></figure></p>
-<p>npm:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g parcel-bundler</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建、运行项目"><a href="#创建、运行项目" class="headerlink" title="创建、运行项目"></a>创建、运行项目</h3><p>创建文件夹，并在文件夹下新建入口html和js文件，html引入入口js文件。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
-<p>在文件夹下初始化项目：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init -y</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure></p>
-<p>启动服务开始开发：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parcel index.html</span><br></pre></td></tr></table></figure></p>
-<p><code>Parcel</code>的基本用法介绍就此为止，就是这么简单，官网上有更详细的介绍。</p>
-<h2 id="项目迁移"><a href="#项目迁移" class="headerlink" title="项目迁移"></a>项目迁移</h2><p>我们现在尝试将<code>webpack</code>配置的项目迁移到<code>Parcel</code>。</p>
-<h3 id="vue-cli-webpack"><a href="#vue-cli-webpack" class="headerlink" title="vue-cli webpack"></a>vue-cli webpack</h3><p>我们首先使用vue-cli创建一个项目:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack parcel-test</span><br></pre></td></tr></table></figure></p>
-<p>首先进入项目运行一下<code>npm run dev</code>，检查是否能运行成功，OK！运行成功。然后我们直接运行<code>parcel index.html</code><br>DANG!DANG!</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/direct-start-failed.png"><br></div><br>emmmmm…</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/bright-emoji.png"><br></div><br>好像没有将<code>main.js</code>引入html文件。改！</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/error-path.png"><br></div><br>修改引用路径。重启服务，出现错误</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/11/how-about-Parcel/vue-runtime-error.png"><br></div><br>由于我们在<code>App.vue</code>中使用了<code>template</code>函数，而<code>import Vue from &#39;vue&#39;</code>默认引用的运行时态版（不支持template函数），所以需要改用vue完整版。vue修改<code>main.js</code>和<code>router/index.js</code>文件中<code>vue</code>的引用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue/dist/vue.esm.js'</span></span><br></pre></td></tr></table></figure></p>
-<p>再来运行一次<code>parcel index.html</code>便成功了，可以正常开发了。</p>
-<h2 id="小缺陷"><a href="#小缺陷" class="headerlink" title="小缺陷"></a>小缺陷</h2><p><code>Parcel</code>目前支持CommonJS 和 ES6 两种模块语法，所以，如果你在index.html页面引入了项目中非上述两种模块语法开发的js，那么可能会出现意外情况。如果还是想引入非CommonJS和ES6模块语法开发的js，目前可以有两种解决方法:</p>
-<ul>
-<li>如果有源码，则改造代码</li>
-<li>没有源码，并且还是压缩的，将其放在服务器上，html通过域名引用</li>
-<li>将第三方的代码内联到html中</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总体而言，<code>Parcel</code>确实比<code>webpack</code>要简化很多，几乎是开箱即用。对于没有特殊要求的项目，推荐使用。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/10/async-and-await-comprehensive-guide/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/10/async-and-await-comprehensive-guide/" itemprop="url">ES2017中async&await踩坑指南</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T16:15:26+08:00">
-                2018-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ES2017标准引入了async、await函数，使得异步操作变得更加方便了，而不用每次<code>new Promise(...)</code>了</p>
-<blockquote>
-<p>本文还使用到了es6的其他特性，例如箭头函数<code>=&gt;</code>，以及不用说的<code>Promise</code>，所以为了在生产上兼容，需要引入babel-polyfill，并对代码进行Babel处理。这里暂时不对相关知识进行细说。<br>如果你使用最新版的Chrome浏览器进行<a href="https://www.toutiao.com/i6553080029855613443/" target="_blank" rel="noopener">开发调试</a>，就可以暂时不用关心相关知识了。</p>
-</blockquote>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><p><code>async</code>其实是<code>Promise</code>语法糖。我们首先来写一个<code>Promise</code>：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// TODO something</span></span><br><span class="line">    <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">      reslove()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      reject()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWrok</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  asyncWork().then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'success'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>将其改为<code>async</code>写法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO something</span></span><br><span class="line">  <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  asyncWork().then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'success'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以看到使用<code>async</code>语法糖后，<code>asyncWork</code>代码量减少了，特别是在代码逻辑比较复杂的时候，使用<code>async</code>会直观很多。</p>
-<h4 id="await"><a href="#await" class="headerlink" title="await"></a>await</h4><p>往往使用<code>await</code>的函数需要使用<code>async</code>。</p>
-<p><code>async</code>表示异步，而<code>await</code>表示需要等待。进一步说，<code>async</code>函数可以看成将异步操作包装成一个Promise对象，而<code>await</code>就是<code>then</code>命令的语法糖。<br>await使用方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO something</span></span><br><span class="line">  <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">  <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">  <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">  <span class="keyword">return</span> workResult1 + workResult2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mainWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  doWrok.then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(resp)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当然，也可以将上面的<code>asyncWork</code>方法改为使用<code>Promise</code>。</p>
-<h3 id="进阶踩坑"><a href="#进阶踩坑" class="headerlink" title="进阶踩坑"></a>进阶踩坑</h3><p>既然使用了javaScript的ES2017特性，那么你一定会使用箭头函数<code>=&gt;</code>。相应的，在实际项目中，为了兼容性，我们会使用<code>babel-preset-env</code>等进行转义。<br>坑来了，我们将上面的<code>doWork</code>方法改为如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>我们来创建两个文件<code>index.html</code>、<code>main.js</code>来进行验证:</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/files.png"><br></div><br><code>index.html</code>:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>async&amp;await<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><code>main.js</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO something</span></span><br><span class="line">  <span class="keyword">var</span> isSucc = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">if</span> (isSucc) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'error'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mainWork</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  doWrok.then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(resp)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里，我们使用<a href="https://parceljs.org/" target="_blank" rel="noopener">Pracel</a>来进行打包。Parcel号称极速零配置Web应用打包工具，但是还是需要一点点配置的（当然也有一些限制），不过比那个vue-cli的webpack模板配置要简单多了!!!</p>
-<p>使用<code>npm init</code>或者<code>yarn init</code>对项目初始化后，命令行运行：<code>parcel index.html</code>，运行结果：</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/await-error.png"><br></div><br>OMG!!!竟然报错了，什么情况？<code>async</code>、<code>await</code>这对鸳鸯成对出现了，怎么还会报错？！<br>且慢，我们不妨看看<code>Parcel</code>对<code>doWork</code>的处理结果是什么。我们打开项目下的dist文件夹。dist文件夹下存放了<code>Parcel</code>的打包结果。</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/dist-folder.png"><br></div><br>…<br>哈哈，竟然只有<code>index.html</code>文件。那我们上述<code>doWork</code>函数改一下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>再次运行<code>parcel index.html</code>，编译成功：</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/10/async-and-await-comprehensive-guide/for-succ.png"><br></div><br>机智的我们发现是箭头<code>=&gt;</code>函数在添乱。我们再看一下es6中<code>=&gt;</code>的定义：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> v;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>那上面包含箭头函数的<code>doWork</code>也就等同于：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>外层的<code>doWork</code>函数和包裹await的函数已经不是同一个函数了，所以<code>Parcel</code>编译失败。如果想继续使用箭头函数，可以改为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doWork</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  array.forEach(<span class="keyword">async</span>(item) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 将等待两个asyncWork的返回结果，然后执行下一步</span></span><br><span class="line">    <span class="keyword">var</span> workResult1 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="keyword">var</span> workResult2 = <span class="keyword">await</span> asyncWork()</span><br><span class="line">    <span class="built_in">console</span>.log(workResult1 + workResult2)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(array)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>所以，<code>async</code>、<code>await</code>、<code>=&gt;</code>等es6特性，在使用时要注意它们的作用，避免增加不必要的调试时间。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/05/06/how-to-debug-web-code/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/06/how-to-debug-web-code/" itemprop="url">前端代码如何调试？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T16:57:44+08:00">
-                2018-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。</p>
-</blockquote>
-<h2 id="最简单调试方法：打印日志"><a href="#最简单调试方法：打印日志" class="headerlink" title="最简单调试方法：打印日志"></a>最简单调试方法：打印日志</h2><p>打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。<br>javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console.assert、console.clear、console.count等方法，其中与日志输出有关的方法有：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log() <span class="comment">// 打印字符串</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.info() <span class="comment">//打印一条信息</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.error() <span class="comment">// 打印一条错误信息</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.warn() <span class="comment">//打印一个警告信息</span></span><br></pre></td></tr></table></figure>
-<p>打印日志的调试方法超级简单，只需要在需要查看信息的代码行调用上面的方法即可输出想要的信息。上述4个方法均可将对象打印出来，例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'Rose'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">'person'</span>, person)</span><br></pre></td></tr></table></figure></p>
-<p>如果使用的是Chrome浏览器，右键页面=&gt;检查，在console中即可看到相应的输出:</p>
-<div style="text-align: center;"><br>  <img src="/2018/05/06/how-to-debug-web-code/console.info.png"><br></div>
-
-<h2 id="代码中插入debugger"><a href="#代码中插入debugger" class="headerlink" title="代码中插入debugger"></a>代码中插入debugger</h2><p>javascript提供了一个关键字：<code>debugger</code>，这个语句厉害了，可以调用任何可用的调试功能，设置断点。但是，如果没有调试功能可用，此语句将不起作用。<br>下面是一个包debugger语句的html代码，当代码被执行时，会尝试调用一个可用的调试器进行调试。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> a = <span class="number">1</span></span></span><br><span class="line"><span class="undefined">  a = a + 1</span></span><br><span class="line"><span class="javascript">  <span class="keyword">debugger</span></span></span><br><span class="line"><span class="undefined">  a = a + 2</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>保存该文件，使用Chrome浏览器将其打开。打开Chrome developer tool， 即右键页面=&gt;检查，发现没啥呀，只有下面这个页面：</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debugger.png"><br></div><br>此时我们刷新页面，dang～dang～，变这样了：<br><div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debuggering.png"><br></div><br>看到图中标红的地方了吗？那就是我们设置的断点，程序运行到那里停止了。此时我们将鼠标移至变量<code>a</code>上，即可看到<code>a</code>的值。<br>下图中红圈内数字也可以设置断点。<br><div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/debuggering-left.png"><br></div>
-
-<h2 id="编辑器中调试"><a href="#编辑器中调试" class="headerlink" title="编辑器中调试"></a>编辑器中调试</h2><p>c++、Java、c#等语言都能在编辑器中进行调试、打断点，主要原因是它们都可以在编辑器中运行，而Web前端代码只能运行在浏览器中。</p>
-<h4 id="webstorm"><a href="#webstorm" class="headerlink" title="webstorm"></a>webstorm</h4><p>webstorm可以在编辑器中进行调试、打断点，十分方便。但是，webstorm运行时占用资源比较多，对于性能比较低的电脑，webstorm运行的不是很流畅。<br>webstorm的调试方法可以在官网中找到。</p>
-<h4 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h4><p>Sublime Text是一个比较轻量的脚本编辑器，运行比较流畅，很多前端开发者都喜欢使用。<br>Sublime Text有几个可以实现调试的Package，但是试用了一下，没有成功</p>
-<h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><p>Visual Studio Code具有Sublime Text轻量，同时也能实现调试，简直要抛弃Sublime Text投靠Visual Studio Code的怀抱了❤️</p>
-<h4 id="1、安装Debugger-for-Chrome插件"><a href="#1、安装Debugger-for-Chrome插件" class="headerlink" title="1、安装Debugger for Chrome插件"></a>1、安装Debugger for Chrome插件</h4><p>安装最新版的Visual Studio Code后，打开它，点击左侧扩展图标</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/vscode-install-chrome-start.png"><br></div>
-
-<p>在“在商店中搜索扩展”中输入“Debugger for Chrome”，安装Debugger for Chrome即可</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/vscode-install-chrome-end.png"><br></div>
-
-<p>安装成功后，先新建文件夹test/src，在其中新建index.html和index.js两个文件<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Page Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>o<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">   <span class="keyword">var</span> result = add(<span class="number">1</span>, <span class="number">2</span>)</span></span><br><span class="line"><span class="javascript">   <span class="built_in">console</span>.info(<span class="string">'html'</span>, result)</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>index.js:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.info(result)</span><br></pre></td></tr></table></figure>
-<p>首先在index.js中打一个断点。点击图中红框区域即可添加断点，也可将鼠标放在红框区域右键添加、删除断点</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/add-break-point.png"><br></div>
-
-<p>选中test文件夹，按快捷键F5，或者点击调试-&gt;启动调试，选择Chrome。Visual Studio Code会自动在test文件夹下创建<code>.vscode/launch.json</code>文件。修改<code>launch.json</code>文件，修改或增加途中红线标识的行。</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/launch.json.png"><br></div>
-
-<p>然后再次按F5或启动调试，此时Chrome会自动打开index.html，刷新页面，即可发现Visual Studio Code在刚才我们添加的断点出阻塞了</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/vscode-debugger.png"><br></div>
-
-<h2 id="移动端网页调试"><a href="#移动端网页调试" class="headerlink" title="移动端网页调试"></a>移动端网页调试</h2><p>移动端主要分Android和iOS，Windows Phone就暂时不考虑了，2017年销售的智能手机，99.9%的搭载了这两个操作系统。</p>
-<h3 id="Android端调试"><a href="#Android端调试" class="headerlink" title="Android端调试"></a>Android端调试</h3><p>Android手机调试首先需要开启开发者模式，其次，如果是调试浏览器则需要安装Chrome浏览器，若是调试其他APP则需要APP开发者打开调试的开关。</p>
-<p>完成上述步骤后，打开网页，使用usb线链接电脑，允许电脑调试手机。在PC端Chrome浏览器地址栏输入<code>chrome://inspect</code></p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/chrome-inspect.png"><br></div>
-
-<h3 id="iOS端调试网页"><a href="#iOS端调试网页" class="headerlink" title="iOS端调试网页"></a>iOS端调试网页</h3><p>macOS操作系统调试iOS网页比较简单，只需iPhone设置-&gt;Safari-&gt;高级-&gt;打开Web检查器开关，打开网页，iPhone通过数据线连接Mac电脑，打开Mac端Safari，点击开发-&gt;[你的手机]-&gt;选择调试的网页</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/safari-debug.png"><br></div>
-
-<p>也可以使用iPhone模拟器调试，前提需要安装Xcode。上图正是模拟器调试。</p>
-<p>Windows操作系统要调试iOS端网页，则需要通过Chrome调试，并安装一些工具便可以调试Safari了</p>
-<h2 id="最强大的调试方法"><a href="#最强大的调试方法" class="headerlink" title="最强大的调试方法"></a>最强大的调试方法</h2><p>使用浏览器自带的调试工具，可以说是最常用，也是最强大的调试方法。不仅可以调试自己开发的网页，也可以hack其他网页，从别人那里学习一些前端知识。</p>
-<p>Chrome浏览器的调试功能比较强大,其拥有很多功能，不仅可以查看、整理代码，还可以检查网页的性能、动画等等</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/chrome-debug-taobao.png"><br></div>
-
-<p>Firefox浏览器调试功能也同样强大，完全媲美Chrome。最新版的Firefox在性能上有了很大的提升，渲染网页的速度赶超Chrome，资源占用却没有Chrome高。</p>
-<div style="text-align: center"><br>  <img src="/2018/05/06/how-to-debug-web-code/chrome-debug-taobao.png"><br></div>
-
-<p>国产浏览器中，如搜狗浏览器、UC浏览器等都支持调试，部分内核使用了Chromium，也就是Chrome内核，调试功能和Chrome差不多，可能有版本延迟，缺少部分新功能。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/02/27/weex-hotreload/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/27/weex-hotreload/" itemprop="url">WEEX开发实现native端hotreload</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T14:13:31+08:00">
-                2018-02-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>相关版本：<br>weex-toolkit: 1.2.9<br>playground: 0.5.2.5</p>
-</blockquote>
-<p>在进行weex开发，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。</p>
-<p>在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。<br>but…有点懒，想想其他办法。</p>
-<p>在playground的代码中发现了hotreoload的相关代码：<br>WXPageActivity.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">   setContentView(R.layout.activity_wxpage);</span><br><span class="line">   setCurrentWxPageActivity(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">   ...</span><br><span class="line">   <span class="keyword">if</span>(WXPAGE.equals(mUri.getScheme())||</span><br><span class="line">     ...</span><br><span class="line">     startHotRefresh();</span><br><span class="line">     ...</span><br><span class="line">   &#125;<span class="keyword">else</span> <span class="keyword">if</span> (TextUtils.equals(<span class="string">"http"</span>, mUri.getScheme()) || TextUtils.equals(<span class="string">"https"</span>, mUri.getScheme())) &#123;</span><br><span class="line">     ...</span><br><span class="line">     startHotRefresh();</span><br><span class="line">   &#125;</span><br><span class="line">   ...</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * hot refresh</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startHotRefresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">     String host = <span class="keyword">new</span> URL(mUri.toString()).getHost();</span><br><span class="line">     String wsUrl = <span class="string">"ws://"</span> + host + <span class="string">":8082"</span>;</span><br><span class="line">     mWXHandler.obtainMessage(Constants.HOT_REFRESH_CONNECT, <span class="number">0</span>, <span class="number">0</span>, wsUrl).sendToTarget();</span><br><span class="line">   &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">     e.printStackTrace();</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>虽然有hot refresh的代码，但是没用。因为<code>startHotRefresh()</code>中监听的是<code>String wsUrl = &quot;ws://&quot; + host + &quot;:8082&quot;;</code> 8082端口，而我们的weex-toolkit创建的项目没有创建相应的socket server。</p>
-<p>估计官方填坑只填了一半。怎么肥四！？</p>
-<p>通过浏览器的开发者模式，我们可以看到webpack-dev-server创建了websocket server.</p>
-<div style="text-align: center;"><br>  <img src="/2018/02/27/weex-hotreload/weex_ws.png"><br></div>
-
-<p>有戏了！<br>我们可以在app端创建webscoket与webpack-dev-server连接。下面我们对webpack-dev-server源码进行分析</p>
-<p>打开node_modules文件夹下的webpack-dev-server.我们主要看client/index.js和lib/Server.js文件：</p>
-<div style="text-align: center;"><br>  <img src="/2018/02/27/weex-hotreload/webpack-dev-server.png"><br></div>
-
-<h4 id="client-index-js"><a href="#client-index-js" class="headerlink" title="client/index.js"></a>client/index.js</h4><p>获取webscoket地址和端口，赋值为urlParts：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> urlParts = <span class="keyword">void</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> hotReload = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> qs = <span class="built_in">window</span>.location.search.toLowerCase();</span><br><span class="line">  hotReload = qs.indexOf(<span class="string">'hotreload=false'</span>) === <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> __resourceQuery === <span class="string">'string'</span> &amp;&amp; __resourceQuery) &#123;</span><br><span class="line">  <span class="comment">// If this bundle is inlined, use the resource query to get the correct url.</span></span><br><span class="line">  urlParts = url.parse(__resourceQuery.substr(<span class="number">1</span>));</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// Else, get the url from the &lt;script&gt; this file was called with.</span></span><br><span class="line">  <span class="keyword">var</span> scriptHost = getCurrentScriptSource();</span><br><span class="line">  <span class="comment">// eslint-disable-next-line no-useless-escape</span></span><br><span class="line">  scriptHost = scriptHost.replace(<span class="regexp">/\/[^\/]+$/</span>, <span class="string">''</span>);</span><br><span class="line">  urlParts = url.parse(scriptHost || <span class="string">'/'</span>, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!urlParts.port || urlParts.port === <span class="string">'0'</span>) &#123;</span><br><span class="line">  urlParts.port = self.location.port;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>初始化对scoket消息的处理：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onSocketMsg = &#123;</span><br><span class="line">  hot: <span class="function"><span class="keyword">function</span> <span class="title">hot</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    _hot = <span class="literal">true</span>;</span><br><span class="line">    log.info(<span class="string">'[WDS] Hot Module Replacement enabled.'</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  invalid: <span class="function"><span class="keyword">function</span> <span class="title">invalid</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    log.info(<span class="string">'[WDS] App updated. Recompiling...'</span>);</span><br><span class="line">    <span class="comment">// fixes #1042. overlay doesn't clear if errors are fixed but warnings remain.</span></span><br><span class="line">    <span class="keyword">if</span> (useWarningOverlay || useErrorOverlay) overlay.clear();</span><br><span class="line">    sendMsg(<span class="string">'Invalid'</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">'content-changed'</span>: <span class="function"><span class="keyword">function</span> <span class="title">contentChanged</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    log.info(<span class="string">'[WDS] Content base changed. Reloading...'</span>);</span><br><span class="line">    self.location.reload();</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>链接websocket服务器：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> socketUrl = url.format(&#123;</span><br><span class="line">  protocol: protocol,</span><br><span class="line">  auth: urlParts.auth,</span><br><span class="line">  hostname: hostname,</span><br><span class="line">  port: urlParts.port,</span><br><span class="line">  pathname: urlParts.path == <span class="literal">null</span> || urlParts.path === <span class="string">'/'</span> ? <span class="string">'/sockjs-node'</span> : urlParts.path</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">socket(socketUrl, onSocketMsg);</span><br></pre></td></tr></table></figure></p>
-<p>上文中，我们可以看到，webscoket客户端接收到<code>content-changed</code>消息后<code>self.location.reload();</code>对页面进行刷新。</p>
-<p>我们再看看websocket服务器端是否发送了<code>content-changed</code>消息。</p>
-<h4 id="lib-Server-js"><a href="#lib-Server-js" class="headerlink" title="lib/Server.js"></a>lib/Server.js</h4><p>发送<code>content-changed</code>消息：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Server.prototype._watch = <span class="function"><span class="keyword">function</span> (<span class="params">watchPath</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// duplicate the same massaging of options that watchpack performs</span></span><br><span class="line">  <span class="comment">// https://github.com/webpack/watchpack/blob/master/lib/DirectoryWatcher.js#L49</span></span><br><span class="line">  <span class="comment">// this isn't an elegant solution, but we'll improve it in the future</span></span><br><span class="line">  <span class="keyword">const</span> usePolling = <span class="keyword">this</span>.watchOptions.poll ? <span class="literal">true</span> : <span class="literal">undefined</span>; <span class="comment">// eslint-disable-line no-undefined</span></span><br><span class="line">  <span class="keyword">const</span> interval = <span class="keyword">typeof</span> <span class="keyword">this</span>.watchOptions.poll === <span class="string">'number'</span> ? <span class="keyword">this</span>.watchOptions.poll : <span class="literal">undefined</span>; <span class="comment">// eslint-disable-line no-undefined</span></span><br><span class="line">  <span class="keyword">const</span> options = &#123;</span><br><span class="line">    ignoreInitial: <span class="literal">true</span>,</span><br><span class="line">    persistent: <span class="literal">true</span>,</span><br><span class="line">    followSymlinks: <span class="literal">false</span>,</span><br><span class="line">    depth: <span class="number">0</span>,</span><br><span class="line">    atomic: <span class="literal">false</span>,</span><br><span class="line">    alwaysStat: <span class="literal">true</span>,</span><br><span class="line">    ignorePermissionErrors: <span class="literal">true</span>,</span><br><span class="line">    ignored: <span class="keyword">this</span>.watchOptions.ignored,</span><br><span class="line">    usePolling,</span><br><span class="line">    interval</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> watcher = chokidar.watch(watchPath, options).on(<span class="string">'change'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.sockWrite(<span class="keyword">this</span>.sockets, <span class="string">'content-changed'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.contentBaseWatchers.push(watcher);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>现在弄清楚了webpack-dev-server的hotreload。诶…我们似乎跑远了。</p>
-<p>app客户端需要监听websocket server，当收到<code>content-changed</code>消息时，对页面进行刷新。</p>
-<h4 id="Android客户端链接webpack-dev-server的socket服务器"><a href="#Android客户端链接webpack-dev-server的socket服务器" class="headerlink" title="Android客户端链接webpack-dev-server的socket服务器"></a>Android客户端链接webpack-dev-server的socket服务器</h4><p>直接链接<code>host:8081</code>端口无法成功。在分析lib/Server.js代码，发现了这样一句代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">sockServer.installHandlers(<span class="keyword">this</span>.listeningApp, &#123;</span><br><span class="line">  prefix: <span class="string">'/sockjs-node'</span></span><br><span class="line">&#125;);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>再看webpacke-dev-server使用的socket库<a href="https://github.com/sockjs/sockjs-node" target="_blank" rel="noopener">sockjs-node</a>，发现了这样一段话：</p>
-<div style="text-align: center;"><br>  <img src="/2018/02/27/weex-hotreload/sockjs-node.png"><br></div>
-
-<p>于是，将Android客户端的socket链接地址改为<code>ws://host:8081/sockjs-node/websocket</code>。成功了！！！socket链接打通。Android端部分代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startHotRefresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">      URL host = <span class="keyword">new</span> URL(mUri.toString());</span><br><span class="line">      String wsUrl = <span class="string">"ws://"</span> + host.getHost() + <span class="string">":"</span> + host.getPort() + <span class="string">"/sockjs-node/websocket"</span>;</span><br><span class="line">      <span class="keyword">if</span> (host.getPort() &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        wsUrl = <span class="string">"ws://"</span> + host.getHost() + <span class="string">"/sockjs-node/websocket"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      ...</span><br><span class="line">    &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>走到这里，只剩下对消息的处理。<br>修改js代码，在playground的HotRefreshManager.java中打印接收到的消息，发现没有<code>content-changed</code>,接收到的都是<code>{&quot;type&quot;:&quot;progress-update&quot;,&quot;data&quot;:{&quot;percent&quot;:95,&quot;msg&quot;:&quot;emitting&quot;}}</code>。万幸的是消息最后跟了一个<code>{&quot;type&quot;:&quot;ok&quot;}</code>。<br>所以，暂且将<code>{&quot;type&quot;:&quot;ok&quot;}</code>作为触发刷新的点。</p>
-<p>在HotRefreshManager.WXWebSocketListener:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(WebSocket webSocket, String text)</span> </span>&#123;</span><br><span class="line">  Log.i(<span class="string">"Receiving : "</span>, text);</span><br><span class="line">  <span class="keyword">if</span> (text.equals(<span class="string">"&#123;\"type\":\"ok\"&#125;"</span>)) &#123;</span><br><span class="line">    Log.i(<span class="string">"onMessage"</span>, <span class="string">"done"</span>);</span><br><span class="line">    mHandler.obtainMessage(Constants.HOT_REFRESH_REFRESH).sendToTarget();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后，成功实现Android端自动刷新页面的效果。</p>
-<p>文中还有不完善的地方，待后续补充。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yiyan.site/2018/02/27/js-memory-manager-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少盐">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少盐">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/27/js-memory-manager-md/" itemprop="url">JavaScript的内存管理，以及如何处理4种常见的内存泄漏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T11:12:22+08:00">
-                2018-02-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JavaScript的内存管理，以及如何处理4种常见的内存泄漏"><a href="#JavaScript的内存管理，以及如何处理4种常见的内存泄漏" class="headerlink" title="JavaScript的内存管理，以及如何处理4种常见的内存泄漏"></a>JavaScript的内存管理，以及如何处理4种常见的内存泄漏</h1><p>起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为<a href="https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec" target="_blank" rel="noopener">How JavaScript works: memory management + how to handle 4 common memory leaks</a></p>
-<p>作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分别是<a href="https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf" target="_blank" rel="noopener">How JavaScript works: an overview of the engine, the runtime, and the call stack</a>、<a href="https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e" target="_blank" rel="noopener">How JavaScript works: inside the V8 engine + 5 tips on how to write optimized code</a></p>
-<p>文章开头讲叙了一些内存方面的基础知识，这里略过直接开车。</p>
-<h4 id="JavaScript的内存分配"><a href="#JavaScript的内存分配" class="headerlink" title="JavaScript的内存分配"></a>JavaScript的内存分配</h4><p>JavaScript对内存的分配进行自动管理，而不同于C语言需要开发者管理。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">374</span>; <span class="comment">// 为数字分配内存</span></span><br><span class="line"><span class="keyword">var</span> s = <span class="string">'sessionstack'</span>; <span class="comment">// 为字符分配内存</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="literal">null</span></span><br><span class="line">&#125;; <span class="comment">// 为object和其属性分配内存</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="literal">null</span>, <span class="string">'str'</span>];  <span class="comment">// 分配数组空间</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + <span class="number">3</span>;</span><br><span class="line">&#125; <span class="comment">// 为方法分配内存（方法本质上是一个可以回调的object）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数表达式也作为object来分配内存</span></span><br><span class="line">someElement.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  someElement.style.backgroundColor = <span class="string">'blue'</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
-<p>一些函数的返回结果也当作object分配内存：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//分配一个Date object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> e = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>); <span class="comment">// 分配一个DOM 元素</span></span><br></pre></td></tr></table></figure></p>
-<p>一些方法也能分配新的值或object内存空间：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="string">'sessionstack'</span>;</span><br><span class="line"><span class="keyword">var</span> s2 = s1.substr(<span class="number">0</span>, <span class="number">3</span>); <span class="comment">// s2 是一个新的字符变量</span></span><br><span class="line"><span class="comment">// 由于已分配内存空间的字符,在内存空间中值是不变的</span></span><br><span class="line"><span class="comment">// JavaScript可能不会给2分配新的内存空间,而是仅仅记录[0, 3]的区间.</span></span><br><span class="line"><span class="keyword">var</span> a1 = [<span class="string">'str1'</span>, <span class="string">'str2'</span>];</span><br><span class="line"><span class="keyword">var</span> a2 = [<span class="string">'str3'</span>, <span class="string">'str4'</span>];</span><br><span class="line"><span class="keyword">var</span> a3 = a1.concat(a2);</span><br><span class="line"><span class="comment">// 数组拼接将会分配新的内存空间</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="当内存不再需要时，内存空间会被释放"><a href="#当内存不再需要时，内存空间会被释放" class="headerlink" title="当内存不再需要时，内存空间会被释放"></a>当内存不再需要时，内存空间会被释放</h4><p>大多数的内存管理问题都出现在这个阶段。在这个阶段，比较难的是如何判断内存空间可以释放掉了。这通常需要开发者确定哪些内存不再需要，然后将其释放。<br>高等级的编程语言都会集成垃圾回收器。垃圾回收器对内存的分配和使用进行跟踪。当分配的内存不再需要时，垃圾回收器将会释放内存。</p>
-<p>然而，总是有一些内存片段，垃圾回收器的算法难以判断其是否需要。大多数的垃圾回收器通过收集不再访问的内存，例如所有指向该内存的变量都已经不存在了。但是，可能存在一个变量一直指向某一内存空间，而程序不再使用该变量。</p>
-<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>由于难以决定内存是否继续需要，垃圾回收器难以提供相应的解决方案。本节我们将会对垃圾回收器的回收算法一探究竟，并发现其存在的缺陷。</p>
-<h4 id="内存引用"><a href="#内存引用" class="headerlink" title="内存引用"></a>内存引用</h4><p>垃圾回收算法主要依赖于引用。</p>
-<p>在内存管理这中，引用是一个对象可以访问(显式或隐式)另一个对象。例如，JavaScript对象继承了Object.prototype的属性和方法。其继承Object。prototype便是隐式引用，属性和方法便是显式继承。</p>
-<h4 id="垃圾回收算法：引用计数（reference-counting）"><a href="#垃圾回收算法：引用计数（reference-counting）" class="headerlink" title="垃圾回收算法：引用计数（reference-counting）"></a>垃圾回收算法：引用计数（reference-counting）</h4><p>rc垃圾回收是最简单的垃圾回收算法。如果指向对象的引用数量为0则这个对象是可以回收的。</p>
-<p>看一下以下代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;</span><br><span class="line">  o2: &#123;</span><br><span class="line">    x: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建了2个对象。其中，‘o2’被'o1'对象引用，作为'o1'的属性</span></span><br><span class="line"><span class="comment">// 'o1'和'o2'都不能被回收</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o3 = o1; <span class="comment">//o3引用o1</span></span><br><span class="line">o1 = <span class="number">1</span>; <span class="comment">// o1重新赋值，o1原来的内存现只被o3引用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o4 = o3.o2 <span class="comment">// o4引用o2属性。现在o2属性在两处被引用</span></span><br><span class="line"></span><br><span class="line">o3 = <span class="string">'374'</span> <span class="comment">// 原o1的内存空间，被引用次数为0。但是其属性o2仍然被o4引用，不能被回收</span></span><br><span class="line"></span><br><span class="line">o4 = <span class="literal">null</span> <span class="comment">// o2不再被o4引用，原o1引用数为0，现在可以被回收了</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="内存泄漏：循环引用"><a href="#内存泄漏：循环引用" class="headerlink" title="内存泄漏：循环引用"></a>内存泄漏：循环引用</h4><p>下面的例子中，两个对象相互引用。方法调用完后，两个对象将不再需要，可以被释放。然而，rc垃圾回收算法认为每个对象都被引用了，所以不会回收。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o1 = &#123;&#125;</span><br><span class="line">  <span class="keyword">var</span> o2 = &#123;&#125;</span><br><span class="line">  o1.p = o2 <span class="comment">// o1引用o2</span></span><br><span class="line">  o2.p = o1 <span class="comment">// o2引用o1, 这就产生了循环引用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<div style="text-align: center;"><br>  <img src="/2018/02/27/js-memory-manager-md/cycles-are-creating-problems.png"><br></div>
-
-<h4 id="垃圾回收算法：标记-amp-扫描（mark-amp-sweep）"><a href="#垃圾回收算法：标记-amp-扫描（mark-amp-sweep）" class="headerlink" title="垃圾回收算法：标记&amp;扫描（mark&amp;sweep）"></a>垃圾回收算法：标记&amp;扫描（mark&amp;sweep）</h4><p>为了判断一个对象是否可以释放，m&amp;s算法是通过判断对象是否可达。</p>
-<p>m&amp;s算法流程如下：</p>
-<ol>
-<li>垃圾回收器首先建立了一个roots列表。roots通常是一些存在引用的全局变量，可以理解为引用的入口。在JavaScript中，“window”对象就是一个可以作为入口的全局对象</li>
-<li>所有的root都被检查，并被标记为活动状态，也就是非垃圾。同时，所有root的所有孩子节点都也被递归检查。所有能从root可达的对象都不是垃圾。</li>
-<li>剩余没有油被标记为活动状态的对象，都可以作为垃圾回收。垃圾回收器可以释放相应的内存，归还给系统。<div style="text-align: center;"><br><img src="/2018/02/27/js-memory-manager-md/mark-and-sweep-algorithm.gif"><br></div>
-
-</li>
-</ol>
-<p>m&amp;s算法要优于前面提到的引用计数算法，因为引用计数算法会导致一些对象从root不可达，而其又被引用了。m&amp;s算法可以释放部分存在循环引用的内存空间。</p>
-<p>截止2012年，所有的浏览器都采取了m&amp;s垃圾回收机制。<a href="https://en.wikipedia.org/wiki/Tracing_garbage_collection" target="_blank" rel="noopener">这里</a> 详细介绍了垃圾机制，其中也包括m&amp;s垃圾回收机制及其优化。</p>
-<h4 id="循环引用不再是问题"><a href="#循环引用不再是问题" class="headerlink" title="循环引用不再是问题"></a>循环引用不再是问题</h4><p>在上面的第一例子中，方法调用完后，方法中的两个对象不能从root可达，将被垃圾回收标记为不可达，进而被垃圾回收器回收。</p>
-<div style="text-align: center;"><br>  <img src="/2018/02/27/js-memory-manager-md/cycles-are-not-a-problem-anymore.png"><br></div>
-
-<h4 id="垃圾回收机制的缺陷"><a href="#垃圾回收机制的缺陷" class="headerlink" title="垃圾回收机制的缺陷"></a>垃圾回收机制的缺陷</h4><p>虽然垃圾回收器能够自动回收不再使用的内存空，但是，垃圾回收器执行回收的时机是不可预测的，也就是我们不知道垃圾回收什么时候会执行m&amp;s流程。有些情况下，即使里创建了一个数组，只要浏览器的可用内存足够，垃圾回收器可能就不会执行回收操作。</p>
-<h4 id="什么是内存泄漏"><a href="#什么是内存泄漏" class="headerlink" title="什么是内存泄漏"></a>什么是内存泄漏</h4><p>内存泄漏可以定义为：应用程序不再需要的内存空间，由于某种原因，内存空间没有被系统回收，没有回到系统的可用内存池中。</p>
-<p>编程语言通常有多种方法管理内存。但是，编程语言很难判断某一内存空间是否被使用。换句话说，只有开发者能明确的告诉浏览器某一内存空间是否能被系统回收。编程语言为开发提供了一些执行相应操作的功能，其他则需要开发者自身明确什么时候使用了内存。Wikipedia上有一些关于<a href="https://en.wikipedia.org/wiki/Garbage_collection_%28computer_science%29" target="_blank" rel="noopener">自动</a>和<a href="https://en.wikipedia.org/wiki/Manual_memory_management" target="_blank" rel="noopener">人工</a>管理内存的文章。</p>
-<h2 id="四种常见的内存泄漏"><a href="#四种常见的内存泄漏" class="headerlink" title="四种常见的内存泄漏"></a>四种常见的内存泄漏</h2><h4 id="1-全局变量"><a href="#1-全局变量" class="headerlink" title="1. 全局变量"></a>1. 全局变量</h4><p>JavaScript处理没有申明的变量方式是将其作为浏览器的window的属性：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">  bar = <span class="string">'some text'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>等同于:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.bar = <span class="string">'some text'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>浏览器测试效果：</p>
-<div style="text-align: center;"><br>  <img src="/2018/02/27/js-memory-manager-md/global-var.png"><br></div>
-
-<p>所以，如果不小心忘记使用var或let等等申明bar变量，将会在方法内创建全局变量。使用ESlint进行代码规范是个不错的选择。</p>
-<p>另一不小心创建全局变量的途径是通过this ：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.var1 = <span class="string">'potential accidental global'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用foo方法时，‘this’指向全局对象window，而不是undefined</span></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
-<p>为避免这样的错误发生，建议在js文件第一行加入<code>use strict</code>。这能阻止意外产生全局变量。有关strict模式的更多内容，可以查看这里 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode" target="_blank" rel="noopener">严格模式</a>。</p>
-<p>在申明全局变量时建议赋值为null，在程序需要的地方再分配内存。</p>
-<h4 id="2-遗漏计时器或者回调函数"><a href="#2-遗漏计时器或者回调函数" class="headerlink" title="2. 遗漏计时器或者回调函数"></a>2. 遗漏计时器或者回调函数</h4><p>JavaScript的setInterval和setTimeout方法，如果不主动回收都可能导致内存泄漏。</p>
-<p>关于回调函数导致的内存泄漏，原文提到了addEventListener和removeEventListener函数。然而，现代的浏览器都会在DOM被销毁时，其上绑定的事件也都会被回收，并不是严格要求addEventListener后，必须removeEventListener后才能回收内存。</p>
-<h4 id="3-闭包"><a href="#3-闭包" class="headerlink" title="3. 闭包"></a>3. 闭包</h4><p>JavaScript开发的一个重要特性就是闭包：内部的方法能够访问到外部（闭环）方法的变量。由于JavaScript运行时的具体实现，下面的代码可能导致内存泄漏：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> theThing = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> replaceThing = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> originalThing = theThing</span><br><span class="line">  <span class="keyword">var</span> unused = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (originalThing) <span class="comment">// 引用originalThing</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'hi'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  theThing = &#123;</span><br><span class="line">    longStr: <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000</span>).join(<span class="string">'*'</span>),</span><br><span class="line">    someMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'message'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(replaceThine, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<p>该代码执行内容是：每次replaceThing方法被调用，theThing都获取到一个包含大数组属性和闭包（函数）。同时，变量unused获得一个引用originalThing的闭包。是不是有点懵了？其实，只要记住一点：对子闭包而言，同一父闭包的内存空间是共享的。</p>
-<p>在上面的例子中，<code>unused</code>是可以访问到<code>someMethod</code>的。在方法<code>replaceThing</code>方法外面，<code>theThing</code>可以调用<code>someMethod</code>。由于<code>someMethod</code>与<code>unused</code>共享闭包区域，<code>unused</code>对<code>originalThing</code>的引用，导致<code>someMethod</code>一直保持活动状态，阻止了其被回收，即使<code>unused</code>方法没有被回调。</p>
-<p>仔细一想，原文的意思应该如下图所示：</p>
-<div style="text-align: center;"><br>  <img src="/2018/02/27/js-memory-manager-md/closures.png"><br></div>
-
-<p>随着定时器的执行，不断的有新的内存空间被分配，同时老的内存空间依然被引用，得不到释放。这个问题是<a href="https://blog.meteor.com/an-interesting-kind-of-javascript-memory-leak-8b47d2e7f156" target="_blank" rel="noopener">Meteor</a>团队发现的</p>
-<h4 id="4-DOM外引用"><a href="#4-DOM外引用" class="headerlink" title="4. DOM外引用"></a>4. DOM外引用</h4><p>有时候我们可能需要存储一些DOM的引用，以便多次访问。但是，当引用的DOM元素被从页面移除时，我们存储的DOM引用可能会导致内存泄漏。例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = &#123;</span><br><span class="line">  button: <span class="built_in">document</span>.getElementById(<span class="string">'button'</span>),</span><br><span class="line">  image: <span class="built_in">document</span>.getElementById(<span class="string">'image'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doStuff</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  elements.image.src = <span class="string">'http://example.com/image_name.png'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeImage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.body.removeChild(<span class="built_in">document</span>.getElementById(<span class="string">'image'</span>))</span><br><span class="line">  <span class="comment">// 这时，我们依然在全局变量elements中引用了image，也就是，image元素仍然保存在内存中，不会被垃圾回收器回收</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>所以，我们在创建引用的时候需要注意对DOM的引用。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">少盐</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">标签</span>
-                
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">少盐</span>
-
-  
-</div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <em class="page-title-link" data-url="home">主页</em>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            
+
+    
+    
+        
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/25/H5-echarts的tooltip与datazoom的优化/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/05/25/H5-echarts的tooltip与datazoom的优化/h5-echarts-kchart.png)" alt="H5:echarts的tooltip与datazoom的优化" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-25T05:06:37.000Z" itemprop="datePublished">2018-05-25</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/25/H5-echarts的tooltip与datazoom的优化/">H5:echarts的tooltip与datazoom的优化</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+echarts版本3.X.X
+
+  在移动端同时使用Echarts的tooltip和datazoom时，你会发现tooltip显示的时候很难去对图表进行放大、缩小、水平移动，也就是比较难触发datazoom事件，用户体验有点差。因此，本文提出了一些优化方法，以便提高用户体验。
+1. 交互套路既然要优化，那就需要将tooltip和datazoom这两个事件拆分开，不能让它们同时触发。所以，交互的总
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/22/About-create-react-app/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-22T07:27:09.000Z" itemprop="datePublished">2018-05-22</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/22/About-create-react-app/">About:create-react-app</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+create-react-app是facebook官方维护的一套react开发框架（emmm…应该说是配置），目前的star数量接近5w+，可见其受欢迎程度。相比于其他一些react开发框架，例如react-boilerplate、react-starter-kit(star数都接近2w+)，create-react-app似乎更容易react初学者上手。
+
+HMR(hot module rep
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/18/10-years-of-GitHub/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-18T02:42:25.000Z" itemprop="datePublished">2018-05-18</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/18/10-years-of-GitHub/">10-years-of-GitHub</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+回顾往昔十载，我们记住的不是某一个软件，而是人们用来做了什么。
+
+上个月，也就是2018年4月10日是GitHub十周年，GitHub创始人Chris Wanstrath发布了一篇文章来总结这十年的发展。
+（以下内容为译文）Chris Wanstrath：
+10年前，GitHub正式上线。我们的意图其实很简单：连接开发者，让他们十分方便的通过Git一起编写项目。在过去十年里，我们已经发展成为一家
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/17/top-frameworks-trends-2018/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/05/17/top-frameworks-trends-2018/web-frameworks.png)" alt="top-frameworks-trends-2018" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-17T10:54:45.000Z" itemprop="datePublished">2018-05-17</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/17/top-frameworks-trends-2018/">top-frameworks-trends-2018</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            来自85个国家的超过1,000名参与者和大量数据，JAXenter调查了2018年哪些技术主题值得关注，并与历史进行了对比。
+Web框架React、Angular和Node.js排名占据前3，我们可以看出JavaScript开发框架可以说是最近几年最受欢迎的web框架。排在第四位的是Java生态系统的Spring MVC，紧接其后的是国内大受欢迎的Vue.js。
+  我们来回顾一下2016年和20
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/13/top5-libraries-for-Go/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-13T04:07:07.000Z" itemprop="datePublished">2018-05-13</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/13/top5-libraries-for-Go/">Go语言的5大开源库</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Go语言可以说是一个开箱即用的编程语言，其性能出众、支持分布式等特性深得程序员的喜爱。小编之前在毫无Go语言开发经验的情况下，只花了一个星期便掌握了Go语言的基本特性，后来也没花几天便搭建了一个数据库为mongoDB的服务器，并实现了相当复（chong）杂（fu）的功能，可见其上手非常简单。
+下面介绍5个在GitHub上比较火热的Go语言开源工具库。
+Go kit：微服务工具包Go kit微服务工
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/11/how-about-Parcel/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/05/11/how-about-Parcel/direct-start-failed.png)" alt="Parcel打包初体验" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-11T03:16:10.000Z" itemprop="datePublished">2018-05-11</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/11/how-about-Parcel/">Parcel打包初体验</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            Parcel号称极速零配置Web应用打包工具，相比于webpack的复杂性，Parcel确实为我们省去了很多配置。使用过facebook/create-react-app的同学应该会发现，creat-react-app也简化了配置，其包含react-scripts包，这个包做的事正与Parcel类似：将所有的打包配置统筹、封装。
+Parcel基本用法安装Parcel全局安装Parcel:Yarn:
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/10/async-and-await-comprehensive-guide/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/05/10/async-and-await-comprehensive-guide/files.png)" alt="ES2017中async&amp;await踩坑指南" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-10T08:15:26.000Z" itemprop="datePublished">2018-05-10</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/10/async-and-await-comprehensive-guide/">ES2017中async&amp;await踩坑指南</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            ES2017标准引入了async、await函数，使得异步操作变得更加方便了，而不用每次new Promise(...)了
+
+本文还使用到了es6的其他特性，例如箭头函数=&gt;，以及不用说的Promise，所以为了在生产上兼容，需要引入babel-polyfill，并对代码进行Babel处理。这里暂时不对相关知识进行细说。如果你使用最新版的Chrome浏览器进行开发调试，就可以暂时不用关心相关
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/05/06/how-to-debug-web-code/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/05/06/how-to-debug-web-code/console.info.png)" alt="前端代码如何调试？" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-05-06T08:57:44.000Z" itemprop="datePublished">2018-05-06</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/05/06/how-to-debug-web-code/">前端代码如何调试？</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。
+
+最简单调试方法：打印日志打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/02/27/weex-hotreload/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/02/27/weex-hotreload/weex_ws.png)" alt="WEEX开发实现native端hotreload" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-02-27T06:13:31.000Z" itemprop="datePublished">2018-02-27</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/02/27/weex-hotreload/">WEEX开发实现native端hotreload</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5
+
+在进行weex开发，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。
+在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。
+在playground的代码中发现了hotreo
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2018/02/27/js-memory-manager-md/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/02/27/js-memory-manager-md/cycles-are-creating-problems.png)" alt="JavaScript的内存管理，以及如何处理4种常见的内存泄漏" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2018-02-27T03:12:22.000Z" itemprop="datePublished">2018-02-27</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2018/02/27/js-memory-manager-md/">JavaScript的内存管理，以及如何处理4种常见的内存泄漏</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            JavaScript的内存管理，以及如何处理4种常见的内存泄漏起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为How JavaScript works: memory management + how to handle 4 common memory leaks
+作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+
+    </div></section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/zhaowangdaren" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/25/H5-echarts的tooltip与datazoom的优化/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/05/25/H5-echarts的tooltip与datazoom的优化/h5-echarts-kchart.png)" alt="H5:echarts的tooltip与datazoom的优化" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/25/H5-echarts的tooltip与datazoom的优化/" class="title">H5:echarts的tooltip与datazoom的优化</a></p>
+                            <p class="item-date"><time datetime="2018-05-25T05:06:37.000Z" itemprop="datePublished">2018-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/22/About-create-react-app/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/22/About-create-react-app/" class="title">About:create-react-app</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T07:27:09.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/18/10-years-of-GitHub/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/18/10-years-of-GitHub/" class="title">10-years-of-GitHub</a></p>
+                            <p class="item-date"><time datetime="2018-05-18T02:42:25.000Z" itemprop="datePublished">2018-05-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/17/top-frameworks-trends-2018/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/05/17/top-frameworks-trends-2018/web-frameworks.png)" alt="top-frameworks-trends-2018" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/17/top-frameworks-trends-2018/" class="title">top-frameworks-trends-2018</a></p>
+                            <p class="item-date"><time datetime="2018-05-17T10:54:45.000Z" itemprop="datePublished">2018-05-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/13/top5-libraries-for-Go/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/13/top5-libraries-for-Go/" class="title">Go语言的5大开源库</a></p>
+                            <p class="item-date"><time datetime="2018-05-13T04:07:07.000Z" itemprop="datePublished">2018-05-13</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcel-JavaScript/">Parcel JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chart/">chart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/h5-web-debug/">h5  web debug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Parcel-JavaScript/" style="font-size: 10px;">Parcel JavaScript</a> <a href="/tags/chart/" style="font-size: 10px;">chart</a> <a href="/tags/h5-web-debug/" style="font-size: 10px;">h5  web debug</a> <a href="/tags/react/" style="font-size: 10px;">react</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 少盐</p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
 </body>
 </html>
