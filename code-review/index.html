@@ -6,26 +6,18 @@
     
 
     
-    <title>H5:echarts的tooltip与datazoom的优化 | 少盐</title>
+    <title>code-review | 少盐</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="chart" />
-    
-    <meta name="description" content="echarts版本3.X.X    在移动端同时使用Echarts的tooltip和datazoom时，你会发现tooltip显示的时候很难去对图表进行放大、缩小、水平移动，也就是比较难触发datazoom事件，用户体验有点差。因此，本文提出了一些优化方法，以便提高用户体验。 1. 交互套路既然要优化，那就需要将tooltip和datazoom这两个事件拆分开，不能让它们同时触发。所以，交互的总">
-<meta name="keywords" content="chart">
-<meta property="og:type" content="article">
-<meta property="og:title" content="H5:echarts的tooltip与datazoom的优化">
-<meta property="og:url" content="http://yiyan.site/2018/05/25/H5-echarts的tooltip与datazoom的优化/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="code-review">
+<meta property="og:url" content="http://yiyan.site/code-review/index.html">
 <meta property="og:site_name" content="少盐">
-<meta property="og:description" content="echarts版本3.X.X    在移动端同时使用Echarts的tooltip和datazoom时，你会发现tooltip显示的时候很难去对图表进行放大、缩小、水平移动，也就是比较难触发datazoom事件，用户体验有点差。因此，本文提出了一些优化方法，以便提高用户体验。 1. 交互套路既然要优化，那就需要将tooltip和datazoom这两个事件拆分开，不能让它们同时触发。所以，交互的总">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yiyan.site/2018/05/25/H5-echarts的tooltip与datazoom的优化/h5-echarts-kchart.png">
-<meta property="og:updated_time" content="2018-05-26T08:27:29.991Z">
+<meta property="og:updated_time" content="2018-06-04T05:26:53.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H5:echarts的tooltip与datazoom的优化">
-<meta name="twitter:description" content="echarts版本3.X.X    在移动端同时使用Echarts的tooltip和datazoom时，你会发现tooltip显示的时候很难去对图表进行放大、缩小、水平移动，也就是比较难触发datazoom事件，用户体验有点差。因此，本文提出了一些优化方法，以便提高用户体验。 1. 交互套路既然要优化，那就需要将tooltip和datazoom这两个事件拆分开，不能让它们同时触发。所以，交互的总">
-<meta name="twitter:image" content="http://yiyan.site/2018/05/25/H5-echarts的tooltip与datazoom的优化/h5-echarts-kchart.png">
+<meta name="twitter:title" content="code-review">
     
 
     
@@ -132,82 +124,34 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <em class="page-title-link" data-url="/code-review/index.html">code-review</em>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-H5-echarts的tooltip与datazoom的优化" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="page-" class="article article-single article-type-page" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        H5:echarts的tooltip与datazoom的优化
+        code-review
         </h1>
     
 
             </header>
         
         
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2018/05/25/H5-echarts的tooltip与datazoom的优化/" class="article-date">
-            <time datetime="2018-05-25T05:06:37.000Z" itemprop="datePublished">2018-05-25</time>
-        </a>
-    </div>
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/chart/">chart</a>
-    </div>
-
-            </div>
-        
         
         <div class="article-entry" itemprop="articleBody">
-            <blockquote>
-<p>echarts版本3.X.X</p>
-</blockquote>
-<p><div style="text-align: center"><br>  <img src="/2018/05/25/H5-echarts的tooltip与datazoom的优化/h5-echarts-kchart.png"><br></div><br>在移动端同时使用Echarts的tooltip和datazoom时，你会发现tooltip显示的时候很难去对图表进行放大、缩小、水平移动，也就是比较难触发datazoom事件，用户体验有点差。因此，本文提出了一些优化方法，以便提高用户体验。</p>
-<h2 id="1-交互套路"><a href="#1-交互套路" class="headerlink" title="1. 交互套路"></a>1. 交互套路</h2><p>既然要优化，那就需要将tooltip和datazoom这两个事件拆分开，不能让它们同时触发。所以，交互的总方针是：</p>
-<ol>
-<li>tooltip隐藏时，即允许datazoom也允许显示tooltip；</li>
-<li>点击，tooltip显示，datazoom无效；再次点击，tooltip隐藏，允许datazoom</li>
-<li>只有tooltip隐藏时，才允许datazoom。</li>
-</ol>
-<h2 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h2><p>实现时需要接管tooltip的触发，同时也要控制datazoom是否可用</p>
-<h3 id="2-1-接管tooltip"><a href="#2-1-接管tooltip" class="headerlink" title="2.1 接管tooltip"></a>2.1 接管tooltip</h3><h4 id="2-1-1-echarts配置"><a href="#2-1-1-echarts配置" class="headerlink" title="2.1.1 echarts配置"></a>2.1.1 echarts配置</h4><p>echarts在配置tooltip提示框触发的条件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tooltip: &#123;</span><br><span class="line">  triggerOn: <span class="string">'none'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不在’mousemove’或’click’时触发，我们改用dispatchAction来触发tooltip显示。</p>
-<h4 id="2-1-2-主动触发tooltip，允许datazoom"><a href="#2-1-2-主动触发tooltip，允许datazoom" class="headerlink" title="2.1.2 主动触发tooltip，允许datazoom"></a>2.1.2 主动触发tooltip，允许datazoom</h4><p>我们需要处理图表dom标签的Touch事件，从而来主动分发showtip事件。按照我们的交互总方针，以下流程中的每一次允许tooltip，都伴随这禁用datazoom；每一次隐藏tooltip都伴随着启用datazoom。<br>处理Touch事件以及分发showtip的基本流程为：</p>
-<h5 id="2-1-2-1-touchstart事件"><a href="#2-1-2-1-touchstart事件" class="headerlink" title="2.1.2.1 touchstart事件"></a>2.1.2.1 touchstart事件</h5><ol>
-<li>记录触发了touchstart</li>
-<li>记录并判断是不是多个手指，若是则隐藏tooltip，并允许datazoom。</li>
-<li>触发长按计时器，如果是长按，则要触发tooltip，并禁用datazoom。用户移动手指，来达到连续显示tooltip。</li>
-</ol>
-<h5 id="2-1-2-2-touchmove事件"><a href="#2-1-2-2-touchmove事件" class="headerlink" title="2.1.2.2 touchmove事件"></a>2.1.2.2 touchmove事件</h5><ol>
-<li>记录触发了touchmove事件</li>
-<li>如果tooltip是不显示的状态，则要清除长按计时器，因为此时用户想要移动图表。并且，前提在tooltip是不显示的状态时，允许datazoom。<br>如果tooltip是显示状态，则用户要达成连续显示tooltip。</li>
-<li>如果是长按，则需要显示tooltip</li>
-</ol>
-<h5 id="2-1-2-3-touchend事件"><a href="#2-1-2-3-touchend事件" class="headerlink" title="2.1.2.3 touchend事件"></a>2.1.2.3 touchend事件</h5><ol>
-<li>清除长按计时器；</li>
-<li>如果是多个手指操作，则函数结束，剩余流程不用处理；</li>
-<li>如果是长按，则显示tooltip，重置touch事件的状态，并return；</li>
-<li>2和3的条件都没满足的情况下，则表示用户是单次点击，如果tooltip是隐藏状态，则显示tooltip；如果tooltip是显示状态，则隐藏tooltip；</li>
-<li>重置touch状态。</li>
-</ol>
-<h3 id="2-2-datazoom处理"><a href="#2-2-datazoom处理" class="headerlink" title="2.2 datazoom处理"></a>2.2 datazoom处理</h3><p>datazoom的处理只需要注意一个地方：拖动图表后，会触发touchend事件，可能会触发tooltip。所以，如果需要显示tooltip，则需要将在业务逻辑里面，监听到datazoom后，隐藏tooltip。</p>
-
+            
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yiyan.site/2018/05/25/H5-echarts的tooltip与datazoom的优化/" data-id="cjhztcmbf0002uim4x391ldxy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yiyan.site/code-review/index.html" data-id="cjhztcmco000iuim4t68rm6n0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -294,19 +238,6 @@
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-    
-        <a href="/2018/05/22/About-create-react-app/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">About:create-react-app</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
