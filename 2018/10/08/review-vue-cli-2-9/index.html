@@ -6,14 +6,14 @@
     
 
     
-    <title>归档 | yiyan.site</title>
+    <title>深入解析vue-cli 2.9.*实现原理 | yiyan.site</title>
     
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
 
     <!-- add amp head -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <link rel="canonical" href="/archives/index.html">
+    <link rel="canonical" href="/2018/10/08/review-vue-cli-2-9/">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <!-- ad -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -25,14 +25,23 @@
     </script>
 
 
+      
+        <meta name="keywords" content="vue-cli-2.9" />
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yiyan.site">
-<meta property="og:url" content="http://yiyan.site/archives/index.html">
+    <meta name="description" content="vue-cli 3.0已出，你为什么还要看这个？  Vue-cli项目结构    其中，我们主要关注点在package.json\bin\lib这3个地方。 package.jsonpackage.json中主要关注bin:12345&quot;bin&quot;: &amp;#123;  &quot;vue&quot;: &quot;bin/vue&quot;,  &quot;vue-init&quot;: &quot;bin/vue-init&quot;,  &quot;vue-list&quot;: &quot;bin/vu">
+<meta name="keywords" content="vue-cli-2.9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入解析vue-cli 2.9.*实现原理">
+<meta property="og:url" content="http://yiyan.site/2018/10/08/review-vue-cli-2-9/index.html">
 <meta property="og:site_name" content="yiyan.site">
+<meta property="og:description" content="vue-cli 3.0已出，你为什么还要看这个？  Vue-cli项目结构    其中，我们主要关注点在package.json\bin\lib这3个地方。 package.jsonpackage.json中主要关注bin:12345&quot;bin&quot;: &amp;#123;  &quot;vue&quot;: &quot;bin/vue&quot;,  &quot;vue-init&quot;: &quot;bin/vue-init&quot;,  &quot;vue-list&quot;: &quot;bin/vu">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yiyan.site/2018/10/08/review-vue-cli-2-9/files.png">
+<meta property="og:updated_time" content="2018-10-08T12:09:48.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yiyan.site">
+<meta name="twitter:title" content="深入解析vue-cli 2.9.*实现原理">
+<meta name="twitter:description" content="vue-cli 3.0已出，你为什么还要看这个？  Vue-cli项目结构    其中，我们主要关注点在package.json\bin\lib这3个地方。 package.jsonpackage.json中主要关注bin:12345&quot;bin&quot;: &amp;#123;  &quot;vue&quot;: &quot;bin/vue&quot;,  &quot;vue-init&quot;: &quot;bin/vue-init&quot;,  &quot;vue-list&quot;: &quot;bin/vu">
+<meta name="twitter:image" content="http://yiyan.site/2018/10/08/review-vue-cli-2-9/files.png">
     
 
     
@@ -167,507 +176,135 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>归档
+    未分类
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-review-vue-cli-2-9" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/10/08/review-vue-cli-2-9/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/10/08/review-vue-cli-2-9/files.png)" alt="深入解析vue-cli 2.9.*实现原理" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-10-08T09:10:03.000Z" itemprop="datePublished">2018-10-08</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/10/08/review-vue-cli-2-9/">深入解析vue-cli 2.9.*实现原理</a>
+        深入解析vue-cli 2.9.*实现原理
         </h1>
     
 
-        <p class="article-excerpt">
-            
-vue-cli 3.0已出，你为什么还要看这个？
-
-Vue-cli项目结构  
-
-其中，我们主要关注点在package.json\bin\lib这3个地方。
-package.jsonpackage.json中主要关注bin:12345"bin": &#123;  "vue": "bin/vue",  "vue-init": "bin/vue-init",  "vue-list": "bin/vu
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/10/08/review-vue-cli-2-9/" class="article-date">
+            <time datetime="2018-10-08T09:10:03.000Z" itemprop="datePublished">2018-10-08</time>
+        </a>
     </div>
-</article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/08/22/facebook-Fizz/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/08/22/facebook-Fizz/table_fizz.png)" alt="Facebook:使用高性能的开源TLS库Fizz大规模部署TLS1.3" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/vue-cli-2-9/">vue-cli-2.9</a>
+    </div>
 
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
             </div>
-            <div class="date"><time datetime="2018-08-22T11:15:28.000Z" itemprop="datePublished">2018-08-22</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/08/22/facebook-Fizz/">Facebook:使用高性能的开源TLS库Fizz大规模部署TLS1.3</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>vue-cli 3.0已出，你为什么还要看这个？</p>
+</blockquote>
+<h2 id="Vue-cli项目结构"><a href="#Vue-cli项目结构" class="headerlink" title="Vue-cli项目结构"></a>Vue-cli项目结构</h2><div style="text-align: center;"><br>  <img src="/2018/10/08/review-vue-cli-2-9/files.png"><br></div>
 
-        <p class="article-excerpt">
-            原文新一代传输层安全协议TLS1.3增加了几项新功能，可以使互联网流量更加安全，包括加密握手消息以保证证书私密，重新设计密钥的派生方式，以及零往返连接设置，这使得某些请求比TLS1.2快。每天有超过10亿人使用Facebook与他们的朋友和家人联系，正是TLS1.3将他们的数据从应用程序传输到我们的服务器（然后，我们把数据提供给别人…最近用户隐私把Facebook折腾的够呛）。为了在Faceboo
-        </p>
+<p>其中，我们主要关注点在<code>package.json\bin\lib</code>这3个地方。</p>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p><code>package.json</code>中主要关注<code>bin</code>:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"bin": &#123;</span><br><span class="line">  "vue": "bin/vue",</span><br><span class="line">  "vue-init": "bin/vue-init",</span><br><span class="line">  "vue-list": "bin/vue-list"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>nodejs在解析命令时主要通过这个<code>bin</code>来运行相应的文件。<code>&quot;vue&quot;:&quot;bin/vue&quot;</code>nodejs会运行bin文件夹下的<code>vue</code>文件，同理，其他两个命令也一样。</p>
+<h3 id="bin-vue"><a href="#bin-vue" class="headerlink" title="bin/vue"></a>bin/vue</h3><p>该文件内容比较少，其实整个脚本中代码量都比较少，因为模板内容都是从github上下载的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>)</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="built_in">require</span>(<span class="string">'../package'</span>).version)</span><br><span class="line">  .usage(<span class="string">'&lt;command&gt; [options]'</span>)</span><br><span class="line">  .command(<span class="string">'init'</span>, <span class="string">'generate a new project from a template'</span>)</span><br><span class="line">  .command(<span class="string">'list'</span>, <span class="string">'list available official templates'</span>)</span><br><span class="line">  .command(<span class="string">'build'</span>, <span class="string">'prototype a new project'</span>)</span><br><span class="line">  .command(<span class="string">'create'</span>, <span class="string">'(for v3 warning only)'</span>)</span><br><span class="line"></span><br><span class="line">program.parse(process.argv)</span><br></pre></td></tr></table></figure></p>
+<p>这里列出了运行<code>vue</code>命令时的提示。如果在控制台运行<code>vue init</code>则会出现如下内容：</p>
+<div style="text-align: center;"><br>  <img src="/2018/10/08/review-vue-cli-2-9/console-vue-init.png"><br></div>
+
+<h5 id="疑惑：这个是哪来的-bin-vue文件中并没有这些内容。正是这个疑惑导致了这个文章的出现。"><a href="#疑惑：这个是哪来的-bin-vue文件中并没有这些内容。正是这个疑惑导致了这个文章的出现。" class="headerlink" title="疑惑：这个是哪来的?bin/vue文件中并没有这些内容。正是这个疑惑导致了这个文章的出现。"></a>疑惑：这个是哪来的?<code>bin/vue</code>文件中并没有这些内容。正是这个疑惑导致了这个文章的出现。</h5><p>我们先来看一下<code>package.json</code>的bin下的<code>vue-init</code>命令，其运行的是<code>bin/vue-init</code></p>
+<h3 id="bin-vue-init"><a href="#bin-vue-init" class="headerlink" title="bin/vue-init"></a>bin/vue-init</h3><p>我们来看一下该文件的一部分内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"><span class="keyword">const</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Usage.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .usage(<span class="string">'&lt;template-name&gt; [project-name]'</span>)</span><br><span class="line">  .option(<span class="string">'-c, --clone'</span>, <span class="string">'use git clone'</span>)</span><br><span class="line">  .option(<span class="string">'--offline'</span>, <span class="string">'use cached template'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Help.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">program.on(<span class="string">'--help'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'  Examples:'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log()</span><br><span class="line">  <span class="built_in">console</span>.log(chalk.gray(<span class="string">'    # create a new project with an official template'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'    $ vue init webpack my-project'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log()</span><br><span class="line">  <span class="built_in">console</span>.log(chalk.gray(<span class="string">'    # create a new project straight from a github template'</span>))</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'    $ vue init username/repo my-project'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这一段正是<code>vue init</code>命令给出的提示。我们在控制台运行<code>vue-init</code>，也会出现同<code>vue init</code>一样的结果。难道<code>vue init</code>和<code>vue-init</code>两个命令相同？nodejs支持这样不同的命令运行相同的脚本？</p>
+<h5 id="“vue-init”-“vue-init”，使他们运行同一个脚本的另有原因"><a href="#“vue-init”-“vue-init”，使他们运行同一个脚本的另有原因" class="headerlink" title="“vue init” != “vue-init”，使他们运行同一个脚本的另有原因"></a>“vue init” != “vue-init”，使他们运行同一个脚本的另有原因</h5><p>仔细分析，老司机就会发现其中共同的一点：<code>const program = require(&#39;commander&#39;)</code>。正是这个<code>commander</code>包实现了<code>&quot;vue init&quot; == &quot;vue-init&quot;</code>。</p>
+<h4 id="commander"><a href="#commander" class="headerlink" title="commander"></a>commander</h4><p>commander是node.js 命令行接口的完整解决方案，灵感来自 Ruby 的 commander。其有Git风格的子命令，当使用<code>.command()</code>带有描述参数时，这告诉commander，你将采用当单独的可执行文件作为子命令。commander将会尝试在入口脚本的目录中搜索<code>program-command</code>形式的可执行文件，例如<code>bin/vue</code>文件中的<code>.command(&#39;init&#39;, &#39;generate a new project from a template&#39;)</code>，会使commander在bin文件夹下查找vue-init的可执行文件。</p>
+<p>到这里，文章可以结束了。</p>
+<h2 id="vue-cli创建模板逻辑"><a href="#vue-cli创建模板逻辑" class="headerlink" title="vue-cli创建模板逻辑"></a>vue-cli创建模板逻辑</h2><p>逻辑还是相对简单的，利用<code>download-git-repo</code>下载模板，<code>download-git-repo</code>默认从GitHub上下载。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yiyan.site/2018/10/08/review-vue-cli-2-9/" data-id="cjn0984gw000dljm4hcdq26vs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
 </article>
-    
-        </div>
-    
 
+    <section id="comments">
     
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/07/17/10-SQL-tricks/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-07-17T11:29:22.000Z" itemprop="datePublished">2018-07-17</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/07/17/10-SQL-tricks/">10-SQL-tricks</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/25/H5-echarts的tooltip与datazoom的优化/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/25/H5-echarts的tooltip与datazoom的优化/h5-echarts-kchart.png)" alt="H5:echarts的tooltip与datazoom的优化" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-25T05:06:37.000Z" itemprop="datePublished">2018-05-25</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/25/H5-echarts的tooltip与datazoom的优化/">H5:echarts的tooltip与datazoom的优化</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-echarts版本3.X.X
-
-  在移动端同时使用Echarts的tooltip和datazoom时，你会发现tooltip显示的时候很难去对图表进行放大、缩小、水平移动，也就是比较难触发datazoom事件，用户体验有点差。因此，本文提出了一些优化方法，以便提高用户体验。
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/22/About-create-react-app/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-22T07:27:09.000Z" itemprop="datePublished">2018-05-22</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/22/About-create-react-app/">About:create-react-app</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-create-react-app是facebook官方维护的一套react开发框架（emmm…应该说是配置），目前的star数量接近5w+，可见其受欢迎程度。相比于其他一些react开发框架，例如react-boilerplate、react-starter-kit(star数都接近2w+)，create-react-app似乎更容易react初学者上手。
-
-HMR(hot module rep
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/18/10-years-of-GitHub/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-18T02:42:25.000Z" itemprop="datePublished">2018-05-18</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/18/10-years-of-GitHub/">10-years-of-GitHub</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            上个月，也就是2018年4月10日是GitHub十周年，GitHub创始人Chris Wanstrath发布了一篇文章来总结这十年的发展。
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/17/top-frameworks-trends-2018/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/17/top-frameworks-trends-2018/web-frameworks.png)" alt="top-frameworks-trends-2018" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-17T10:54:45.000Z" itemprop="datePublished">2018-05-17</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/17/top-frameworks-trends-2018/">top-frameworks-trends-2018</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            来自85个国家的超过1,000名参与者和大量数据，JAXenter调查了2018年哪些技术主题值得关注，并与历史进行了对比。
-Web框架React、Angular和Node.js排名占据前3，我们可以看出JavaScript开发框架可以说是最近几年最受欢迎的web框架。排在第四位的是Java生态系统的Spring MVC，紧接其后的是国内大受欢迎的Vue.js。
-  我们来回顾一下2016年和20
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/13/top5-libraries-for-Go/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-13T04:07:07.000Z" itemprop="datePublished">2018-05-13</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/13/top5-libraries-for-Go/">Go语言的5大开源库</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Go语言可以说是一个开箱即用的编程语言，其性能出众、支持分布式等特性深得程序员的喜爱。小编之前在毫无Go语言开发经验的情况下，只花了一个星期便掌握了Go语言的基本特性，后来也没花几天便搭建了一个数据库为mongoDB的服务器，并实现了相当复（chong）杂（fu）的功能，可见其上手非常简单。
-下面介绍5个在GitHub上比较火热的Go语言开源工具库。
-Go kit：微服务工具包Go kit微服务工
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/11/how-about-Parcel/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/11/how-about-Parcel/direct-start-failed.png)" alt="Parcel打包初体验" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-11T03:16:10.000Z" itemprop="datePublished">2018-05-11</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/11/how-about-Parcel/">Parcel打包初体验</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Parcel号称极速零配置Web应用打包工具，相比于webpack的复杂性，Parcel确实为我们省去了很多配置。使用过facebook/create-react-app的同学应该会发现，creat-react-app也简化了配置，其包含react-scripts包，这个包做的事正与Parcel类似：将所有的打包配置统筹、封装。
-Parcel基本用法安装Parcel全局安装Parcel:Yarn:
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/10/async-and-await-comprehensive-guide/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/10/async-and-await-comprehensive-guide/files.png)" alt="ES2017中async&amp;await踩坑指南" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-10T08:15:26.000Z" itemprop="datePublished">2018-05-10</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/10/async-and-await-comprehensive-guide/">ES2017中async&amp;await踩坑指南</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            ES2017标准引入了async、await函数，使得异步操作变得更加方便了，而不用每次new Promise(...)了
-
-本文还使用到了es6的其他特性，例如箭头函数=&gt;，以及不用说的Promise，所以为了在生产上兼容，需要引入babel-polyfill，并对代码进行Babel处理。这里暂时不对相关知识进行细说。如果你使用最新版的Chrome浏览器进行开发调试，就可以暂时不用关心相关
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">第 1 页，共 2 页</span>
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">&raquo;</a>
-    </nav>
+    </section>
 
 
                         </div>
@@ -696,6 +333,19 @@ Parcel基本用法安装Parcel全局安装Parcel:Yarn:
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/08/22/facebook-Fizz/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Facebook:使用高性能的开源TLS库Fizz大规模部署TLS1.3</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
