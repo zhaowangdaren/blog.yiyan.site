@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yiyan.site/2018/10/10/es6-let-closure/</loc>
+    
+    <lastmod>2018-10-10T08:24:40.107Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yiyan.site/2018/10/08/review-vue-cli-2-9/</loc>
     
     <lastmod>2018-10-08T12:09:48.998Z</lastmod>

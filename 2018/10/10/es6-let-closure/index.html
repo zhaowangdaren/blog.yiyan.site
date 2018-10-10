@@ -6,14 +6,14 @@
     
 
     
-    <title>top-frameworks-trends-2018 | yiyan.site</title>
+    <title>ES6:看不懂的let类型与闭包间的关系 | yiyan.site</title>
     
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
 
     <!-- add amp head -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <link rel="canonical" href="/2018/05/17/top-frameworks-trends-2018/">
+    <link rel="canonical" href="/2018/10/10/es6-let-closure/">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <!-- ad -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -28,19 +28,19 @@
       
         <meta name="keywords" content="" />
     
-    <meta name="description" content="来自85个国家的超过1,000名参与者和大量数据，JAXenter调查了2018年哪些技术主题值得关注，并与历史进行了对比。 Web框架React、Angular和Node.js排名占据前3，我们可以看出JavaScript开发框架可以说是最近几年最受欢迎的web框架。排在第四位的是Java生态系统的Spring MVC，紧接其后的是国内大受欢迎的Vue.js。   我们来回顾一下2016年和20">
+    <meta name="description" content="let是ES6变量类型，其只在代码块内有效。闭包是有函数以及创建该函数的词法环境组合而成，这个环境包含了这个闭包创建时所能访问的所有局部变量。  如果合理使用闭包，可以使用var实现let局部有效的效果。显然这是多余的，因为babel已经能帮我们做了，并且很多新版浏览器都支持let，所有本文结束。 等等，babel都干了啥？为啥能将let转码使代码兼容旧版浏览器？ 兼容转码我们先来看一段比较简单">
 <meta property="og:type" content="article">
-<meta property="og:title" content="top-frameworks-trends-2018">
-<meta property="og:url" content="https://yiyan.site/2018/05/17/top-frameworks-trends-2018/index.html">
+<meta property="og:title" content="ES6:看不懂的let类型与闭包间的关系">
+<meta property="og:url" content="https://yiyan.site/2018/10/10/es6-let-closure/index.html">
 <meta property="og:site_name" content="yiyan.site">
-<meta property="og:description" content="来自85个国家的超过1,000名参与者和大量数据，JAXenter调查了2018年哪些技术主题值得关注，并与历史进行了对比。 Web框架React、Angular和Node.js排名占据前3，我们可以看出JavaScript开发框架可以说是最近几年最受欢迎的web框架。排在第四位的是Java生态系统的Spring MVC，紧接其后的是国内大受欢迎的Vue.js。   我们来回顾一下2016年和20">
+<meta property="og:description" content="let是ES6变量类型，其只在代码块内有效。闭包是有函数以及创建该函数的词法环境组合而成，这个环境包含了这个闭包创建时所能访问的所有局部变量。  如果合理使用闭包，可以使用var实现let局部有效的效果。显然这是多余的，因为babel已经能帮我们做了，并且很多新版浏览器都支持let，所有本文结束。 等等，babel都干了啥？为啥能将let转码使代码兼容旧版浏览器？ 兼容转码我们先来看一段比较简单">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://yiyan.site/2018/05/17/top-frameworks-trends-2018/web-frameworks.png">
-<meta property="og:updated_time" content="2018-05-17T11:31:14.639Z">
+<meta property="og:image" content="https://yiyan.site/2018/10/10/es6-let-closure/sample-let.png">
+<meta property="og:updated_time" content="2018-10-10T08:24:40.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="top-frameworks-trends-2018">
-<meta name="twitter:description" content="来自85个国家的超过1,000名参与者和大量数据，JAXenter调查了2018年哪些技术主题值得关注，并与历史进行了对比。 Web框架React、Angular和Node.js排名占据前3，我们可以看出JavaScript开发框架可以说是最近几年最受欢迎的web框架。排在第四位的是Java生态系统的Spring MVC，紧接其后的是国内大受欢迎的Vue.js。   我们来回顾一下2016年和20">
-<meta name="twitter:image" content="https://yiyan.site/2018/05/17/top-frameworks-trends-2018/web-frameworks.png">
+<meta name="twitter:title" content="ES6:看不懂的let类型与闭包间的关系">
+<meta name="twitter:description" content="let是ES6变量类型，其只在代码块内有效。闭包是有函数以及创建该函数的词法环境组合而成，这个环境包含了这个闭包创建时所能访问的所有局部变量。  如果合理使用闭包，可以使用var实现let局部有效的效果。显然这是多余的，因为babel已经能帮我们做了，并且很多新版浏览器都支持let，所有本文结束。 等等，babel都干了啥？为啥能将let转码使代码兼容旧版浏览器？ 兼容转码我们先来看一段比较简单">
+<meta name="twitter:image" content="https://yiyan.site/2018/10/10/es6-let-closure/sample-let.png">
     
 
     
@@ -179,14 +179,14 @@
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-top-frameworks-trends-2018" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-es6-let-closure" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        top-frameworks-trends-2018
+        ES6:看不懂的let类型与闭包间的关系
         </h1>
     
 
@@ -196,8 +196,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/05/17/top-frameworks-trends-2018/" class="article-date">
-            <time datetime="2018-05-17T10:54:45.000Z" itemprop="datePublished">2018-05-17</time>
+        <a href="/2018/10/10/es6-let-closure/" class="article-date">
+            <time datetime="2018-10-10T06:13:27.000Z" itemprop="datePublished">2018-10-10</time>
         </a>
     </div>
 
@@ -206,15 +206,29 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>来自85个国家的超过1,000名参与者和大量数据，JAXenter调查了2018年哪些技术主题值得关注，并与历史进行了对比。</p>
-<h2 id="Web框架"><a href="#Web框架" class="headerlink" title="Web框架"></a>Web框架</h2><p>React、Angular和Node.js排名占据前3，我们可以看出JavaScript开发框架可以说是最近几年最受欢迎的web框架。排在第四位的是Java生态系统的Spring MVC，紧接其后的是国内大受欢迎的Vue.js。</p>
-<div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/web-frameworks.png"><br></div><br>我们来回顾一下2016年和2017年，web框架的排名。<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/web-comparison-1.png"><br></div><br>Angular在2016年的时候可能不叫受欢迎，但是后来被React后来居上。React在今年将会继续超越Angular。Java生态的web框架越来越不受欢迎了，例如Spring MVC.<br><br>## 应用程序框架<br>Java生态中Spring Boot越来越受欢迎。不知道新秀Eclipse MicroProfile未来表现如何。<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/application-frameworks.png"><br></div><br>对比2016年和2017年的发展趋势：<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/application-frameworks-comparison.png"><br></div>
+            <blockquote>
+<p><code>let</code>是ES6变量类型，其只在代码块内有效。<br>闭包是有函数以及创建该函数的词法环境组合而成，这个环境包含了这个闭包创建时所能访问的所有局部变量。</p>
+</blockquote>
+<p>如果合理使用闭包，可以使用<code>var</code>实现<code>let</code>局部有效的效果。显然这是多余的，因为<code>babel</code>已经能帮我们做了，并且很多新版浏览器都支持<code>let</code>，所有本文结束。</p>
+<p>等等，<code>babel</code>都干了啥？为啥能将<code>let</code>转码使代码兼容旧版浏览器？</p>
+<h2 id="兼容转码"><a href="#兼容转码" class="headerlink" title="兼容转码"></a>兼容转码</h2><p>我们先来看一段比较简单的<code>babel</code>转码</p>
+<div style="text-align:center;"><br>  <img src="/2018/10/10/es6-let-closure/sample-let.png"><br></div>
 
-<h2 id="UI-toolkits"><a href="#UI-toolkits" class="headerlink" title="UI toolkits"></a>UI toolkits</h2><p>2018年，HTML5将是绝对的王者，紧随其后的是Bootstrap和Web组件。</p>
-<div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/UI.png"><br></div><br>来看一下Java UI toolkits在2016年和2017年的情况。<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/java-ui-toolkit.png"><br></div><br>程序员们对JavaFX的兴趣似乎有所减少，但是它仍然排在Swing和SWT前。需要注意的是，从JDK11开始，JavaFX将作为与JDK分离，作为独立的模块。Oracle在一份白皮书中写道，截至2022年3月，JavaFX新修补程序将继续得到Java SE 8的支持，并宣布他们“正在与感兴趣的第三方合作，以便更容易地构建和维护JavaFX作为单独分发的开源模块“。<br>我们来对比一下UI Frameworks在2016年和2017年的表现：<br><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/ui-frameworks.png"><br></div>
-
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>JavaScript框架显然是这次的精华，让我们仔细看看过去三年情况如何变化。</p>
-<p><div style="text-align: center;"><br>  <img src="/2018/05/17/top-frameworks-trends-2018/javascript.png"><br></div><br>React、Angular和Node.js遥遥领先，HTML5和Bootstrap的阵地也很大。<br>Web Components是一套不同的技术（不是React中所涉及到的组件），允许您创建可重用的定制元素（它们的功能封装在您的代码之外）并且在您的web应用中使用它们，有点类似React，但是区别也挺大，很容易被人忽视，因为React、Vue中也有组件的概念，不知道其发展将如何。</p>
+<p>我们来搬一段特别复杂的<code>let</code>类型申明代码</p>
+<figure class="highlight js"><figcaption><span>code1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<p>在<code>babel</code>官网将其转码为兼容代码：</p>
+<figure class="highlight js"><figcaption><span>code2</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> _loop = <span class="function"><span class="keyword">function</span> <span class="title">_loop</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  _loop(i);</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<p>老司机马上就看出了：将<code>let</code>转为了闭包</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>我们来看看<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="noopener">MDN</a>上的一段例子</p>
+<figure class="highlight js"><figcaption><span>code3</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"Mozilla"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">displayName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> displayName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myFunc = makeFunc();</span><br><span class="line">myFunc();</span><br></pre></td></tr></table></figure>
+<p>闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。<br>我们一通分析便可以看出<code>code3</code>闭包的基本结构：</p>
+<figure class="highlight js"><figcaption><span>code4</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(j)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;(i)</span><br></pre></td></tr></table></figure>
+<p><code>code4</code>的闭包是立即执行</p>
+<h2 id="利用闭包，使var-let"><a href="#利用闭包，使var-let" class="headerlink" title="利用闭包，使var == let"></a>利用闭包，使var == let</h2><p><code>code4</code>的结构不正是<code>code2</code>的简写吗？我们可以将<code>code2</code>改写为：<br><figure class="highlight js"><figcaption><span>code5</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(j)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;(i)</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure></p>
+<p>说好的简写呢？！<br>仔细阅读这句话<b>闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。</b></p>
+<p><code>let</code>是块级作用域，也就是局部作用域。闭包也是能访问局部作用域。</p>
+<p><code>code4</code>正是将变量<code>i</code>赋值给函数的局部变量<code>j</code>，<code>code5</code>中数组<code>a</code>的每个item都是该函数实例的引用。<br>在<code>let</code>出现之前，在循环中写闭包是一个比较常见的问题。</p>
+<p>我们不鼓励在循环中创建闭包，过多的闭包会付出性能代价。</p>
 
         </div>
         <footer class="article-footer">
@@ -222,7 +236,7 @@
 
 
 
-    <a data-url="https://yiyan.site/2018/05/17/top-frameworks-trends-2018/" data-id="cjn2w7c5t000h79m4qp7vilpf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://yiyan.site/2018/10/10/es6-let-closure/" data-id="cjn2w7c5k000779m4kntdvffy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -321,20 +335,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/05/18/10-years-of-GitHub/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            10-years-of-GitHub
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2018/05/13/top5-libraries-for-Go/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/10/08/review-vue-cli-2-9/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Go语言的5大开源库</p>
+        <p class="article-nav-title">深入解析vue-cli 2.9.*实现原理</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
