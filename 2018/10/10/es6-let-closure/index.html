@@ -6,7 +6,7 @@
     
 
     
-    <title>ES6:看不懂的let类型与闭包间的关系 | yiyan.site</title>
+    <title>ES6:看不懂的let类型与闭包间的关系+Babel的bug | yiyan.site</title>
     
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
 
@@ -30,15 +30,15 @@
     
     <meta name="description" content="let是ES6变量类型，其只在代码块内有效。闭包是有函数以及创建该函数的词法环境组合而成，这个环境包含了这个闭包创建时所能访问的所有局部变量。  如果合理使用闭包，可以使用var实现let局部有效的效果。显然这是多余的，因为babel已经能帮我们做了，并且很多新版浏览器都支持let，所有本文结束。 等等，babel都干了啥？为啥能将let转码使代码兼容旧版浏览器？ 兼容转码我们先来看一段比较简单">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6:看不懂的let类型与闭包间的关系">
+<meta property="og:title" content="ES6:看不懂的let类型与闭包间的关系+Babel的bug">
 <meta property="og:url" content="https://yiyan.site/2018/10/10/es6-let-closure/index.html">
 <meta property="og:site_name" content="yiyan.site">
 <meta property="og:description" content="let是ES6变量类型，其只在代码块内有效。闭包是有函数以及创建该函数的词法环境组合而成，这个环境包含了这个闭包创建时所能访问的所有局部变量。  如果合理使用闭包，可以使用var实现let局部有效的效果。显然这是多余的，因为babel已经能帮我们做了，并且很多新版浏览器都支持let，所有本文结束。 等等，babel都干了啥？为啥能将let转码使代码兼容旧版浏览器？ 兼容转码我们先来看一段比较简单">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yiyan.site/2018/10/10/es6-let-closure/sample-let.png">
-<meta property="og:updated_time" content="2018-10-10T08:24:40.107Z">
+<meta property="og:updated_time" content="2018-10-10T08:51:52.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6:看不懂的let类型与闭包间的关系">
+<meta name="twitter:title" content="ES6:看不懂的let类型与闭包间的关系+Babel的bug">
 <meta name="twitter:description" content="let是ES6变量类型，其只在代码块内有效。闭包是有函数以及创建该函数的词法环境组合而成，这个环境包含了这个闭包创建时所能访问的所有局部变量。  如果合理使用闭包，可以使用var实现let局部有效的效果。显然这是多余的，因为babel已经能帮我们做了，并且很多新版浏览器都支持let，所有本文结束。 等等，babel都干了啥？为啥能将let转码使代码兼容旧版浏览器？ 兼容转码我们先来看一段比较简单">
 <meta name="twitter:image" content="https://yiyan.site/2018/10/10/es6-let-closure/sample-let.png">
     
@@ -186,7 +186,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-        ES6:看不懂的let类型与闭包间的关系
+        ES6:看不懂的let类型与闭包间的关系+Babel的bug
         </h1>
     
 
@@ -229,6 +229,15 @@
 <p><code>let</code>是块级作用域，也就是局部作用域。闭包也是能访问局部作用域。</p>
 <p><code>code4</code>正是将变量<code>i</code>赋值给函数的局部变量<code>j</code>，<code>code5</code>中数组<code>a</code>的每个item都是该函数实例的引用。<br>在<code>let</code>出现之前，在循环中写闭包是一个比较常见的问题。</p>
 <p>我们不鼓励在循环中创建闭包，过多的闭包会付出性能代价。</p>
+<h2 id="Babel的bug"><a href="#Babel的bug" class="headerlink" title="Babel的bug"></a>Babel的bug</h2><p>意外发现了一个Babel的小bug。我们在最新的Chrome/Firefox浏览器中运行这段代码：</p>
+<figure class="highlight js"><figcaption><span>code6</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="string">'abc'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(i, <span class="keyword">new</span> <span class="built_in">Date</span>().getTime());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会发现输出结果为<b>3</b>次”abc 1539160907***”。将<code>code6</code>通过<code>Babel</code>转码得到<code>code7</code></p>
+<figure class="highlight js"><figcaption><span>code7</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="string">'abc'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(i, <span class="keyword">new</span> <span class="built_in">Date</span>().getTime());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>code7</code>在浏览器中仅仅运行了<b>1</b>次，输出结果为”abc 1539160907***”</p>
+<p><a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="noopener">阮老师</a>讲：</p>
+<blockquote>
+<p><code>for</code>循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。</p>
+</blockquote>
 
         </div>
         <footer class="article-footer">
@@ -236,7 +245,7 @@
 
 
 
-    <a data-url="https://yiyan.site/2018/10/10/es6-let-closure/" data-id="cjn2w7c5k000779m4kntdvffy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://yiyan.site/2018/10/10/es6-let-closure/" data-id="cjn2x1q050007bkm40o77pogn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -363,7 +372,7 @@
                             <a href="/2018/10/10/es6-let-closure/" class="thumbnail">
     
     
-        <span style="background-image:url(/2018/10/10/es6-let-closure/sample-let.png)" alt="ES6:看不懂的let类型与闭包间的关系" class="thumbnail-image"></span>
+        <span style="background-image:url(/2018/10/10/es6-let-closure/sample-let.png)" alt="ES6:看不懂的let类型与闭包间的关系+Babel的bug" class="thumbnail-image"></span>
     
     
 </a>
@@ -372,7 +381,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/10/es6-let-closure/" class="title">ES6:看不懂的let类型与闭包间的关系</a></p>
+                            <p class="item-title"><a href="/2018/10/10/es6-let-closure/" class="title">ES6:看不懂的let类型与闭包间的关系+Babel的bug</a></p>
                             <p class="item-date"><time datetime="2018-10-10T06:13:27.000Z" itemprop="datePublished">2018-10-10</time></p>
                         </div>
                     </li>
