@@ -6,14 +6,14 @@
     
 
     
-    <title>归档: 2018 | yiyan.site</title>
+    <title>vue-loader如何配置cssModules | yiyan.site</title>
     
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
 
     <!-- add amp head -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <link rel="canonical" href="/archives/2018/page/2/index.html">
+    <link rel="canonical" href="/2018/10/31/vue-loader如何配置cssModules/">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <!-- ad -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -25,14 +25,23 @@
     </script>
 
 
+      
+        <meta name="keywords" content="vue-cli" />
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yiyan.site">
-<meta property="og:url" content="https://yiyan.site/archives/2018/page/2/index.html">
+    <meta name="description" content="在使用vue cli 2系列进行模块编程时，为避免css冲突，我们常采用vue-loader的scoped和module方法来实现。 scopedscoped使用方法最为简单，只需要在.vue文件的&amp;lt;style&amp;gt;标签增加scoped属性即可。123456789&amp;lt;template&amp;gt;  &amp;lt;div class=&quot;example&quot;&amp;gt;hi&amp;lt;/div&amp;gt;&amp;lt;/">
+<meta name="keywords" content="vue-cli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-loader如何配置cssModules">
+<meta property="og:url" content="https://yiyan.site/2018/10/31/vue-loader如何配置cssModules/index.html">
 <meta property="og:site_name" content="yiyan.site">
+<meta property="og:description" content="在使用vue cli 2系列进行模块编程时，为避免css冲突，我们常采用vue-loader的scoped和module方法来实现。 scopedscoped使用方法最为简单，只需要在.vue文件的&amp;lt;style&amp;gt;标签增加scoped属性即可。123456789&amp;lt;template&amp;gt;  &amp;lt;div class=&quot;example&quot;&amp;gt;hi&amp;lt;/div&amp;gt;&amp;lt;/">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yiyan.site/2018/10/31/vue-loader如何配置cssModules/scoped.png">
+<meta property="og:updated_time" content="2018-10-31T12:16:19.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yiyan.site">
+<meta name="twitter:title" content="vue-loader如何配置cssModules">
+<meta name="twitter:description" content="在使用vue cli 2系列进行模块编程时，为避免css冲突，我们常采用vue-loader的scoped和module方法来实现。 scopedscoped使用方法最为简单，只需要在.vue文件的&amp;lt;style&amp;gt;标签增加scoped属性即可。123456789&amp;lt;template&amp;gt;  &amp;lt;div class=&quot;example&quot;&amp;gt;hi&amp;lt;/div&amp;gt;&amp;lt;/">
+<meta name="twitter:image" content="https://yiyan.site/2018/10/31/vue-loader如何配置cssModules/scoped.png">
     
 
     
@@ -167,318 +176,134 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>归档: 2018
+    未分类
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-vue-loader如何配置cssModules" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/13/top5-libraries-for-Go/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-13T04:07:07.000Z" itemprop="datePublished">2018-05-13</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/13/top5-libraries-for-Go/">Go语言的5大开源库</a>
+        vue-loader如何配置cssModules
         </h1>
     
 
-        <p class="article-excerpt">
-            Go语言可以说是一个开箱即用的编程语言，其性能出众、支持分布式等特性深得程序员的喜爱。小编之前在毫无Go语言开发经验的情况下，只花了一个星期便掌握了Go语言的基本特性，后来也没花几天便搭建了一个数据库为mongoDB的服务器，并实现了相当复（chong）杂（fu）的功能，可见其上手非常简单。
-下面介绍5个在GitHub上比较火热的Go语言开源工具库。
-Go kit：微服务工具包Go kit微服务工
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/10/31/vue-loader如何配置cssModules/" class="article-date">
+            <time datetime="2018-10-31T11:16:32.000Z" itemprop="datePublished">2018-10-31</time>
+        </a>
     </div>
-</article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/11/how-about-Parcel/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/11/how-about-Parcel/direct-start-failed.png)" alt="Parcel打包初体验" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/vue-cli/">vue-cli</a>
+    </div>
 
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
             </div>
-            <div class="date"><time datetime="2018-05-11T03:16:10.000Z" itemprop="datePublished">2018-05-11</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/11/how-about-Parcel/">Parcel打包初体验</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>在使用vue cli 2系列进行模块编程时，为避免css冲突，我们常采用vue-loader的scoped和module方法来实现。</p>
+<h2 id="scoped"><a href="#scoped" class="headerlink" title="scoped"></a>scoped</h2><p>scoped使用方法最为简单，只需要在<code>.vue</code>文件的<code>&lt;style&gt;</code>标签增加<code>scoped</code>属性即可。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"example"</span>&gt;hi&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.example &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="scoped-注意⚠️"><a href="#scoped-注意⚠️" class="headerlink" title="scoped:注意⚠️"></a>scoped:注意⚠️</h4><p>但是会有一个问题：子组件的跟节点会收到父组件的影响，这也是scoped本身的特性决定的。例如：<br>我们在子组件的根结点设置<code>wrap</code> class，在父组件中也设置<code>wrap</code> class。<br><figure class="highlight js"><figcaption><span>child.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"wrap"</span>&gt;test&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.wrap&#123;</span><br><span class="line">  margin-top: <span class="number">10</span>px</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><figcaption><span>parent.vue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"wrap"</span>&gt;</span><br><span class="line">    &lt;child /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> Child <span class="keyword">from</span> <span class="string">'./child'</span></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    Child</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style scoped&gt;</span></span><br><span class="line"><span class="regexp">.wrap&#123;</span></span><br><span class="line"><span class="regexp">  padding-top: 20px</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure>
+<p>效果为：</p>
+<div style="text-align: center;"><br>  <img src="/2018/10/31/vue-loader如何配置cssModules/scoped.png"><br></div>
 
-        <p class="article-excerpt">
-            Parcel号称极速零配置Web应用打包工具，相比于webpack的复杂性，Parcel确实为我们省去了很多配置。使用过facebook/create-react-app的同学应该会发现，creat-react-app也简化了配置，其包含react-scripts包，这个包做的事正与Parcel类似：将所有的打包配置统筹、封装。
-Parcel基本用法安装Parcel全局安装Parcel:Yarn:
-        </p>
+<p>解决方法：</p>
+<ul>
+<li>改子组件或父组件的class名：改名字是不阔能的，这辈子都不阔能的。如果要改，我们要模块化css有何用？</li>
+<li>子组件外再包裹一个无class的元素：确实能解决，但是这种方法我是拒绝的，因为会增加dom</li>
+</ul>
+<h2 id="CSS-Modules"><a href="#CSS-Modules" class="headerlink" title="CSS Modules"></a>CSS Modules</h2><p>说到上面的问题，CSS Modules就可以解决：CSS Modules会给每个clsss生成一个唯一的class名，其依据了文件路径等信息，采用hash加随机数得出唯一的class名。<br>在<code>.vue</code>文件中使用方式如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div :<span class="class"><span class="keyword">class</span></span>=<span class="string">"$style.wrap"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style module&gt;</span></span><br><span class="line"><span class="regexp">.wrap&#123;</span></span><br><span class="line"><span class="regexp">  margin: auto;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但是我会小改一下，因为懒得每次写<code>$style</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div :<span class="class"><span class="keyword">class</span></span>=<span class="string">"s.wrap"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;style module="s"&gt;</span></span><br><span class="line"><span class="regexp">.wrap&#123;</span></span><br><span class="line"><span class="regexp">  margin: auto;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>style&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="本文中心思想：表达了作者…"><a href="#本文中心思想：表达了作者…" class="headerlink" title="本文中心思想：表达了作者…"></a>本文中心思想：表达了作者…</h2><p>在vue-cli 2系列中使用CSS Modules时，如果仅仅采用上述方式，会发现很难进行调试了：完全不知道网页渲染出的class对应源码中的哪一个。</p>
+<p>所以需要在<code>vue-load.conf.js</code>文件中进行配置，来告诉vue-loader如何生成class名。作者通常采用以下配置来命名：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cssModules: &#123;</span><br><span class="line">  localIdentName: <span class="string">'[local]-[hash:base64:5]'</span>, <span class="comment">// 指定命名采用：局部名-5位的hash</span></span><br><span class="line">  camelCase: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>指定命名完整参考为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localIdentName: <span class="string">'[path][name]---[local]---[hash:base64:5]'</span></span><br></pre></td></tr></table></figure></p>
+<p>命名具体可以参考<a href="https://github.com/css-modules/postcss-modules" target="_blank" rel="noopener">postcss-modules</a>，以及<a href="https://vue-loader-v14.vuejs.org/en/features/css-modules.html" target="_blank" rel="noopener">vue-loader v14</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yiyan.site/2018/10/31/vue-loader如何配置cssModules/" data-id="cjnx4me2j000ngjm4s04kpl4v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
 </article>
-    
-        </div>
-    
 
+    <section id="comments">
     
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/10/async-and-await-comprehensive-guide/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/10/async-and-await-comprehensive-guide/files.png)" alt="ES2017中async&amp;await踩坑指南" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-10T08:15:26.000Z" itemprop="datePublished">2018-05-10</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/10/async-and-await-comprehensive-guide/">ES2017中async&amp;await踩坑指南</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            ES2017标准引入了async、await函数，使得异步操作变得更加方便了，而不用每次new Promise(...)了
-
-本文还使用到了es6的其他特性，例如箭头函数=&gt;，以及不用说的Promise，所以为了在生产上兼容，需要引入babel-polyfill，并对代码进行Babel处理。这里暂时不对相关知识进行细说。如果你使用最新版的Chrome浏览器进行开发调试，就可以暂时不用关心相关
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/06/how-to-debug-web-code/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/05/06/how-to-debug-web-code/console.info.png)" alt="前端代码如何调试？" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-06T08:57:44.000Z" itemprop="datePublished">2018-05-06</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/06/how-to-debug-web-code/">前端代码如何调试？</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-前端代码的调试即javaScript调试，调试方法有很多，不同的开发者有不同的调试方式。这里介绍几种从入门到入坑的调试方法。
-
-最简单调试方法：打印日志打印日志不仅仅是前端代码的调试方法，它几乎是大部分开发语言的入门级调试方法。很多开发者在新手阶段都会采用这一方式，将变量值等信息打印出来。javaScript输出日志主要方法是console对象。console对象有很多个方法，例如console
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/02/27/weex-hotreload/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/02/27/weex-hotreload/weex_ws.png)" alt="WEEX开发实现native端hotreload" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-02-27T06:13:31.000Z" itemprop="datePublished">2018-02-27</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/02/27/weex-hotreload/">WEEX开发实现native端hotreload</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-相关版本：weex-toolkit: 1.2.9playground: 0.5.2.5
-
-在进行weex开发，修改代码时，网页能进行自动刷新，方便开发人员看到改动。但是，在app端，由于加载的仅仅是业务代码的js文件，不能实现自动刷新。
-在官方提供的playground app中，在界面上添加了刷新按钮，来手动刷新。but…有点懒，想想其他办法。
-在playground的代码中发现了hotreo
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/02/27/js-memory-manager-md/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/02/27/js-memory-manager-md/cycles-are-creating-problems.png)" alt="JavaScript的内存管理，以及如何处理4种常见的内存泄漏" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-02-27T03:12:22.000Z" itemprop="datePublished">2018-02-27</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/02/27/js-memory-manager-md/">JavaScript的内存管理，以及如何处理4种常见的内存泄漏</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            JavaScript的内存管理，以及如何处理4种常见的内存泄漏起初从一个公众号中看到了这篇文章，拜读的时候发现有一两处地方有点难懂。于是尝试翻译一下原文，原文地址为How JavaScript works: memory management + how to handle 4 common memory leaks
-作者针对JavaScript写了一系列的文章，第三篇便是此文章。第一篇和第二篇分
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">第 2 页，共 2 页</span>
-        <a class="extend prev" rel="prev" href="/archives/2018/">&laquo;</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-    </nav>
+    </section>
 
 
                         </div>
@@ -507,6 +332,19 @@ Parcel基本用法安装Parcel全局安装Parcel:Yarn:
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/10/24/go-kit-examples-shipping-analysis/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">go-kit_examples_shipping-analysis</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
