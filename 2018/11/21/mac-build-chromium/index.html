@@ -37,7 +37,7 @@
 <meta property="og:description" content="此文章来自网络。由于按照官方的教程没有成功编译iOS版，而按此文章成功编译，特此记录，原文链接  安装depot_tools工具获取depot_tools工具1git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git 添加环境变量把depot_tools工具路径添加到系统的环境变量，~/.bashrc o">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yiyan.site/2018/11/21/mac-build-chromium/1.png">
-<meta property="og:updated_time" content="2018-11-21T02:33:46.026Z">
+<meta property="og:updated_time" content="2018-11-21T06:37:32.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac下载编译chromium源码">
 <meta name="twitter:description" content="此文章来自网络。由于按照官方的教程没有成功编译iOS版，而按此文章成功编译，特此记录，原文链接  安装depot_tools工具获取depot_tools工具1git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git 添加环境变量把depot_tools工具路径添加到系统的环境变量，~/.bashrc o">
@@ -235,7 +235,7 @@
 <p>编译：<br>这里有点不一样，可以先尝试：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoninja -C out/Debug-iphonesimulator gn_all</span><br></pre></td></tr></table></figure></p>
 <p>or</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ninja -C out/Debug-iphonesimulator All</span><br></pre></td></tr></table></figure>
-<p>运行测试app:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./iossim -d <span class="string">"iPhone 6"</span> -s 9.3 ./base_unittests.app</span><br></pre></td></tr></table></figure></p>
+<p>运行测试app（机型是iPhone 6,系统iOS 12.1）:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">out/Debug-iphonesimulator/iossim -d <span class="string">"iPhone 6"</span> -s 12.1 out/Debug-iphonesimulator/Chromium.app</span><br></pre></td></tr></table></figure></p>
 <h4 id="单个模块"><a href="#单个模块" class="headerlink" title="单个模块"></a>单个模块</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ninja -C out/Debug-iphonesimulator net</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GYP_GENERATORS=xcode-ninja </span><br><span class="line"><span class="built_in">export</span> CHROMIUM_GYP_FILE=<span class="string">'net/net.gyp'</span></span><br><span class="line">./build/gyp_chromium</span><br></pre></td></tr></table></figure>
 <p>参考文档<br><a href="https://www.chromium.org/developers/how-tos/get-the-code" target="_blank" rel="noopener">Get the Code: Checkout, Build, &amp; Run Chromium</a></p>
@@ -246,7 +246,7 @@
 
 
 
-    <a data-url="https://yiyan.site/2018/11/21/mac-build-chromium/" data-id="cjoqjx07g000hjjm40hjhhzry" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://yiyan.site/2018/11/21/mac-build-chromium/" data-id="cjoqsr3yb000h1im4iuhpbkkq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
