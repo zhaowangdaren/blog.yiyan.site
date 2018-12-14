@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yiyan.site/about/index.html</loc>
+    
+    <lastmod>2018-12-14T01:42:44.587Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yiyan.site/2018/11/21/mac-build-chromium/</loc>
     
     <lastmod>2018-11-21T06:55:44.955Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://yiyan.site/2018/10/08/review-vue-cli-2-9/</loc>
     
     <lastmod>2018-10-08T12:09:48.998Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yiyan.site/about/index.html</loc>
-    
-    <lastmod>2018-09-08T04:26:53.076Z</lastmod>
     
   </url>
   
