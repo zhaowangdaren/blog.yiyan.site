@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yiyan.site/2019/02/13/webpack-proxy/</loc>
+    
+    <lastmod>2019-02-13T05:11:12.882Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yiyan.site/about/index.html</loc>
     
     <lastmod>2018-12-14T01:42:44.587Z</lastmod>

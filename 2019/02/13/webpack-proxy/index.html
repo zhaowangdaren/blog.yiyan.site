@@ -6,14 +6,14 @@
     
 
     
-    <title>标签：: GitHub | yiyan.site</title>
+    <title>webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有 | yiyan.site</title>
     
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
 
     <!-- add amp head -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <link rel="canonical" href="/tags/GitHub/index.html">
+    <link rel="canonical" href="/2019/02/13/webpack-proxy/">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <!-- ad -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -25,14 +25,20 @@
     </script>
 
 
+      
+        <meta name="keywords" content="" />
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yiyan.site">
-<meta property="og:url" content="https://yiyan.site/tags/GitHub/index.html">
+    <meta name="description" content="前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。 通常在webpack的devServer进行如下配置123456789devServer: &amp;#123;  ...  proxy: &amp;#123;    &apos;/api&apos;: &amp;#123;      target: &quot;http://target.api.domain.com&quot;,      chang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有">
+<meta property="og:url" content="https://yiyan.site/2019/02/13/webpack-proxy/index.html">
 <meta property="og:site_name" content="yiyan.site">
+<meta property="og:description" content="前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。 通常在webpack的devServer进行如下配置123456789devServer: &amp;#123;  ...  proxy: &amp;#123;    &apos;/api&apos;: &amp;#123;      target: &quot;http://target.api.domain.com&quot;,      chang">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-13T05:11:12.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yiyan.site">
+<meta name="twitter:title" content="webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有">
+<meta name="twitter:description" content="前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。 通常在webpack的devServer进行如下配置123456789devServer: &amp;#123;  ...  proxy: &amp;#123;    &apos;/api&apos;: &amp;#123;      target: &quot;http://target.api.domain.com&quot;,      chang">
     
 
     
@@ -167,71 +173,122 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签：: <em>GitHub</em>
+    未分类
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-webpack-proxy" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/18/10-years-of-GitHub/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            
-            </div>
-            <div class="date"><time datetime="2018-05-18T02:42:25.000Z" itemprop="datePublished">2018-05-18</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/18/10-years-of-GitHub/">10-years-of-GitHub</a>
+        webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有
         </h1>
     
 
-        <p class="article-excerpt">
-            上个月，也就是2018年4月10日是GitHub十周年，GitHub创始人Chris Wanstrath发布了一篇文章来总结这十年的发展。
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/13/webpack-proxy/" class="article-date">
+            <time datetime="2019-02-13T02:49:33.000Z" itemprop="datePublished">2019-02-13</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。</p>
+<p>通常在webpack的devServer进行如下配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  ...</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    <span class="string">'/api'</span>: &#123;</span><br><span class="line">      target: <span class="string">"http://target.api.domain.com"</span>,</span><br><span class="line">      changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如此配置基本可以解决大部分的跨域问题。</p>
+<p>但是，在后台将允许的跨域地址指定为一个后，上述配置便对post请求不生效了，也就是post请求跨域失败，而get请求成功。</p>
+<p>对比get和post请求的不同，发现get的请求头里面没有<code>origin</code>字段，而post请求里面有<code>origin</code>字段。<strong>为什么get请求头部没有<code>origin</code>字段，而post请求头部有<code>origin</code>字段</strong></p>
+<p>在命令行中使用curl工具请求接口，header中不设置<code>origin</code>字段请求成功，一旦设置为本机开发服务IP地址和端口，post请求就失败。</p>
+<p>在webpack的devServer采用<code>http-proxy-middleware</code>来代理转发请求，配置中<code>changeOrigin</code>的作用是： changes the origin of the host header to the target URL。</p>
+<p><code>changeOrigin: true</code>为什么没有生效？没有进行抓包分析。</p>
+<p><code>http-proxy-middleware</code>的配置中还有一个<code>headers</code>的配置，将上述配置修改为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  ...</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    <span class="string">'/api'</span>: &#123;</span><br><span class="line">      target: <span class="string">"http://target.api.domain.com"</span>,</span><br><span class="line">      changeOrigin: <span class="literal">true</span>,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        host: <span class="string">"http://target.api.domain.com"</span>,</span><br><span class="line">        origin: <span class="string">"http://target.api.domain.com"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>成功</p>
+<p>那么问题来了：<strong>为什么get请求头部没有<code>origin</code>字段，而post请求头部有<code>origin</code>字段？</strong></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yiyan.site/2019/02/13/webpack-proxy/" data-id="cjs2qmpeu000odkm43ohvncmn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
 </article>
+
+    <section id="comments">
     
-        </div>
-    
-
-
-    </div></section>
-
+    </section>
 
 
                         </div>
@@ -260,6 +317,19 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/11/21/mac-build-chromium/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">mac下载编译chromium源码</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
