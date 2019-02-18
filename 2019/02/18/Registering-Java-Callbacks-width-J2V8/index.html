@@ -6,14 +6,14 @@
     
 
     
-    <title>webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有 | yiyan.site</title>
+    <title>J2V8实现Java与Javascript互相调用 | yiyan.site</title>
     
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
 
     <!-- add amp head -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-    <link rel="canonical" href="/2019/02/13/webpack-proxy/">
+    <link rel="canonical" href="/2019/02/18/Registering-Java-Callbacks-width-J2V8/">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <!-- ad -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -26,19 +26,20 @@
 
 
       
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="J2V8, Java, Javascript" />
     
-    <meta name="description" content="前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。 通常在webpack的devServer进行如下配置123456789devServer: &amp;#123;  ...  proxy: &amp;#123;    &apos;/api&apos;: &amp;#123;      target: &quot;http://target.api.domain.com&quot;,      chang">
+    <meta name="description" content="Java调用JS方法编写一个返回String的JS方法1234// jsfunction javaCallJSFunc (msg) &amp;#123;  return msg + &apos; -&amp;gt; Hi, Java!&apos;&amp;#125; 引入J2V8库时可以引入jar或者Android的aar包，或者自行编译。例如Android Studio引入：implementation &amp;#39;com.eclipses">
+<meta name="keywords" content="J2V8, Java, Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有">
-<meta property="og:url" content="https://yiyan.site/2019/02/13/webpack-proxy/index.html">
+<meta property="og:title" content="J2V8实现Java与Javascript互相调用">
+<meta property="og:url" content="https://yiyan.site/2019/02/18/Registering-Java-Callbacks-width-J2V8/index.html">
 <meta property="og:site_name" content="yiyan.site">
-<meta property="og:description" content="前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。 通常在webpack的devServer进行如下配置123456789devServer: &amp;#123;  ...  proxy: &amp;#123;    &apos;/api&apos;: &amp;#123;      target: &quot;http://target.api.domain.com&quot;,      chang">
+<meta property="og:description" content="Java调用JS方法编写一个返回String的JS方法1234// jsfunction javaCallJSFunc (msg) &amp;#123;  return msg + &apos; -&amp;gt; Hi, Java!&apos;&amp;#125; 引入J2V8库时可以引入jar或者Android的aar包，或者自行编译。例如Android Studio引入：implementation &amp;#39;com.eclipses">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-13T05:11:12.882Z">
+<meta property="og:updated_time" content="2019-02-18T07:22:54.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有">
-<meta name="twitter:description" content="前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。 通常在webpack的devServer进行如下配置123456789devServer: &amp;#123;  ...  proxy: &amp;#123;    &apos;/api&apos;: &amp;#123;      target: &quot;http://target.api.domain.com&quot;,      chang">
+<meta name="twitter:title" content="J2V8实现Java与Javascript互相调用">
+<meta name="twitter:description" content="Java调用JS方法编写一个返回String的JS方法1234// jsfunction javaCallJSFunc (msg) &amp;#123;  return msg + &apos; -&amp;gt; Hi, Java!&apos;&amp;#125; 引入J2V8库时可以引入jar或者Android的aar包，或者自行编译。例如Android Studio引入：implementation &amp;#39;com.eclipses">
     
 
     
@@ -188,14 +189,14 @@ ga('send', 'pageview');
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-webpack-proxy" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Registering-Java-Callbacks-width-J2V8" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有
+        J2V8实现Java与Javascript互相调用
         </h1>
     
 
@@ -205,27 +206,30 @@ ga('send', 'pageview');
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/02/13/webpack-proxy/" class="article-date">
-            <time datetime="2019-02-13T02:49:33.000Z" itemprop="datePublished">2019-02-13</time>
+        <a href="/2019/02/18/Registering-Java-Callbacks-width-J2V8/" class="article-date">
+            <time datetime="2019-02-18T02:25:33.000Z" itemprop="datePublished">2019-02-18</time>
         </a>
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/J2V8-Java-Javascript/">J2V8, Java, Javascript</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>前后后端分离开发，普遍会存在跨域的问题。前端在使用webpack开发时，通常采用代理的方式来解决跨域问题。</p>
-<p>通常在webpack的devServer进行如下配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  ...</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    <span class="string">'/api'</span>: &#123;</span><br><span class="line">      target: <span class="string">"http://target.api.domain.com"</span>,</span><br><span class="line">      changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如此配置基本可以解决大部分的跨域问题。</p>
-<p>但是，在后台将允许的跨域地址指定为一个后，上述配置便对post请求不生效了，也就是post请求跨域失败，而get请求成功。</p>
-<p>对比get和post请求的不同，发现get的请求头里面没有<code>origin</code>字段，而post请求里面有<code>origin</code>字段。<strong>为什么get请求头部没有<code>origin</code>字段，而post请求头部有<code>origin</code>字段</strong></p>
-<p>在命令行中使用curl工具请求接口，header中不设置<code>origin</code>字段请求成功，一旦设置为本机开发服务IP地址和端口，post请求就失败。</p>
-<p>在webpack的devServer采用<code>http-proxy-middleware</code>来代理转发请求，配置中<code>changeOrigin</code>的作用是： changes the origin of the host header to the target URL。</p>
-<p><code>changeOrigin: true</code>为什么没有生效？没有进行抓包分析。</p>
-<p><code>http-proxy-middleware</code>的配置中还有一个<code>headers</code>的配置，将上述配置修改为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  ...</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    <span class="string">'/api'</span>: &#123;</span><br><span class="line">      target: <span class="string">"http://target.api.domain.com"</span>,</span><br><span class="line">      changeOrigin: <span class="literal">true</span>,</span><br><span class="line">      headers: &#123;</span><br><span class="line">        host: <span class="string">"http://target.api.domain.com"</span>,</span><br><span class="line">        origin: <span class="string">"http://target.api.domain.com"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>成功</p>
-<p>那么问题来了：<strong>为什么get请求头部没有<code>origin</code>字段，而post请求头部有<code>origin</code>字段？</strong></p>
+            <h2 id="Java调用JS方法"><a href="#Java调用JS方法" class="headerlink" title="Java调用JS方法"></a>Java调用JS方法</h2><p>编写一个返回String的JS方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">javaCallJSFunc</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> msg + <span class="string">' -&gt; Hi, Java!'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>引入J2V8库时可以引入jar或者Android的aar包，或者自行编译。例如Android Studio引入：<br><code>implementation &#39;com.eclipsesource.j2v8:j2v8:4.8.2@aar&#39;</code><br>下述例子均是在Android中运行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">javaCallJSFunc</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  V8 jsRuntime = V8.createV8Runtime();</span><br><span class="line">  jsRuntime.executeScript(<span class="string">"function javaCallJSFunc (msg) &#123;\n"</span> +</span><br><span class="line">          <span class="string">"    return msg + ' -&gt; Hi, Java!'\n"</span> +</span><br><span class="line">          <span class="string">"&#125;"</span>);</span><br><span class="line">  <span class="comment">// 添加参数</span></span><br><span class="line">  V8Array params = <span class="keyword">new</span> V8Array(jsRuntime).push(<span class="string">"Hi, Javascript!"</span>);</span><br><span class="line">  String result = jsRuntime.executeStringFunction(<span class="string">"javaCallJSFunc"</span>, params);</span><br><span class="line">  Log.e(<span class="string">"Test"</span>, <span class="string">"javaCallJSFunc result = "</span> + result);</span><br><span class="line">  <span class="comment">// 需手动释放资源</span></span><br><span class="line">  jsRuntime.release();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JS调用Java方法"><a href="#JS调用Java方法" class="headerlink" title="JS调用Java方法"></a>JS调用Java方法</h2><p>js调用Java方法，从实现方式上有两种：JavaCallback、Relfectively</p>
+<h3 id="JavaCallback"><a href="#JavaCallback" class="headerlink" title="JavaCallback"></a>JavaCallback</h3><p>假设我们在Javascript中调用Java的setData方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//js</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>().toDateString()</span><br><span class="line">setData(date)</span><br></pre></td></tr></table></figure></p>
+<p>在Java中实例化一个JavaVoidCallback的匿名类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java</span></span><br><span class="line"><span class="comment">// jsCallJavaFunc js调用Java方法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">jsCallJavaFunc</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  V8 jsRuntime = V8.createV8Runtime();</span><br><span class="line">  JavaVoidCallback setData = <span class="keyword">new</span> JavaVoidCallback() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">invoke</span><span class="params">(V8Object v8Object, V8Array v8Array)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (v8Array.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 获取js传入的参数</span></span><br><span class="line">        Object arg1 = v8Array.get(<span class="number">0</span>);</span><br><span class="line">        Log.i(<span class="string">"J2V8"</span>, <span class="string">"jsCallJavaFunc -&gt; "</span> + arg1.toString());</span><br><span class="line">        <span class="keyword">if</span> (arg1 <span class="keyword">instanceof</span> Releasable) &#123;</span><br><span class="line">          ((Releasable) arg1).release();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  jsRuntime.registerJavaMethod(setData, <span class="string">"setData"</span>);</span><br><span class="line">  jsRuntime.executeScript(<span class="string">"var date = new Date().toDateString()\n"</span> +</span><br><span class="line">      <span class="string">"  setData(date)"</span>);</span><br><span class="line">  <span class="comment">// 需手动释放资源</span></span><br><span class="line">  jsRuntime.release();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Relfectively"><a href="#Relfectively" class="headerlink" title="Relfectively"></a>Relfectively</h3><p>更确切的说是类似于在Javascript中，给对象定义方法，也就是js调用Java Object的方法。<br>创建一个Java类，该类包含Javascript可以调用的方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSBridge</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span> <span class="params">(String data)</span> </span>&#123;</span><br><span class="line">    Log.i(<span class="string">"JSBridge"</span>, data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在js中调用<code>JSBridge.setData</code>方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>().toDateString()</span><br><span class="line">JSBridge.setData(date)</span><br></pre></td></tr></table></figure></p>
+<p>在Java中将JSBridge暴露给js<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">jsCallJavaObject</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  JSBridge jsBridge = <span class="keyword">new</span> JSBridge();</span><br><span class="line">  V8Object jsBridgeObj = <span class="keyword">new</span> V8Object(jsRuntime);</span><br><span class="line">  <span class="comment">// 将jsBridge暴露给js</span></span><br><span class="line">  jsRuntime.add(<span class="string">"JSBridge"</span>, jsBridgeObj);</span><br><span class="line">  <span class="comment">// 注册方法</span></span><br><span class="line">  jsBridgeObj.registerJavaMethod(jsBridge, <span class="string">"setData"</span>, <span class="string">"setData"</span>, <span class="keyword">new</span> Class&lt;?&gt;[] &#123;String.class&#125;);</span><br><span class="line">  jsBridgeObj.release();</span><br><span class="line">  jsRuntime.executeScript(<span class="string">"var date = new Date().toDateString()\n"</span> +</span><br><span class="line">    <span class="string">"JSBridge.setData(date)"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         </div>
         <footer class="article-footer">
@@ -233,7 +237,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://yiyan.site/2019/02/13/webpack-proxy/" data-id="cjsa1k60z000sq4m4r3mula9m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://yiyan.site/2019/02/18/Registering-Java-Callbacks-width-J2V8/" data-id="cjsa1k60h0006q4m46ea0qov9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -332,20 +336,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2019/02/18/Registering-Java-Callbacks-width-J2V8/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            J2V8实现Java与Javascript互相调用
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2018/11/21/mac-build-chromium/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/02/13/webpack-proxy/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">mac下载编译chromium源码</p>
+        <p class="article-nav-title">webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
