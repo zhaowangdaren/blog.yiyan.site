@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    
+
+    
+    <title>从零开始，再造一个小程序平台 | yiyan.site</title>
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
+
+    <!-- add amp head -->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <link rel="canonical" href="/2019/02/23/recreatomg-a-small-program-framework/">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <!-- ad -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8679694381924312",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
+      
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="微信发布小程序平台后，国内各大APP火速跟进，纷纷发布了自己的小程序平台。 速度真的很快，难道被微信形容“拥有出色体验”的小程序平台很容易实现？我们可以再造一个吗？  起初，作者甚至不知道小程序是由Native实现，还是网页实现。既然要再造一个，那么首先要做的就是来了解小程序平台实现原理。  调研搜索没有参与过小程序平台的建设，所以只能发动搜索技能。所以这篇文章也更多的是管中窥豹，抛砖引玉。 搜索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始，再造一个小程序平台">
+<meta property="og:url" content="https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/index.html">
+<meta property="og:site_name" content="yiyan.site">
+<meta property="og:description" content="微信发布小程序平台后，国内各大APP火速跟进，纷纷发布了自己的小程序平台。 速度真的很快，难道被微信形容“拥有出色体验”的小程序平台很容易实现？我们可以再造一个吗？  起初，作者甚至不知道小程序是由Native实现，还是网页实现。既然要再造一个，那么首先要做的就是来了解小程序平台实现原理。  调研搜索没有参与过小程序平台的建设，所以只能发动搜索技能。所以这篇文章也更多的是管中窥豹，抛砖引玉。 搜索">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/LV.png">
+<meta property="og:updated_time" content="2019-02-24T13:37:59.210Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零开始，再造一个小程序平台">
+<meta name="twitter:description" content="微信发布小程序平台后，国内各大APP火速跟进，纷纷发布了自己的小程序平台。 速度真的很快，难道被微信形容“拥有出色体验”的小程序平台很容易实现？我们可以再造一个吗？  起初，作者甚至不知道小程序是由Native实现，还是网页实现。既然要再造一个，那么首先要做的就是来了解小程序平台实现原理。  调研搜索没有参与过小程序平台的建设，所以只能发动搜索技能。所以这篇文章也更多的是管中窥豹，抛砖引玉。 搜索">
+<meta name="twitter:image" content="https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/LV.png">
+    
+
+    
+
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-122393601-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    // <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122393601-1"></script>
+    // <script>
+    //     window.dataLayer = window.dataLayer || [];
+    //     function gtag(){dataLayer.push(arguments);}
+    //     gtag('js', new Date());
+
+    //     gtag('config', 'UA-122393601-1');
+    // </script>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    未分类
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-recreatomg-a-small-program-framework" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        从零开始，再造一个小程序平台
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/02/23/recreatomg-a-small-program-framework/" class="article-date">
+            <time datetime="2019-02-23T11:14:41.000Z" itemprop="datePublished">2019-02-23</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>微信发布小程序平台后，国内各大APP火速跟进，纷纷发布了自己的小程序平台。</p>
+<p>速度真的很快，难道被微信形容“拥有出色体验”的小程序平台很容易实现？我们可以再造一个吗？</p>
+<blockquote>
+<p>起初，作者甚至不知道小程序是由Native实现，还是网页实现。既然要再造一个，那么首先要做的就是来了解小程序平台实现原理。</p>
+</blockquote>
+<h2 id="调研搜索"><a href="#调研搜索" class="headerlink" title="调研搜索"></a>调研<del>搜索</del></h2><p>没有参与过小程序平台的建设，所以只能发动搜索技能。所以这篇文章也更多的是管中窥豹，抛砖引玉。</p>
+<p>搜索多篇与小程序实现原理有关的文章，认真拜读，发现在微信小程序平台发布之初，微信团队将小程序构建相关的脚本直接下发给了微信开发者工具，也就是小程序构建是在开发者端。现在新版的微信开发者工具中已经没有相关脚本了，推测是将构建转移到了服务器端。</p>
+<p>从相关的文章中，我们了解<del>猜想</del>到了微信小程序实现方式：UI层由网页+原生渲染（部分组件是原生实现），Native运行逻辑层。</p>
+<div style="text-align: center;"><br>  <img src="/2019/02/23/recreatomg-a-small-program-framework/LV.png"><br></div>
+
+<h2 id="技术方案"><a href="#技术方案" class="headerlink" title="技术方案"></a>技术方案</h2><p>UI层渲染采用webview，js逻辑层呢？</p>
+<p>React Native的js引擎主要采用了<code>JavaScriptCore</code>(苹果Safari浏览器js引擎)，Weex则是采用了<code>Chrome V8</code>引擎。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>道理你都懂，那怎么实现呢？</p>
+<h3 id="UI和js逻辑"><a href="#UI和js逻辑" class="headerlink" title="UI和js逻辑"></a>UI和js逻辑</h3><p>在实现之前，我们首先来看看微信小程序的代码，分析一下。以一个小程序的index页面为例，其代码包含文件：index.js、index.json、index.wxml、index.wxss</p>
+<p><strong><em> index.js </em></strong><br>index.js主要是业务逻辑代码，内容大致为：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="comment">//获取应用实例</span></span><br><span class="line"><span class="keyword">const</span> app = getApp()</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    motto: <span class="string">'Hello World'</span>,</span><br><span class="line">    userInfo: &#123;&#125;,</span><br><span class="line">    hasUserInfo: <span class="literal">false</span>,</span><br><span class="line">    canIUse: wx.canIUse(<span class="string">'button.open-type.getUserInfo'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//事件处理函数</span></span><br><span class="line">  bindViewTap: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    wx.navigateTo(&#123;</span><br><span class="line">      url: <span class="string">'../logs/logs'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (app.globalData.userInfo) &#123;</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        userInfo: app.globalData.userInfo,</span><br><span class="line">        hasUserInfo: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>小程序的页面逻辑代码均包含在<code>Page({...})</code>中。在js中，Page是一个函数。所以，小程序应该是调用了Native或者js的Page函数。</p>
+<p>小编倾向于Page是调用了js函数。因为如果是Native函数，那么js中的<code>this</code>关键字将需要Native进行处理，js引擎可以处理的内容，没有必要交给Native来进行处理，或者是小编不知道Native有比较好的处理方式。</p>
+<p>所以，我们需要处理的第一个内容是：使用js定义Page函数或者class，两者均可以实现。</p>
+<p><strong><em> index.wxml </em></strong><br>index.wxml是UI，是微信自定义xml标签，例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--index.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"userinfo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">wx:if</span>=<span class="string">"&#123;&#123;!hasUserInfo &amp;&amp; canIUse&#125;&#125;"</span> <span class="attr">open-type</span>=<span class="string">"getUserInfo"</span> <span class="attr">bindgetuserinfo</span>=<span class="string">"getUserInfo"</span>&gt;</span> 获取头像昵称 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:else</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">image</span> <span class="attr">bindtap</span>=<span class="string">"bindViewTap"</span> <span class="attr">class</span>=<span class="string">"userinfo-avatar"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;userInfo.avatarUrl&#125;&#125;"</span> <span class="attr">mode</span>=<span class="string">"cover"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"userinfo-nickname"</span>&gt;</span>&#123;&#123;userInfo.nickName&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"usermotto"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"user-motto"</span>&gt;</span>&#123;&#123;motto&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>自定义一整套的xml标签、属性会比较耗费时间，我们可以直接使用html标签。</p>
+<p><strong><em> index.wxss </em></strong><br>index.wxss主要是样式，和css基本一样，其内容我们完全可以直接引入网页中。<br>微信小程序则是统一了rpx单位，想必是为了更好的兼容不同屏幕大小。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**index.wxss**/</span></span><br><span class="line"><span class="selector-class">.userinfo</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.userinfo-avatar</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">128</span>rpx;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">128</span>rpx;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">20</span>rpx;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.userinfo-nickname</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#aaa</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.usermotto</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em> index.json </em></strong><br>这个文件则是该页面的一些基本配置。我们主要关心一下usingComponents<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"usingComponents"</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个应该就是小程序可以实现组件化开发的原因。usingComponents直接告诉了Native页面使用了哪些组件，方便Native获取组件模板和逻辑，然后进行渲染。</p>
+<h4 id="定义Page"><a href="#定义Page" class="headerlink" title="定义Page"></a>定义Page</h4><p>我们来使用js定义一个<code>Page</code> class，来作为每个页面的实例。当然也可以使用函数实现。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Page</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(config) &#123;</span><br><span class="line">    <span class="keyword">this</span>.data = config.data</span><br><span class="line">    JSBridge.setData(config.data)</span><br><span class="line">    <span class="comment">// 小程序的onLoad生命周期函数</span></span><br><span class="line">    <span class="keyword">this</span>.onLoad = config.onLoad</span><br><span class="line">    <span class="comment">// 这里与小程序有点不一样</span></span><br><span class="line">    <span class="comment">// 模仿vue将非生命周期的函数都赋给methods属性</span></span><br><span class="line">    <span class="keyword">if</span> (config.methods) &#123;</span><br><span class="line">      <span class="comment">// 将所有method都指给class</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> config.methods) &#123;</span><br><span class="line">        <span class="keyword">this</span>.key = config.methods[key]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外我们需要注意的是小程序的<code>setData</code>函数。<code>setData</code>函数应该是调用Native，通知Native数据变更，重新渲染UI，所以我们还要在该class实现<code>setData</code>函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// page.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Page</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(config) &#123;</span><br><span class="line">    <span class="keyword">this</span>.data = config.data</span><br><span class="line">    JSBridge.setData(config.data)</span><br><span class="line">    <span class="comment">// 小程序的onLoad生命周期函数</span></span><br><span class="line">    <span class="keyword">this</span>.onLoad = config.onLoad</span><br><span class="line">    <span class="comment">// 这里与小程序有点不一样</span></span><br><span class="line">    <span class="comment">// 模仿vue将非生命周期的函数都赋给methods属性</span></span><br><span class="line">    <span class="keyword">if</span> (config.methods) &#123;</span><br><span class="line">      <span class="comment">// 将所有method都指给class</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> config.methods) &#123;</span><br><span class="line">        <span class="keyword">this</span>.key = config.methods[key]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setData (data) &#123;</span><br><span class="line">    <span class="comment">// JSBridge提供Native与js互相调用的api</span></span><br><span class="line">    JSBridge.setData(data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h4><p>我们应该定义一个html模板，用来在webview中渲染UI。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- templage.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>hybrid<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- app dom下渲染UI --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>&#123;&#123;template&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这里涉及到一个比较重要的问题：UI的更新。<br>考虑到性能，实现差量更新比较好。小编因此也再看了一遍Vue的虚拟DOM实现，其中涉及到差量更新。<br>但是为了快速实现原型，我们直接进行全局更新。如何进行更新，这里采用native调用webview中js方法来实现。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// templage.js</span></span><br><span class="line"><span class="comment">// 可以inline</span></span><br><span class="line"><span class="keyword">var</span> preTree = <span class="literal">null</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 渲染UI</span></span><br><span class="line"><span class="comment">* @param &#123;Object&#125; domTree 树结构</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">window</span>.render = <span class="function"><span class="keyword">function</span> (<span class="params">domTree</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!domTree) <span class="keyword">return</span></span><br><span class="line">  <span class="comment">// init UI</span></span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'#app'</span>).innerHTML = domTree</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java</span></span><br><span class="line"><span class="keyword">this</span>.webView.loadUrl(<span class="string">"javascript:render('"</span> + newTemplate + <span class="string">"')"</span>);</span><br></pre></td></tr></table></figure>
+<p>至此，我们就可以作手来实现业务代码了。</p>
+<h4 id="业务代码"><a href="#业务代码" class="headerlink" title="业务代码"></a>业务代码</h4><p>实现模板index.xml和index.js逻辑，css暂不实现。<br><strong><em> index.xml </em></strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"onText"</span>&gt;</span>&#123;&#123;text&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong><em> index.js </em></strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> page = <span class="keyword">new</span> Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    text: <span class="string">'Hi, Java'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      text: <span class="string">'I am Javascript'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    onText: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        text: <span class="string">'Hi, Javascript'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Native端"><a href="#Native端" class="headerlink" title="Native端"></a>Native端</h3><p>通过实现上文的<strong>UI和js逻辑</strong>我们需要Native端实现<code>JSBridge</code> api。<br>我们首先要解决的是js引擎的使用。本文以Android为例，选取<code>Chrome V8</code>作为js引擎。</p>
+<h4 id="J2V8"><a href="#J2V8" class="headerlink" title="J2V8"></a>J2V8</h4><p><code>J2V8</code>使用Java封装了对<code>Chrome V8</code>的操作，跨平台开发Tabris正是使用了<code>J2V8</code>来实现js构建原生应用。</p>
+<p>我们可以通过官网<a href="https://eclipsesource.com/blogs/tutorials/getting-started-with-j2v8/" target="_blank" rel="noopener">https://eclipsesource.com/blogs/tutorials/getting-started-with-j2v8/</a>了解如何使用<code>J2V8</code>。</p>
+<h5 id="Android引入"><a href="#Android引入" class="headerlink" title="Android引入"></a>Android引入</h5><p>使用Android Studio新建APP后，在build.gradle文件中添加J2V8依赖，选取aar版（已编译）或者使用J2V8源码自行编译：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation <span class="string">'com.eclipsesource.j2v8:j2v8:4.8.2@aar'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="实现JSBridge"><a href="#实现JSBridge" class="headerlink" title="实现JSBridge"></a>实现JSBridge</h4><p>定义一个Java类JSBridge，该类至少包含<code>setData</code>接口<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test.site.yiyan.j2v8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.webkit.WebView;</span><br><span class="line"><span class="keyword">import</span> com.eclipsesource.v8.V8Object;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSBridge</span> </span>&#123;</span><br><span class="line">  String template;</span><br><span class="line">  WebView webView;</span><br><span class="line">  V8Object page;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPage</span> <span class="params">(V8Object page)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.page = page;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWebView</span> <span class="params">(WebView webView)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.webView = webView;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTemplate</span> <span class="params">(String xml)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.template = xml;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getTemplate</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.template;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span> <span class="params">(V8Object data)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// data业务逻辑状态</span></span><br><span class="line">    String[] keys = data.getKeys();</span><br><span class="line">    String newTemplate = <span class="keyword">this</span>.template;</span><br><span class="line">    <span class="comment">// 遍历data中的状态</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</span><br><span class="line">      Log.i(<span class="string">"setData"</span>, keys[i] + <span class="string">':'</span> + data.get(keys[i]));</span><br><span class="line">      <span class="comment">// 将data状态写入UI</span></span><br><span class="line">      newTemplate = newTemplate.replace(<span class="string">"&#123;&#123;"</span> + keys[i] + <span class="string">"&#125;&#125;"</span>, data.get(keys[i]).toString());</span><br><span class="line">    &#125;</span><br><span class="line">    data.release();</span><br><span class="line">    <span class="keyword">if</span> (keys.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// Native通过webview调用js，更新UI</span></span><br><span class="line">      <span class="keyword">this</span>.webView.loadUrl(<span class="string">"javascript:render('"</span> + newTemplate + <span class="string">"')"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Native初始化渲染"><a href="#Native初始化渲染" class="headerlink" title="Native初始化渲染"></a>Native初始化渲染</h4><p>Android中我们首先获取<code>template.html</code>内容，话不多说，看下面的Android代码注释。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">V8 jsRuntime;</span><br><span class="line">WebView mWebview;</span><br><span class="line">ProgressBar mProgressBar;</span><br><span class="line">V8Object mJSPageClass;</span><br><span class="line">JSBridge jsBridge;</span><br><span class="line">V8Object page;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loadHTMLTemplate</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  String htmlTemplate = Utils.getAssetsScript(<span class="keyword">this</span>, <span class="string">"js/template.html"</span>);</span><br><span class="line">  <span class="comment">// 加载JSBridge</span></span><br><span class="line">  initJSBridge();</span><br><span class="line"></span><br><span class="line">  mWebview.setWebChromeClient(<span class="keyword">new</span> WebChromeClient() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProgressChanged</span><span class="params">(WebView view, <span class="keyword">int</span> newProgress)</span> </span>&#123;</span><br><span class="line">      mProgressBar.setProgress(newProgress);</span><br><span class="line">      <span class="keyword">if</span> (newProgress == <span class="number">100</span>) &#123;</span><br><span class="line">        mProgressBar.setVisibility(View.GONE);</span><br><span class="line">        <span class="comment">// webview加载完成后</span></span><br><span class="line">        loadBussiness();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">super</span>.onProgressChanged(view, newProgress);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  mWebview.loadDataWithBaseURL(<span class="keyword">null</span>, htmlTemplate, <span class="string">"text/html"</span>, <span class="string">"utf-8"</span>, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initJSBridge</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  jsBridge = <span class="keyword">new</span> JSBridge();</span><br><span class="line">  V8Object jsBridgeObj = <span class="keyword">new</span> V8Object(jsRuntime);</span><br><span class="line">  jsRuntime.add(<span class="string">"JSBridge"</span>, jsBridgeObj);</span><br><span class="line">  jsBridgeObj.registerJavaMethod(jsBridge, <span class="string">"setData"</span>, <span class="string">"setData"</span>, <span class="keyword">new</span> Class&lt;?&gt;[] &#123;V8Object.class&#125;);</span><br><span class="line">  jsBridgeObj.release();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loadBussiness</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Chrome V8 js引擎加载page.js</span></span><br><span class="line">  String pageJS = Utils.getAssetsScript(<span class="keyword">this</span>, <span class="string">"js/page.js"</span>);</span><br><span class="line">  mJSPageClass = jsRuntime.executeObjectScript(pageJS);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取业务模板</span></span><br><span class="line">  String indexXML = Utils.getAssetsScript(<span class="keyword">this</span>, <span class="string">"demo/index/index.xml"</span>);</span><br><span class="line">  jsBridge.setWebView(<span class="keyword">this</span>.mWebview);</span><br><span class="line">  jsBridge.setTemplate(indexXML);</span><br><span class="line">  Log.i(<span class="string">"J2V8"</span>, <span class="string">"indexXML:"</span> + indexXML);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 加载业务js</span></span><br><span class="line">  String indexJS = Utils.getAssetsScript(<span class="keyword">this</span>, <span class="string">"demo/index/index.js"</span>);</span><br><span class="line">  jsRuntime.executeScript(indexJS);</span><br><span class="line">  page = jsRuntime.getObject(<span class="string">"page"</span>);</span><br><span class="line">  Log.i(<span class="string">"J2V8"</span>, page.toString());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取page的data属性</span></span><br><span class="line">  V8Object pageData = page.getObject(<span class="string">"data"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 渲染初始UI</span></span><br><span class="line">  mWebview.loadUrl(<span class="string">"javascript:render('"</span> + indexXML + <span class="string">"')"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Native调用V8中js函数，执行生命周期：onLoad</span></span><br><span class="line">  page.executeFunction(<span class="string">"onLoad"</span>, <span class="keyword">null</span>);</span><br><span class="line">  pageData.release();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这是啥啊？这不是再造一个浏览器吗？！</p>
+<p>不不，浏览器远比这复杂，并且js不能直接操作dom（<del>也可以定义接口来实现</del>），还有很多内容需要完善，例如实现js的window函数：setTimeout等。</p>
+<p>至于性能方面，是不是比直接使用webview的性能要好，这还要进一步完善丰富原型和DEMO。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/" data-id="cjsiymc6g0016u6m4wut5uems" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/zhaowangdaren" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="wechat" href="https://yiyan.site/about/index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-wechat"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/02/18/Registering-Java-Callbacks-width-J2V8/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">J2V8实现Java与Javascript互相调用</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/23/recreatomg-a-small-program-framework/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2019/02/23/recreatomg-a-small-program-framework/LV.png)" alt="从零开始，再造一个小程序平台" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/23/recreatomg-a-small-program-framework/" class="title">从零开始，再造一个小程序平台</a></p>
+                            <p class="item-date"><time datetime="2019-02-23T11:14:41.000Z" itemprop="datePublished">2019-02-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/18/Registering-Java-Callbacks-width-J2V8/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/18/Registering-Java-Callbacks-width-J2V8/" class="title">J2V8实现Java与Javascript互相调用</a></p>
+                            <p class="item-date"><time datetime="2019-02-18T02:25:33.000Z" itemprop="datePublished">2019-02-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/13/webpack-proxy/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/13/webpack-proxy/" class="title">webpack devServer代理解决跨域失败的情况：get请求无origin，而post请求有</a></p>
+                            <p class="item-date"><time datetime="2019-02-13T02:49:33.000Z" itemprop="datePublished">2019-02-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/11/21/mac-build-chromium/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/11/21/mac-build-chromium/1.png)" alt="mac下载编译chromium源码" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/11/21/mac-build-chromium/" class="title">mac下载编译chromium源码</a></p>
+                            <p class="item-date"><time datetime="2018-11-21T02:11:58.000Z" itemprop="datePublished">2018-11-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/31/vue-loader如何配置cssModules/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/10/31/vue-loader如何配置cssModules/scoped.png)" alt="vue-loader如何配置cssModules" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/10/31/vue-loader如何配置cssModules/" class="title">vue-loader如何配置cssModules</a></p>
+                            <p class="item-date"><time datetime="2018-10-31T11:16:32.000Z" itemprop="datePublished">2018-10-31</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/J2V8-Java-Javascript/">J2V8, Java, Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcel-JavaScript/">Parcel JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS1-3-Facebook/">TLS1.3 Facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chart/">chart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromium/">chromium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/h5-web-debug/">h5  web debug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli-2-9/">vue-cli-2.9</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/J2V8-Java-Javascript/" style="font-size: 10px;">J2V8, Java, Javascript</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Parcel-JavaScript/" style="font-size: 10px;">Parcel JavaScript</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/TLS1-3-Facebook/" style="font-size: 10px;">TLS1.3 Facebook</a> <a href="/tags/chart/" style="font-size: 10px;">chart</a> <a href="/tags/chromium/" style="font-size: 10px;">chromium</a> <a href="/tags/h5-web-debug/" style="font-size: 10px;">h5  web debug</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-cli-2-9/" style="font-size: 10px;">vue-cli-2.9</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 yiyan.site</p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
