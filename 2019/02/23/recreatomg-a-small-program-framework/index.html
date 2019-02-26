@@ -36,7 +36,7 @@
 <meta property="og:description" content="微信发布小程序平台后，国内各大APP火速跟进，纷纷发布了自己的小程序平台。 速度真的很快，难道被微信形容“拥有出色体验”的小程序平台很容易实现？我们可以再造一个吗？  起初，作者甚至不知道小程序是由Native实现，还是网页实现。既然要再造一个，那么首先要做的就是来了解小程序平台实现原理。  调研搜索没有参与过小程序平台的建设，所以只能发动搜索技能。所以这篇文章也更多的是管中窥豹，抛砖引玉。 搜索">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/LV.png">
-<meta property="og:updated_time" content="2019-02-24T13:37:59.210Z">
+<meta property="og:updated_time" content="2019-02-26T05:56:23.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始，再造一个小程序平台">
 <meta name="twitter:description" content="微信发布小程序平台后，国内各大APP火速跟进，纷纷发布了自己的小程序平台。 速度真的很快，难道被微信形容“拥有出色体验”的小程序平台很容易实现？我们可以再造一个吗？  起初，作者甚至不知道小程序是由Native实现，还是网页实现。既然要再造一个，那么首先要做的就是来了解小程序平台实现原理。  调研搜索没有参与过小程序平台的建设，所以只能发动搜索技能。所以这篇文章也更多的是管中窥豹，抛砖引玉。 搜索">
@@ -258,14 +258,15 @@ ga('send', 'pageview');
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这是啥啊？这不是再造一个浏览器吗？！</p>
 <p>不不，浏览器远比这复杂，并且js不能直接操作dom（<del>也可以定义接口来实现</del>），还有很多内容需要完善，例如实现js的window函数：setTimeout等。</p>
 <p>至于性能方面，是不是比直接使用webview的性能要好，这还要进一步完善丰富原型和DEMO。</p>
-
+<p>其实在官方的文档中已经阐述了实现原理：</p>
+<div style="text-align:center;"><br>  <img src="/2019/02/23/recreatomg-a-small-program-framework/wechat_logic.png"><br></div>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/" data-id="cjsiymc6g0016u6m4wut5uems" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/" data-id="cjshe0em60000efm4d2u05pv4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
