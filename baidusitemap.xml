@@ -4,6 +4,38 @@
 
     
   <url>
+    <loc>https://yiyan.site/2020/04/03/html-editor/</loc>
+    <lastmod>2020-04-03T09:47:22.641Z</lastmod>
+    <data>
+        <display>
+        <title>抛弃contenteditable，实现富文本编辑器</title>
+        <pubTime>2020-04-03T09:45:17.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://yiyan.site/2020/02/17/ace-source-analysis/</loc>
+    <lastmod>2020-03-05T01:20:15.959Z</lastmod>
+    <data>
+        <display>
+        <title>ace富文本编辑器源码解析</title>
+        <pubTime>2020-02-17T02:13:29.000Z</pubTime>
+        
+        <tag>富文本编辑器</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://yiyan.site/2019/02/23/recreatomg-a-small-program-framework/</loc>
     <lastmod>2019-02-26T05:56:23.906Z</lastmod>
     <data>
