@@ -28,14 +28,19 @@
       
         <meta name="keywords" content="" />
     
-    <meta property="og:type" content="article">
+    <meta name="description" content="有时候使用contenteditable=true来实现编辑器并不能满足需求  移动端使用contenteditable=true的一些不成问题的问题使用contenteditable=true实现编辑器，经过不断的优化，是可以解决很多问题的。下面一一列出一些问题及其解决方法。 问题一：插入超链接和图片如果不是复制粘贴的方式插入，而是采用点击工具栏，编辑超链接或者是调用相册的方式插入，则中间会出">
+<meta property="og:type" content="article">
 <meta property="og:title" content="抛弃contenteditable，实现富文本编辑器">
 <meta property="og:url" content="https://yiyan.site/2020/04/03/html-editor/index.html">
 <meta property="og:site_name" content="yiyan.site">
+<meta property="og:description" content="有时候使用contenteditable=true来实现编辑器并不能满足需求  移动端使用contenteditable=true的一些不成问题的问题使用contenteditable=true实现编辑器，经过不断的优化，是可以解决很多问题的。下面一一列出一些问题及其解决方法。 问题一：插入超链接和图片如果不是复制粘贴的方式插入，而是采用点击工具栏，编辑超链接或者是调用相册的方式插入，则中间会出">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-03T09:47:22.641Z">
+<meta property="og:image" content="https://yiyan.site/2020/04/03/html-editor/del-img.png">
+<meta property="og:updated_time" content="2020-04-12T08:44:27.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抛弃contenteditable，实现富文本编辑器">
+<meta name="twitter:description" content="有时候使用contenteditable=true来实现编辑器并不能满足需求  移动端使用contenteditable=true的一些不成问题的问题使用contenteditable=true实现编辑器，经过不断的优化，是可以解决很多问题的。下面一一列出一些问题及其解决方法。 问题一：插入超链接和图片如果不是复制粘贴的方式插入，而是采用点击工具栏，编辑超链接或者是调用相册的方式插入，则中间会出">
+<meta name="twitter:image" content="https://yiyan.site/2020/04/03/html-editor/del-img.png">
     
 
     
@@ -202,14 +207,86 @@ ga('send', 'pageview');
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <blockquote>
+<p>有时候使用<code>contenteditable=true</code>来实现编辑器并不能满足需求</p>
+</blockquote>
+<h2 id="移动端使用contenteditable-true的一些不成问题的问题"><a href="#移动端使用contenteditable-true的一些不成问题的问题" class="headerlink" title="移动端使用contenteditable=true的一些不成问题的问题"></a>移动端使用<code>contenteditable=true</code>的一些不成问题的问题</h2><p>使用<code>contenteditable=true</code>实现编辑器，经过不断的优化，是可以解决很多问题的。下面一一列出一些问题及其解决方法。</p>
+<h3 id="问题一：插入超链接和图片"><a href="#问题一：插入超链接和图片" class="headerlink" title="问题一：插入超链接和图片"></a>问题一：插入超链接和图片</h3><p>如果不是复制粘贴的方式插入，而是采用点击工具栏，编辑超链接或者是调用相册的方式插入，则中间会出现焦点丢失，那么如何实现插入的图片在焦点的位置？<br>解决方法是：</p>
+<ul>
+<li><p>1、在点击用户工具栏时，记录焦点位置。截获用户点击最好采用<code>touchstart</code>事件，避免记录的焦点位置不是编辑区内。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> selection = getSelection()</span><br><span class="line"><span class="keyword">this</span>.globalRange = selection.getRangeAt(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、在获取到图片资源后，利用<code>this.globalRange</code>插入图片节点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建图片节点</span></span><br><span class="line"><span class="keyword">var</span> imgNode = <span class="keyword">this</span>.createImgNode(src)</span><br><span class="line"><span class="keyword">this</span>.globalRange.insertNode(imgNode)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="问题二：光标位置"><a href="#问题二：光标位置" class="headerlink" title="问题二：光标位置"></a>问题二：光标位置</h3><p>有些情况下，你可能需要知道光标的位置，top、left是多少。可以使用<code>getSelection().focusNode()</code>获取到聚焦的节点，有时得到的节点是text类型（没有top、left属性），可以通过通过其父节点大致得到位置。所以，只是得不到准确的位置。</p>
+<p>为什么要得到光标位置？iOS端键盘弹出后，<code>position:fixed</code>的效果发生了变化，难以固定dom。所以，如果存在工具栏，可以将工具栏跟随光标，提升一点点体验。</p>
+<h3 id="问题三：删除图片"><a href="#问题三：删除图片" class="headerlink" title="问题三：删除图片"></a>问题三：删除图片</h3><p>需求的设计稿是要求图片左上角有一个X按钮，来删除图片。</p>
+<div style="text-align: center;"><br>  <img src="/2020/04/03/html-editor/del-img.png"><br></div>
+
+<p>如果不对这个这个删除按钮添加属性，那么用户可以编辑这个按钮，虽然影响不大，导致这个删除按钮的意义荡然无存。<br>讲道理，这个删除按钮应该不能编辑，所以，在删除按钮和图片上加上属性<code>contenteditable=&quot;false&quot;</code>。但是，这又会导致其他问题：插入图片后，我的光标聚焦到哪里？按钮删除图片也可能导致一些难以预料的问题。</p>
+<p>加不加<code>contenteditable=&quot;false&quot;</code>是矛盾的。也正是这样一个矛盾的存在，导致了我们不使用<code>contenteditable=&quot;true&quot;</code>来实现编辑器，可以说是一个X引发的大型<del>搬砖事件</del>富文本重构。</p>
+<h2 id="自实现富文本编辑器需要确定的数据结构"><a href="#自实现富文本编辑器需要确定的数据结构" class="headerlink" title="自实现富文本编辑器需要确定的数据结构"></a>自实现富文本编辑器需要确定的数据结构</h2><p>我们需要获取用户输入，所以可以用隐藏的<code>textare</code>或者<code>input</code>等来获取输入。首先需要确定的是数据结构（内容和光标），以便实现自动换行、行内富文本，渲染内容</p>
+<h3 id="数据结构：内容"><a href="#数据结构：内容" class="headerlink" title="数据结构：内容"></a>数据结构：内容</h3><p>网页文本有自动换行的特性，在移动端则更为明显，因为屏幕更小。另外，行内还要支持行内图片、超链接等数据。所以，基本可以确定是，行内要包括多种类型的数据。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// line</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"inlines"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"text"</span>,</span><br><span class="line">      <span class="attr">"value"</span>: <span class="string">""</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"href"</span>,</span><br><span class="line">      <span class="attr">"value"</span>: <span class="string">"超链接"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"img"</span>,</span><br><span class="line">      <span class="attr">"value"</span>: <span class="string">"图片src"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果一个div内文本或图片等内容足够多，那么会被自动换行，此时，如果用户聚焦到该div进行编辑，我们其实很难计算用户点击了哪里，很难计算行末尾的位置，也难以计算光标位置。</p>
+<div style="text-align: center;"><br>  <img src="/2020/04/03/html-editor/long-content-div.png"><br></div>
+
+<p>如果将一个div内的内容看成很多行的合集，那么我们能知道每一行的宽度，是否占满了一行。</p>
+<div style="text-align: center;"><br>  <img src="/2020/04/03/html-editor/long-content-div_line.png"><br></div>
+
+<p>根据自动换行，如果没占满一行，则要向下一行借，补足一行。而两个div之间，则不存在前一行向下一行借的情况。<br>所以，我们可以将div视为一个段落，段落每行自动占满一行。那么每一段又分为很多行。<br>段分为两种类型：图文混排的<strong>rich</strong>和独占一段的<strong>block</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 段</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"rich"</span>,</span><br><span class="line">  <span class="attr">"lines"</span>: [</span><br><span class="line">    &#123; // line</span><br><span class="line">      "inlines": [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"text"</span>,</span><br><span class="line">          <span class="attr">"value"</span>: <span class="string">""</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"href"</span>,</span><br><span class="line">          <span class="attr">"value"</span>: <span class="string">"超链接"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"img"</span>,</span><br><span class="line">          <span class="attr">"value"</span>: <span class="string">"图片src"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，富文本是很多段的组成，和word文档一样。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; // 段</span><br><span class="line">    "lines": []</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>将数据结构渲染出来，大致的DOM结果为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"paragraph"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"inline_text"</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"inline_img"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"paragraph"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>直观的效果便是：</p>
+<div style="text-align: center;"><br>  <img src="/2020/04/03/html-editor/ui-struct.jpg"><br></div>
+
+<h3 id="数据结构：光标"><a href="#数据结构：光标" class="headerlink" title="数据结构：光标"></a>数据结构：光标</h3><p>定义好数据结构，意味着如何计算光标位置也有了方向。光标的位置采用<code>postion: absolute;</code>来定位，所以富文本编辑器DOM应该是<code>postion: releative;</code><br>如果存在以下一段内容。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  // 段</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"lines"</span>: [</span><br><span class="line">      &#123; // line 第一行</span><br><span class="line">        "inlines": [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"text"</span>,</span><br><span class="line">            <span class="attr">"value"</span>: <span class="string">"富文本编辑器"</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>那么，我们想定位到第一行行末，那么光标的left值则是<strong>富文本编辑器</strong>的宽度，也就是<code>&lt;span&gt;富文本编辑器&lt;/span&gt;</code>宽度，光标的高度也可以得到。而top值则只需要在渲染出来的DOM中，找到第一段第一行的<code>offsetTop</code>。所以，如果是要将光标定位到<strong>富文本</strong>后，则top值不变，left值为<strong>富文本</strong>的宽度。</p>
+<p>我们要总结一下光标所具有的属性：段、行，以及行内位置，行内位置则需要记录所在行内文本的字符在第几个字符后面。所以基本属性为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cursor = &#123;</span><br><span class="line">  top: <span class="number">0</span>,</span><br><span class="line">  left: <span class="number">0</span>,</span><br><span class="line">  <span class="comment">// 所在段下标</span></span><br><span class="line">  paragraphIndex: <span class="number">0</span>,</span><br><span class="line">  <span class="comment">// 行下标</span></span><br><span class="line">  lineIndex: <span class="number">0</span>,</span><br><span class="line">  <span class="comment">// 行内下标</span></span><br><span class="line">  inlineIndex: <span class="number">0</span>,</span><br><span class="line">  <span class="comment">// 字符位置</span></span><br><span class="line">  charAt: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这帮助我们确认了光标的位置，在内容中的位置，以便进行内容的增、删操作。</p>
+<p>突然想到我们可以看看vscode的源码，看它是如何利用electron来实现换行、光标定位。我们虽然分析过ace.js，但是其对代码是不自动换行的，虽然vscode也是如此，但是对markdown却是自动换行的。</p>
+<h2 id="层次结构"><a href="#层次结构" class="headerlink" title="层次结构"></a>层次结构</h2><p>我们需要将编辑的内容、光标、隐藏的textarea等渲染出来。另外还需要计算字符宽度来计算光标位置。所以，我们需要将编辑区域分为以下几层：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>渲染内容层<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cursor"</span>&gt;</span>光标层<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span>&gt;</span>隐藏的输入层<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"measure"</span>&gt;</span>计算层<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>渲染内容层：如名</li>
+<li>光标层：显示光标</li>
+<li>隐藏的输入层：获取用户输入</li>
+<li>计算层：计算字符宽度，行高等。</li>
+</ul>
+<h2 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h2><p>逻辑涉及到：渲染、输入、点击</p>
+<h3 id="渲染内容"><a href="#渲染内容" class="headerlink" title="渲染内容"></a>渲染内容</h3><p>渲染内容上文有提到，只要每一行的内容不超过一行的行宽，渲染出来的结构基本如上。而保证每一行的行高，则需要计算每一行的内容，在后面获取用户输入会提到。</p>
+<h3 id="获取用户输入"><a href="#获取用户输入" class="headerlink" title="获取用户输入"></a>获取用户输入</h3><p>获取用户输入，需要监听两种事件：input、keydown，处理四种基本状态：insertText、compositionend、Backspace、Enter</p>
+<h4 id="事件：input"><a href="#事件：input" class="headerlink" title="事件：input"></a>事件：input</h4><p>input需要监听的基本事件：insertText、compositionend。两者都是插入字符，compositionend则是连续输入的结束状态，例如拼音输入。</p>
+<p>在光标位置插入字符，并将聚焦的inline右侧的inlines和后续行均进行后移，也就是重新分行，这是整个编辑器的核心，删除、换行、插入都是基于此流程来实现。具体流程为：</p>
+<div style="text-align: center;"><br>  <img src="/2020/04/03/html-editor/insert-str-program.png"><br></div>
+
+<h4 id="事件：keydown"><a href="#事件：keydown" class="headerlink" title="事件：keydown"></a>事件：keydown</h4><p>键盘按键事件，移动端最基本的是需要处理两种key：Backspce、Enter</p>
+<h5 id="Backspace-删除"><a href="#Backspace-删除" class="headerlink" title="Backspace:删除"></a>Backspace:删除</h5><p>删除需要将cursor前的字符或者内容删除，同时将聚焦的inline右侧的inlines和后续行均进行缩进</p>
+<div style="text-align: center;"><br>  <img src="/2020/04/03/html-editor/ui-del.jpg"><br></div>
+
+<p>删除字符需要注意的是：字符长度不一定为1，一些表意文字，例如输入法的表情😄，其字符长度是2。所以需要用正则匹配光标前的字符。</p>
+<h5 id="Enter-换行"><a href="#Enter-换行" class="headerlink" title="Enter:换行"></a>Enter:换行</h5><p>换行是将光标后的内容插入到新段中。</p>
+<h3 id="点击"><a href="#点击" class="headerlink" title="点击"></a>点击</h3><p>鼠标的点击分为两种：聚焦和删除（点击了删除图标）</p>
+<h4 id="聚焦"><a href="#聚焦" class="headerlink" title="聚焦"></a>聚焦</h4><p>在渲染内容时将paragraph、line、inline的信息都记录到dom中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"paragraph"</span> <span class="attr">data-paragraph</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span> <span class="attr">data-paragraph</span>=<span class="string">"0"</span> <span class="attr">data-line</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"inline_text"</span> <span class="attr">data-paragraph</span>=<span class="string">"0"</span> <span class="attr">data-line</span>=<span class="string">"0"</span> <span class="attr">data-inline</span>=<span class="string">"0"</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"inline_img"</span> <span class="attr">data-paragraph</span>=<span class="string">"0"</span> <span class="attr">data-line</span>=<span class="string">"0"</span> <span class="attr">data-inline</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"line"</span> <span class="attr">data-paragraph</span>=<span class="string">"0"</span> <span class="attr">data-line</span>=<span class="string">"1"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"paragraph"</span> <span class="attr">data-paragraph</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过点击的target，获取聚焦的inline，通过点击的offsetY确定光标top位置，offsetX（相对target的偏移）计算出光标left位置。left计算方法，则是依次将inline左侧的字符取出，得到字符宽度与offsetX进行比较。</p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>鼠标点击的删除，主要是针对段type=”block”。删除则是删除整段，更新DOM。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>比较简单的富文本还是建议使用contenteditable=true来实现。如果在移动端，则建议不要采用富文本的思想，而是文本与图片分离的数据结构。</p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://yiyan.site/2020/04/03/html-editor/" data-id="ck8k0g617000obffg35fz6lws" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://yiyan.site/2020/04/03/html-editor/" data-id="ck8k05fss00001ufgfi8kmpef" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -336,7 +413,7 @@ ga('send', 'pageview');
                             <a href="/2020/04/03/html-editor/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2020/04/03/html-editor/del-img.png)" alt="抛弃contenteditable，实现富文本编辑器" class="thumbnail-image"></span>
     
     
 </a>
